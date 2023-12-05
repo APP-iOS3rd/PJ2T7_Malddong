@@ -85,13 +85,13 @@
 		60DEE3072B1F015D00362421 /* PJ2T7_Malddong */ = {
 			isa = PBXGroup;
 			children = (
-				60DEE3432B1F087D00362421 /* ApiKeys.plist */,
 				60DEE3402B1F033A00362421 /* Extension */,
 				60DEE33F2B1F032200362421 /* Model */,
 				60DEE31B2B1F022000362421 /* Feature */,
 				60DEE31A2B1F020D00362421 /* App */,
 				60DEE30A2B1F015D00362421 /* ContentView.swift */,
 				60DEE30C2B1F015E00362421 /* Assets.xcassets */,
+				60DEE3432B1F087D00362421 /* ApiKeys.plist */,
 				60DEE30E2B1F015E00362421 /* Preview Content */,
 			);
 			path = PJ2T7_Malddong;
@@ -428,6 +428,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PJ2T7_Malddong/Preview Content\"";
+				DEVELOPMENT_TEAM = 2252348JAM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -456,6 +457,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PJ2T7_Malddong/Preview Content\"";
+				DEVELOPMENT_TEAM = 2252348JAM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
