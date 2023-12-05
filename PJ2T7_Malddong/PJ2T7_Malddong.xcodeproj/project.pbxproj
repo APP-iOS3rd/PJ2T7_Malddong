@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60DAC0642B1F4ECB00384217 /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DAC0632B1F4ECB00384217 /* Extension + View.swift */; };
 		60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */; };
 		60DEE30B2B1F015D00362421 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE30A2B1F015D00362421 /* ContentView.swift */; };
 		60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60DEE30C2B1F015E00362421 /* Assets.xcassets */; };
@@ -20,17 +21,18 @@
 		60DEE32E2B1F027C00362421 /* ParkingLotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE32C2B1F027C00362421 /* ParkingLotViewModel.swift */; };
 		60DEE32F2B1F027C00362421 /* ParkingLotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE32D2B1F027C00362421 /* ParkingLotView.swift */; };
 		60DEE3332B1F02A900362421 /* ToiletListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3312B1F02A900362421 /* ToiletListView.swift */; };
-		60DEE3342B1F02A900362421 /* ToiletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3322B1F02A900362421 /* ToiletViewModel.swift */; };
+		60DEE3342B1F02A900362421 /* ToiletListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3322B1F02A900362421 /* ToiletListViewModel.swift */; };
 		60DEE3382B1F02BA00362421 /* ToiletDeatilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3362B1F02BA00362421 /* ToiletDeatilViewModel.swift */; };
 		60DEE3392B1F02BA00362421 /* ToiletDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3372B1F02BA00362421 /* ToiletDetailView.swift */; };
 		60DEE33D2B1F02EE00362421 /* SpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */; };
 		60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE33C2B1F02EE00362421 /* SpotView.swift */; };
 		60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3412B1F034E00362421 /* Extension + Date.swift */; };
 		60DEE3442B1F087D00362421 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60DEE3432B1F087D00362421 /* ApiKeys.plist */; };
-		60DEE3462B1F0A9800362421 /* ToiletListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3452B1F0A9800362421 /* ToiletListModel.swift */; };
+		60DEE3462B1F0A9800362421 /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3452B1F0A9800362421 /* Toilet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60DAC0632B1F4ECB00384217 /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
 		60DEE3052B1F015D00362421 /* PJ2T7_Malddong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PJ2T7_Malddong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJ2T7_MalddongApp.swift; sourceTree = "<group>"; };
 		60DEE30A2B1F015D00362421 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,14 +47,14 @@
 		60DEE32C2B1F027C00362421 /* ParkingLotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingLotViewModel.swift; sourceTree = "<group>"; };
 		60DEE32D2B1F027C00362421 /* ParkingLotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingLotView.swift; sourceTree = "<group>"; };
 		60DEE3312B1F02A900362421 /* ToiletListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletListView.swift; sourceTree = "<group>"; };
-		60DEE3322B1F02A900362421 /* ToiletViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletViewModel.swift; sourceTree = "<group>"; };
+		60DEE3322B1F02A900362421 /* ToiletListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletListViewModel.swift; sourceTree = "<group>"; };
 		60DEE3362B1F02BA00362421 /* ToiletDeatilViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletDeatilViewModel.swift; sourceTree = "<group>"; };
 		60DEE3372B1F02BA00362421 /* ToiletDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletDetailView.swift; sourceTree = "<group>"; };
 		60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotViewModel.swift; sourceTree = "<group>"; };
 		60DEE33C2B1F02EE00362421 /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
 		60DEE3412B1F034E00362421 /* Extension + Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Date.swift"; sourceTree = "<group>"; };
 		60DEE3432B1F087D00362421 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
-		60DEE3452B1F0A9800362421 /* ToiletListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToiletListModel.swift; sourceTree = "<group>"; };
+		60DEE3452B1F0A9800362421 /* Toilet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toilet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +169,7 @@
 			children = (
 				60DEE3352B1F02AC00362421 /* ToiletDetailView */,
 				60DEE3312B1F02A900362421 /* ToiletListView.swift */,
-				60DEE3322B1F02A900362421 /* ToiletViewModel.swift */,
+				60DEE3322B1F02A900362421 /* ToiletListViewModel.swift */,
 			);
 			path = ToiletListView;
 			sourceTree = "<group>";
@@ -193,7 +195,7 @@
 		60DEE33F2B1F032200362421 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				60DEE3452B1F0A9800362421 /* ToiletListModel.swift */,
+				60DEE3452B1F0A9800362421 /* Toilet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				60DEE3412B1F034E00362421 /* Extension + Date.swift */,
+				60DAC0632B1F4ECB00384217 /* Extension + View.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -279,7 +282,7 @@
 			files = (
 				60DEE32E2B1F027C00362421 /* ParkingLotViewModel.swift in Sources */,
 				60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */,
-				60DEE3462B1F0A9800362421 /* ToiletListModel.swift in Sources */,
+				60DEE3462B1F0A9800362421 /* Toilet.swift in Sources */,
 				60DEE3332B1F02A900362421 /* ToiletListView.swift in Sources */,
 				60DEE3392B1F02BA00362421 /* ToiletDetailView.swift in Sources */,
 				60DEE3292B1F026600362421 /* MyPageView.swift in Sources */,
@@ -289,10 +292,11 @@
 				60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */,
 				60DEE3202B1F023500362421 /* LoginView.swift in Sources */,
 				60DEE3382B1F02BA00362421 /* ToiletDeatilViewModel.swift in Sources */,
+				60DAC0642B1F4ECB00384217 /* Extension + View.swift in Sources */,
 				60DEE31F2B1F023500362421 /* LoginViewModel.swift in Sources */,
 				60DEE3252B1F024F00362421 /* MapViewModel.swift in Sources */,
 				60DEE33D2B1F02EE00362421 /* SpotViewModel.swift in Sources */,
-				60DEE3342B1F02A900362421 /* ToiletViewModel.swift in Sources */,
+				60DEE3342B1F02A900362421 /* ToiletListViewModel.swift in Sources */,
 				60DEE32A2B1F026600362421 /* MyPageViewModel.swift in Sources */,
 				60DEE32F2B1F027C00362421 /* ParkingLotView.swift in Sources */,
 			);
