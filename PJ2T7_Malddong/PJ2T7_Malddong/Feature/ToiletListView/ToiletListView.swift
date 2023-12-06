@@ -12,6 +12,7 @@ struct ToiletListView: View {
     
     var body: some View {
         ScrollView{
+            
             VStack{
                 distributeView(
                     toiletListViewModel: toiletListViewModel)
@@ -21,7 +22,13 @@ struct ToiletListView: View {
                 GridView(toiletListViewModel: toiletListViewModel)
                     .padding()
                     
+                    
             }
+        }
+        
+        
+        .onAppear{
+            toiletListViewModel.fectchData()
         }
     }
 }
@@ -87,7 +94,9 @@ private struct GridView:View {
                 
             }
             
-        }).animation(.default)
+            
+        })
+        .animation(.default)
         
     }
 }
@@ -113,8 +122,12 @@ private struct ToiletCellView:View{
                         .cornerRadius(15,corners: [.topLeft,.topRight])
                         .shadow(radius: 7)
                     
-                    Image(item.toiletImage)
-                        .resizable()
+                    AsyncImage(url: URL(string:
+                                            toiletListViewModel.imageNilCheck(item)
+                                       )){
+                        $0.image?.resizable()
+                    }
+                        
                         .scaledToFit()
                         .frame(maxWidth: 152,maxHeight: 100)
                 }
@@ -126,17 +139,17 @@ private struct ToiletCellView:View{
                         .shadow(radius: 7)
                     
                     VStack{
-                        Text(item.toiletName)
+                        Text(item.toiletNm)
                             .font(.system(size: 15,weight: .bold))
                         
                         HStack{
-                            Text(item.toiletAddress)
+                            Text(item.rnAdres)
                                 .frame(width: 70)
                                 .font(.system(size: 10))
                                 .lineLimit(2)
                                 .foregroundStyle(Color.gray)
                             
-                            Text(item.toiletDistance)
+                            Text("1.2km")
                         }
                         
                     }.frame(maxWidth: 152,maxHeight: 70)
@@ -150,8 +163,11 @@ private struct ToiletCellView:View{
                             .foregroundStyle(Color.gray)
                             .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                             .shadow(radius: 7)
-                        Image(item.toiletImage)
-                            .resizable()
+                        AsyncImage(url: URL(string:
+                                                toiletListViewModel.imageNilCheck(item)
+                                           )){
+                            $0.image?.resizable()
+                        }
                             .scaledToFit()
                             .frame(maxWidth: 210,maxHeight: 180)
                             
@@ -165,10 +181,10 @@ private struct ToiletCellView:View{
                             .shadow(radius: 7)
                         
                         VStack{
-                            Text(item.toiletName)
+                            Text(item.toiletNm)
                                 .font(.system(size: 20,weight: .bold))
-                            Text(item.toiletDistance)
-                            Text(item.toiletAddress)
+                            Text("1.6km")
+                            Text(item.rnAdres)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)
                         }

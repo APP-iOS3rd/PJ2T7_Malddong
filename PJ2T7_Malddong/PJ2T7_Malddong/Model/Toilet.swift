@@ -6,15 +6,34 @@
 //
 
 import Foundation
+struct ToiletResponse: Decodable{
+    var response: Response
+}
+
+struct Response : Decodable{
+    var body: Body
+    var header: Header
+}
+
+struct Header: Decodable{
+    var resultCode: String
+    var resultMsg: String
+}
+
+struct Body: Decodable{
+    var pageNo: Int
+    var items: Items
+    var totalCount: Int
+}
+
+struct Items: Decodable{
+    var item: [Toilet]
+}
 
 
-struct Toilet:Hashable,Identifiable{
-    var id : UUID = UUID()
-    var toiletImage: String
-    var toiletName: String
-    var toiletAddress: String
-    var toiletDistance: String
-    var like: Bool
+struct Toilet:Hashable,Decodable{
+    var dataCd:String
+   
     
     var laCrdnt:String
     var loCrdnt:String
@@ -36,4 +55,6 @@ struct Toilet:Hashable,Identifiable{
     var femaleClosetCnt: String // 여성 대변기 수
     var femaleChildClosetCnt: String // 여성 장애인 대변기 수
     var femaleDspsnClosetCnt: String // 여성 어린이 대변기 수
+    
+    var photo:[String]?
 }

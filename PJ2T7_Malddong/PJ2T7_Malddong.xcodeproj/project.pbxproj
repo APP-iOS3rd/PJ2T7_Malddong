@@ -32,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		605BF4212B206551006FEF25 /* PJ2T7-Malddong-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PJ2T7-Malddong-Info.plist"; sourceTree = SOURCE_ROOT; };
 		60DAC0632B1F4ECB00384217 /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
 		60DEE3052B1F015D00362421 /* PJ2T7_Malddong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PJ2T7_Malddong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJ2T7_MalddongApp.swift; sourceTree = "<group>"; };
@@ -87,6 +88,7 @@
 		60DEE3072B1F015D00362421 /* PJ2T7_Malddong */ = {
 			isa = PBXGroup;
 			children = (
+				605BF4212B206551006FEF25 /* PJ2T7-Malddong-Info.plist */,
 				60DEE3402B1F033A00362421 /* Extension */,
 				60DEE33F2B1F032200362421 /* Model */,
 				60DEE31B2B1F022000362421 /* Feature */,
@@ -435,6 +437,7 @@
 				DEVELOPMENT_TEAM = 2252348JAM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PJ2T7-Malddong-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -464,6 +467,7 @@
 				DEVELOPMENT_TEAM = 2252348JAM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PJ2T7-Malddong-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
