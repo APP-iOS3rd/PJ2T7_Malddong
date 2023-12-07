@@ -7,11 +7,37 @@
 
 import SwiftUI
 
+import NMapsMap
+
 struct MapView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            UIMapView()
+                .edgesIgnoringSafeArea(.vertical)
+        }
     }
 }
+
+struct UIMapView: UIViewRepresentable {
+    func makeUIView(context: Context) -> NMFNaverMapView {
+        let view = NMFNaverMapView()
+        view.showZoomControls = false
+        view.mapView.positionMode = .direction
+        view.mapView.zoomLevel = 17
+      
+        return view
+    }
+    
+    func updateUIView(_ uiView: NMFNaverMapView, context: Context) {}
+}
+
+//func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//
+//    NMFAuthManager.shared().clientId = "YOUR_CLIENT_ID_HERE"
+//
+//    return true
+//
+//}
 
 #Preview {
     MapView()
