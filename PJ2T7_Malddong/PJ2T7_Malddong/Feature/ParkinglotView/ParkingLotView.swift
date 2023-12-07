@@ -12,17 +12,13 @@ struct ParkingLotView: View {
     
     var body: some View {
         ScrollView{
-            
             VStack{
-
                 distributeView(
                     parkingLotViewModel: parkingLotViewModel)
                 .padding(.horizontal)
                 
                 GridView(parkingLotViewModel: parkingLotViewModel)
                     .padding()
-                
-                    
             }
         }
         .onAppear{
@@ -31,12 +27,10 @@ struct ParkingLotView: View {
     }
 }
 
-
 // distributeView
 private struct distributeView:View{
     @ObservedObject private var parkingLotViewModel: ParkingLotViewModel
-    
-    
+
     init(parkingLotViewModel: ParkingLotViewModel) {
         self.parkingLotViewModel = parkingLotViewModel
     }
@@ -71,7 +65,6 @@ private struct distributeView:View{
     }
 }
 
-
 private struct GridView:View {
     @ObservedObject private var parkingLotViewModel: ParkingLotViewModel
     
@@ -88,13 +81,11 @@ private struct GridView:View {
                 ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
                     .padding()
             }
-            
-            
         }).animation(.default)
-        
     }
 }
-//MARK: - ToiletCellView
+
+// ParkingCellView
 private struct ParkingCellView:View{
     @ObservedObject private var parkingLotViewModel: ParkingLotViewModel
     private var item: Parking
@@ -187,15 +178,9 @@ private struct ParkingCellView:View{
                     }
                 }//H
             }
-                
         }
-        
     }
 }
-
-        
-        
-        
 
 #Preview {
     ParkingLotView()

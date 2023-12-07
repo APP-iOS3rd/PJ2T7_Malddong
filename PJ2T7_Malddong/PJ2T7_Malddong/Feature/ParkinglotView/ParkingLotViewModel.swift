@@ -13,15 +13,13 @@ class ParkingLotViewModel: ObservableObject {
     @Published var isGridAlign:Bool
     var distributeArea : [String]
     
-    //static let shared = ParkingLotViewModel()
-    
     init(
         parkingLots: [Parking],
         distributeSelect: String = "제주시",
         isGridAlign: Bool = true,
         distributeArea: [String] = ["제주시","서귀포시"]
         
-    ) {
+    ){
         self.parkingLots = parkingLots
         self.distributeSelect = distributeSelect
         self.isGridAlign = isGridAlign
@@ -33,7 +31,6 @@ class ParkingLotViewModel: ObservableObject {
     private var apikey: String? {
         get {
             let keyfilename = "ApiKeys"
-//            let api_key = ""
             
             // 생성한 .plish 파일 경로 불러오기
             guard let filePath = Bundle.main.path(forResource: keyfilename, ofType: "plist") else {
@@ -69,8 +66,7 @@ class ParkingLotViewModel: ObservableObject {
         guard let url = URL(string: urlString) else { return }
         let session = URLSession(configuration: .default)
         
-        
-        // dataTask() 메서드의 with: 매개변수에 url 또는 request 객체를 가지고 통신
+
         let task = session.dataTask(with: url){ data, response, error in
             if let error = error {
                 print(error.localizedDescription)
