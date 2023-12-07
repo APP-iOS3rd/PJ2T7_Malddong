@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2315923C2B21389A00001A86 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2315923B2B21389A00001A86 /* Parking.swift */; };
+
+		5448F092AA309CACF54DC5E4 /* Pods_PJ2T7_Malddong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */; };
+
 		60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */; };
 		60DEE30B2B1F015D00362421 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE30A2B1F015D00362421 /* ContentView.swift */; };
 		60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60DEE30C2B1F015E00362421 /* Assets.xcassets */; };
@@ -27,12 +29,15 @@
 		60DEE33D2B1F02EE00362421 /* SpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */; };
 		60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE33C2B1F02EE00362421 /* SpotView.swift */; };
 		60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3412B1F034E00362421 /* Extension + Date.swift */; };
-		60DEE3442B1F087D00362421 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60DEE3432B1F087D00362421 /* ApiKeys.plist */; };
 		60DEE3462B1F0A9800362421 /* ToiletListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3452B1F0A9800362421 /* ToiletListModel.swift */; };
+		9AC92FA12B206481009EB051 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AC92FA02B206481009EB051 /* ApiKeys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2315923B2B21389A00001A86 /* Parking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
+
+		204D46BA8C473AA83D23BEAE /* Pods-PJ2T7_Malddong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJ2T7_Malddong.debug.xcconfig"; path = "Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong.debug.xcconfig"; sourceTree = "<group>"; };
+		4C5AC3426EA5782A734D767A /* Pods-PJ2T7_Malddong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJ2T7_Malddong.release.xcconfig"; path = "Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong.release.xcconfig"; sourceTree = "<group>"; };
+
 		60DEE3052B1F015D00362421 /* PJ2T7_Malddong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PJ2T7_Malddong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJ2T7_MalddongApp.swift; sourceTree = "<group>"; };
 		60DEE30A2B1F015D00362421 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,8 +58,9 @@
 		60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotViewModel.swift; sourceTree = "<group>"; };
 		60DEE33C2B1F02EE00362421 /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
 		60DEE3412B1F034E00362421 /* Extension + Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Date.swift"; sourceTree = "<group>"; };
-		60DEE3432B1F087D00362421 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		60DEE3452B1F0A9800362421 /* ToiletListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToiletListModel.swift; sourceTree = "<group>"; };
+		8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PJ2T7_Malddong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AC92FA02B206481009EB051 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,17 +68,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5448F092AA309CACF54DC5E4 /* Pods_PJ2T7_Malddong.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10C23D7F387171F753315143 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		60DEE2FC2B1F015D00362421 = {
 			isa = PBXGroup;
 			children = (
 				60DEE3072B1F015D00362421 /* PJ2T7_Malddong */,
 				60DEE3062B1F015D00362421 /* Products */,
+				E41E2FB395D61E324DD0D26B /* Pods */,
+				10C23D7F387171F753315143 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,6 +226,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		E41E2FB395D61E324DD0D26B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				204D46BA8C473AA83D23BEAE /* Pods-PJ2T7_Malddong.debug.xcconfig */,
+				4C5AC3426EA5782A734D767A /* Pods-PJ2T7_Malddong.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -216,9 +242,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60DEE3132B1F015E00362421 /* Build configuration list for PBXNativeTarget "PJ2T7_Malddong" */;
 			buildPhases = (
+				01BE237C5656D39198431789 /* [CP] Check Pods Manifest.lock */,
 				60DEE3012B1F015D00362421 /* Sources */,
 				60DEE3022B1F015D00362421 /* Frameworks */,
 				60DEE3032B1F015D00362421 /* Resources */,
+				304B378BAAE78F7CE4D41302 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -268,12 +296,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				60DEE3102B1F015E00362421 /* Preview Assets.xcassets in Resources */,
+				A4D7E1742B20457E00D79156 /* ApiKeys.plist in Resources */,
 				60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */,
-				60DEE3442B1F087D00362421 /* ApiKeys.plist in Resources */,
+				9AC92FA12B206481009EB051 /* ApiKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01BE237C5656D39198431789 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PJ2T7_Malddong-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		304B378BAAE78F7CE4D41302 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		60DEE3012B1F015D00362421 /* Sources */ = {
@@ -342,7 +413,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -405,7 +476,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -426,6 +497,7 @@
 		};
 		60DEE3142B1F015E00362421 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 204D46BA8C473AA83D23BEAE /* Pods-PJ2T7_Malddong.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -434,13 +506,17 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PJ2T7_Malddong/Preview Content\"";
 				DEVELOPMENT_TEAM = 2252348JAM;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "앱을 사용하는 동안 위치를 얻어옵니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,6 +532,7 @@
 		};
 		60DEE3152B1F015E00362421 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C5AC3426EA5782A734D767A /* Pods-PJ2T7_Malddong.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -464,13 +541,17 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PJ2T7_Malddong/Preview Content\"";
 				DEVELOPMENT_TEAM = 2252348JAM;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "앱을 사용하는 동안 위치를 얻어옵니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
