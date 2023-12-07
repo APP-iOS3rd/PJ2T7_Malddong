@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,8 +26,8 @@
 		60DEE33D2B1F02EE00362421 /* SpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */; };
 		60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE33C2B1F02EE00362421 /* SpotView.swift */; };
 		60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3412B1F034E00362421 /* Extension + Date.swift */; };
-		60DEE3442B1F087D00362421 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60DEE3432B1F087D00362421 /* ApiKeys.plist */; };
 		60DEE3462B1F0A9800362421 /* ToiletListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3452B1F0A9800362421 /* ToiletListModel.swift */; };
+		A4D7E1742B20457E00D79156 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4D7E1732B20457E00D79156 /* ApiKeys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,8 +51,8 @@
 		60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotViewModel.swift; sourceTree = "<group>"; };
 		60DEE33C2B1F02EE00362421 /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
 		60DEE3412B1F034E00362421 /* Extension + Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Date.swift"; sourceTree = "<group>"; };
-		60DEE3432B1F087D00362421 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		60DEE3452B1F0A9800362421 /* ToiletListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToiletListModel.swift; sourceTree = "<group>"; };
+		A4D7E1732B20457E00D79156 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../../Downloads/ApiKeys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 				60DEE31A2B1F020D00362421 /* App */,
 				60DEE30A2B1F015D00362421 /* ContentView.swift */,
 				60DEE30C2B1F015E00362421 /* Assets.xcassets */,
-				60DEE3432B1F087D00362421 /* ApiKeys.plist */,
+				A4D7E1732B20457E00D79156 /* ApiKeys.plist */,
 				60DEE30E2B1F015E00362421 /* Preview Content */,
 			);
 			path = PJ2T7_Malddong;
@@ -242,7 +242,7 @@
 				};
 			};
 			buildConfigurationList = 60DEE3002B1F015D00362421 /* Build configuration list for PBXProject "PJ2T7_Malddong" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -265,8 +265,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				60DEE3102B1F015E00362421 /* Preview Assets.xcassets in Resources */,
+				A4D7E1742B20457E00D79156 /* ApiKeys.plist in Resources */,
 				60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */,
-				60DEE3442B1F087D00362421 /* ApiKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,12 +436,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "DasanJeong.PJ2T7-Malddong";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pj2t7.malddong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -465,12 +466,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "DasanJeong.PJ2T7-Malddong";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pj2t7.malddong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
