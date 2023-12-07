@@ -1,0 +1,517 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0CA6FDA22B218726009D562E /* SpotListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA6FDA12B218726009D562E /* SpotListModel.swift */; };
+		0CA6FDA62B2188D8009D562E /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CA6FDA52B2188D8009D562E /* ApiKeys.plist */; };
+		0CA6FDA82B2188DE009D562E /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA6FDA72B2188DE009D562E /* ApiKeys.swift */; };
+		60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */; };
+		60DEE30B2B1F015D00362421 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE30A2B1F015D00362421 /* ContentView.swift */; };
+		60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60DEE30C2B1F015E00362421 /* Assets.xcassets */; };
+		60DEE3102B1F015E00362421 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60DEE30F2B1F015E00362421 /* Preview Assets.xcassets */; };
+		60DEE31F2B1F023500362421 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE31D2B1F023500362421 /* LoginViewModel.swift */; };
+		60DEE3202B1F023500362421 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE31E2B1F023500362421 /* LoginView.swift */; };
+		60DEE3242B1F024F00362421 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3222B1F024F00362421 /* MapView.swift */; };
+		60DEE3252B1F024F00362421 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3232B1F024F00362421 /* MapViewModel.swift */; };
+		60DEE3292B1F026600362421 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3272B1F026600362421 /* MyPageView.swift */; };
+		60DEE32A2B1F026600362421 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3282B1F026600362421 /* MyPageViewModel.swift */; };
+		60DEE32E2B1F027C00362421 /* ParkingLotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE32C2B1F027C00362421 /* ParkingLotViewModel.swift */; };
+		60DEE32F2B1F027C00362421 /* ParkingLotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE32D2B1F027C00362421 /* ParkingLotView.swift */; };
+		60DEE3332B1F02A900362421 /* ToiletListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3312B1F02A900362421 /* ToiletListView.swift */; };
+		60DEE3342B1F02A900362421 /* ToiletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3322B1F02A900362421 /* ToiletViewModel.swift */; };
+		60DEE3382B1F02BA00362421 /* ToiletDeatilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3362B1F02BA00362421 /* ToiletDeatilViewModel.swift */; };
+		60DEE3392B1F02BA00362421 /* ToiletDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3372B1F02BA00362421 /* ToiletDetailView.swift */; };
+		60DEE33D2B1F02EE00362421 /* SpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */; };
+		60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE33C2B1F02EE00362421 /* SpotView.swift */; };
+		60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3412B1F034E00362421 /* Extension + Date.swift */; };
+		60DEE3462B1F0A9800362421 /* ToiletListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3452B1F0A9800362421 /* ToiletListModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0CA6FDA12B218726009D562E /* SpotListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListModel.swift; sourceTree = "<group>"; };
+		0CA6FDA52B2188D8009D562E /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = "../../../MalddongIos-main/ApiKeys.plist"; sourceTree = "<group>"; };
+		0CA6FDA72B2188DE009D562E /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiKeys.swift; path = "../../../MalddongIos-main-2/Malddong/ApiKeys.swift"; sourceTree = "<group>"; };
+		0CD39D2A2B219BE9009B0493 /* PJ2T7-Malddong-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PJ2T7-Malddong-Info.plist"; sourceTree = SOURCE_ROOT; };
+		60DEE3052B1F015D00362421 /* PJ2T7_Malddong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PJ2T7_Malddong.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJ2T7_MalddongApp.swift; sourceTree = "<group>"; };
+		60DEE30A2B1F015D00362421 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		60DEE30C2B1F015E00362421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		60DEE30F2B1F015E00362421 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		60DEE31D2B1F023500362421 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		60DEE31E2B1F023500362421 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		60DEE3222B1F024F00362421 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		60DEE3232B1F024F00362421 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		60DEE3272B1F026600362421 /* MyPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		60DEE3282B1F026600362421 /* MyPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
+		60DEE32C2B1F027C00362421 /* ParkingLotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingLotViewModel.swift; sourceTree = "<group>"; };
+		60DEE32D2B1F027C00362421 /* ParkingLotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingLotView.swift; sourceTree = "<group>"; };
+		60DEE3312B1F02A900362421 /* ToiletListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletListView.swift; sourceTree = "<group>"; };
+		60DEE3322B1F02A900362421 /* ToiletViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletViewModel.swift; sourceTree = "<group>"; };
+		60DEE3362B1F02BA00362421 /* ToiletDeatilViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletDeatilViewModel.swift; sourceTree = "<group>"; };
+		60DEE3372B1F02BA00362421 /* ToiletDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletDetailView.swift; sourceTree = "<group>"; };
+		60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotViewModel.swift; sourceTree = "<group>"; };
+		60DEE33C2B1F02EE00362421 /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
+		60DEE3412B1F034E00362421 /* Extension + Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Date.swift"; sourceTree = "<group>"; };
+		60DEE3452B1F0A9800362421 /* ToiletListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToiletListModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		60DEE3022B1F015D00362421 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		60DEE2FC2B1F015D00362421 = {
+			isa = PBXGroup;
+			children = (
+				60DEE3072B1F015D00362421 /* PJ2T7_Malddong */,
+				60DEE3062B1F015D00362421 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		60DEE3062B1F015D00362421 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				60DEE3052B1F015D00362421 /* PJ2T7_Malddong.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		60DEE3072B1F015D00362421 /* PJ2T7_Malddong */ = {
+			isa = PBXGroup;
+			children = (
+				0CD39D2A2B219BE9009B0493 /* PJ2T7-Malddong-Info.plist */,
+				60DEE3402B1F033A00362421 /* Extension */,
+				60DEE33F2B1F032200362421 /* Model */,
+				60DEE31B2B1F022000362421 /* Feature */,
+				60DEE31A2B1F020D00362421 /* App */,
+				60DEE30A2B1F015D00362421 /* ContentView.swift */,
+				60DEE30C2B1F015E00362421 /* Assets.xcassets */,
+				0CA6FDA52B2188D8009D562E /* ApiKeys.plist */,
+				0CA6FDA72B2188DE009D562E /* ApiKeys.swift */,
+				60DEE30E2B1F015E00362421 /* Preview Content */,
+			);
+			path = PJ2T7_Malddong;
+			sourceTree = "<group>";
+		};
+		60DEE30E2B1F015E00362421 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				60DEE30F2B1F015E00362421 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		60DEE31A2B1F020D00362421 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		60DEE31B2B1F022000362421 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				60DEE33A2B1F02C700362421 /* SpotView */,
+				60DEE3302B1F028200362421 /* ToiletListView */,
+				60DEE32B2B1F026E00362421 /* ParkinglotView */,
+				60DEE3262B1F025800362421 /* MyPageView */,
+				60DEE3212B1F023E00362421 /* MapView */,
+				60DEE31C2B1F022900362421 /* LoginView */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		60DEE31C2B1F022900362421 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				60DEE31E2B1F023500362421 /* LoginView.swift */,
+				60DEE31D2B1F023500362421 /* LoginViewModel.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		60DEE3212B1F023E00362421 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				60DEE3222B1F024F00362421 /* MapView.swift */,
+				60DEE3232B1F024F00362421 /* MapViewModel.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		60DEE3262B1F025800362421 /* MyPageView */ = {
+			isa = PBXGroup;
+			children = (
+				60DEE3272B1F026600362421 /* MyPageView.swift */,
+				60DEE3282B1F026600362421 /* MyPageViewModel.swift */,
+			);
+			path = MyPageView;
+			sourceTree = "<group>";
+		};
+		60DEE32B2B1F026E00362421 /* ParkinglotView */ = {
+			isa = PBXGroup;
+			children = (
+				60DEE32D2B1F027C00362421 /* ParkingLotView.swift */,
+				60DEE32C2B1F027C00362421 /* ParkingLotViewModel.swift */,
+			);
+			path = ParkinglotView;
+			sourceTree = "<group>";
+		};
+		60DEE3302B1F028200362421 /* ToiletListView */ = {
+			isa = PBXGroup;
+			children = (
+				60DEE3352B1F02AC00362421 /* ToiletDetailView */,
+				60DEE3312B1F02A900362421 /* ToiletListView.swift */,
+				60DEE3322B1F02A900362421 /* ToiletViewModel.swift */,
+			);
+			path = ToiletListView;
+			sourceTree = "<group>";
+		};
+		60DEE3352B1F02AC00362421 /* ToiletDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				60DEE3362B1F02BA00362421 /* ToiletDeatilViewModel.swift */,
+				60DEE3372B1F02BA00362421 /* ToiletDetailView.swift */,
+			);
+			path = ToiletDetailView;
+			sourceTree = "<group>";
+		};
+		60DEE33A2B1F02C700362421 /* SpotView */ = {
+			isa = PBXGroup;
+			children = (
+				60DEE33C2B1F02EE00362421 /* SpotView.swift */,
+				60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */,
+			);
+			path = SpotView;
+			sourceTree = "<group>";
+		};
+		60DEE33F2B1F032200362421 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				60DEE3452B1F0A9800362421 /* ToiletListModel.swift */,
+				0CA6FDA12B218726009D562E /* SpotListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		60DEE3402B1F033A00362421 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				60DEE3412B1F034E00362421 /* Extension + Date.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		60DEE3042B1F015D00362421 /* PJ2T7_Malddong */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60DEE3132B1F015E00362421 /* Build configuration list for PBXNativeTarget "PJ2T7_Malddong" */;
+			buildPhases = (
+				60DEE3012B1F015D00362421 /* Sources */,
+				60DEE3022B1F015D00362421 /* Frameworks */,
+				60DEE3032B1F015D00362421 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PJ2T7_Malddong;
+			productName = PJ2T7_Malddong;
+			productReference = 60DEE3052B1F015D00362421 /* PJ2T7_Malddong.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		60DEE2FD2B1F015D00362421 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					60DEE3042B1F015D00362421 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 60DEE3002B1F015D00362421 /* Build configuration list for PBXProject "PJ2T7_Malddong" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 60DEE2FC2B1F015D00362421;
+			productRefGroup = 60DEE3062B1F015D00362421 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				60DEE3042B1F015D00362421 /* PJ2T7_Malddong */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		60DEE3032B1F015D00362421 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60DEE3102B1F015E00362421 /* Preview Assets.xcassets in Resources */,
+				60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */,
+				0CA6FDA62B2188D8009D562E /* ApiKeys.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		60DEE3012B1F015D00362421 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60DEE32E2B1F027C00362421 /* ParkingLotViewModel.swift in Sources */,
+				60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */,
+				60DEE3462B1F0A9800362421 /* ToiletListModel.swift in Sources */,
+				60DEE3332B1F02A900362421 /* ToiletListView.swift in Sources */,
+				60DEE3392B1F02BA00362421 /* ToiletDetailView.swift in Sources */,
+				60DEE3292B1F026600362421 /* MyPageView.swift in Sources */,
+				60DEE30B2B1F015D00362421 /* ContentView.swift in Sources */,
+				60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */,
+				60DEE3242B1F024F00362421 /* MapView.swift in Sources */,
+				60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */,
+				60DEE3202B1F023500362421 /* LoginView.swift in Sources */,
+				60DEE3382B1F02BA00362421 /* ToiletDeatilViewModel.swift in Sources */,
+				0CA6FDA22B218726009D562E /* SpotListModel.swift in Sources */,
+				60DEE31F2B1F023500362421 /* LoginViewModel.swift in Sources */,
+				0CA6FDA82B2188DE009D562E /* ApiKeys.swift in Sources */,
+				60DEE3252B1F024F00362421 /* MapViewModel.swift in Sources */,
+				60DEE33D2B1F02EE00362421 /* SpotViewModel.swift in Sources */,
+				60DEE3342B1F02A900362421 /* ToiletViewModel.swift in Sources */,
+				60DEE32A2B1F026600362421 /* MyPageViewModel.swift in Sources */,
+				60DEE32F2B1F027C00362421 /* ParkingLotView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		60DEE3112B1F015E00362421 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		60DEE3122B1F015E00362421 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		60DEE3142B1F015E00362421 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PJ2T7_Malddong/Preview Content\"";
+				DEVELOPMENT_TEAM = 2252348JAM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PJ2T7-Malddong-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "DasanJeong.PJ2T7-Malddong";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		60DEE3152B1F015E00362421 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PJ2T7_Malddong/Preview Content\"";
+				DEVELOPMENT_TEAM = 2252348JAM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PJ2T7-Malddong-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "DasanJeong.PJ2T7-Malddong";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		60DEE3002B1F015D00362421 /* Build configuration list for PBXProject "PJ2T7_Malddong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60DEE3112B1F015E00362421 /* Debug */,
+				60DEE3122B1F015E00362421 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60DEE3132B1F015E00362421 /* Build configuration list for PBXNativeTarget "PJ2T7_Malddong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60DEE3142B1F015E00362421 /* Debug */,
+				60DEE3152B1F015E00362421 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 60DEE2FD2B1F015D00362421 /* Project object */;
+}
