@@ -106,7 +106,7 @@
 				60DEE31A2B1F020D00362421 /* App */,
 				60DEE30A2B1F015D00362421 /* ContentView.swift */,
 				60DEE30C2B1F015E00362421 /* Assets.xcassets */,
-				9AC92FA02B206481009EB051 /* ApiKeys.plist */,
+				60DEE3432B1F087D00362421 /* ApiKeys.plist */,
 				60DEE30E2B1F015E00362421 /* Preview Content */,
 			);
 			path = PJ2T7_Malddong;
@@ -291,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60DEE3102B1F015E00362421 /* Preview Assets.xcassets in Resources */,
+				A4D7E1742B20457E00D79156 /* ApiKeys.plist in Resources */,
 				60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */,
 				9AC92FA12B206481009EB051 /* ApiKeys.plist in Resources */,
 			);
