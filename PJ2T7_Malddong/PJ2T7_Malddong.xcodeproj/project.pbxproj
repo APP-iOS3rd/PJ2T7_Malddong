@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2315923C2B21389A00001A86 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2315923B2B21389A00001A86 /* Parking.swift */; };
 		60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */; };
 		60DEE30B2B1F015D00362421 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE30A2B1F015D00362421 /* ContentView.swift */; };
 		60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60DEE30C2B1F015E00362421 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2315923B2B21389A00001A86 /* Parking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		60DEE3052B1F015D00362421 /* PJ2T7_Malddong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PJ2T7_Malddong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJ2T7_MalddongApp.swift; sourceTree = "<group>"; };
 		60DEE30A2B1F015D00362421 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				60DEE3452B1F0A9800362421 /* ToiletListModel.swift */,
+				2315923B2B21389A00001A86 /* Parking.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,7 +245,7 @@
 				};
 			};
 			buildConfigurationList = 60DEE3002B1F015D00362421 /* Build configuration list for PBXProject "PJ2T7_Malddong" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -279,6 +282,7 @@
 			files = (
 				60DEE32E2B1F027C00362421 /* ParkingLotViewModel.swift in Sources */,
 				60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */,
+				2315923C2B21389A00001A86 /* Parking.swift in Sources */,
 				60DEE3462B1F0A9800362421 /* ToiletListModel.swift in Sources */,
 				60DEE3332B1F02A900362421 /* ToiletListView.swift in Sources */,
 				60DEE3392B1F02BA00362421 /* ToiletDetailView.swift in Sources */,
@@ -436,12 +440,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "DasanJeong.PJ2T7-Malddong";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pj2t7.malddong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -465,12 +470,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "DasanJeong.PJ2T7-Malddong";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pj2t7.malddong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
