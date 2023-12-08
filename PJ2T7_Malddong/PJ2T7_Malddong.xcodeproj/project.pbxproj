@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
 		5448F092AA309CACF54DC5E4 /* Pods_PJ2T7_Malddong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */; };
 		60DAC0642B1F4ECB00384217 /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DAC0632B1F4ECB00384217 /* Extension + View.swift */; };
 		60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */; };
@@ -29,18 +28,16 @@
 		60DEE33D2B1F02EE00362421 /* SpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */; };
 		60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE33C2B1F02EE00362421 /* SpotView.swift */; };
 		60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3412B1F034E00362421 /* Extension + Date.swift */; };
-		60DEE3442B1F087D00362421 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60DEE3432B1F087D00362421 /* ApiKeys.plist */; };
-		60DEE3462B1F0A9800362421 /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3452B1F0A9800362421 /* Toilet.swift */; };
-		60DEE3462B1F0A9800362421 /* ToiletListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3452B1F0A9800362421 /* ToiletListModel.swift */; };
-		9AC92FA12B206481009EB051 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AC92FA02B206481009EB051 /* ApiKeys.plist */; };
+		9A6571932B235F64007BD13D /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A6571922B235F64007BD13D /* ApiKeys.plist */; };
+		9A6571972B23614A007BD13D /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6571952B23614A007BD13D /* Parking.swift */; };
+		9A6571982B23614A007BD13D /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6571962B23614A007BD13D /* Toilet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		605BF4212B206551006FEF25 /* PJ2T7-Malddong-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PJ2T7-Malddong-Info.plist"; sourceTree = SOURCE_ROOT; };
-		60DAC0632B1F4ECB00384217 /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
 		204D46BA8C473AA83D23BEAE /* Pods-PJ2T7_Malddong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJ2T7_Malddong.debug.xcconfig"; path = "Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong.debug.xcconfig"; sourceTree = "<group>"; };
 		4C5AC3426EA5782A734D767A /* Pods-PJ2T7_Malddong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJ2T7_Malddong.release.xcconfig"; path = "Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong.release.xcconfig"; sourceTree = "<group>"; };
-
+		605BF4212B206551006FEF25 /* PJ2T7-Malddong-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PJ2T7-Malddong-Info.plist"; sourceTree = SOURCE_ROOT; };
+		60DAC0632B1F4ECB00384217 /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
 		60DEE3052B1F015D00362421 /* PJ2T7_Malddong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PJ2T7_Malddong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJ2T7_MalddongApp.swift; sourceTree = "<group>"; };
 		60DEE30A2B1F015D00362421 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,11 +58,10 @@
 		60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotViewModel.swift; sourceTree = "<group>"; };
 		60DEE33C2B1F02EE00362421 /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
 		60DEE3412B1F034E00362421 /* Extension + Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Date.swift"; sourceTree = "<group>"; };
-		60DEE3432B1F087D00362421 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
-		60DEE3452B1F0A9800362421 /* Toilet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toilet.swift; sourceTree = "<group>"; };
-		60DEE3452B1F0A9800362421 /* ToiletListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToiletListModel.swift; sourceTree = "<group>"; };
 		8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PJ2T7_Malddong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9AC92FA02B206481009EB051 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		9A6571922B235F64007BD13D /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		9A6571952B23614A007BD13D /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parking.swift; path = ../../../../../Downloads/Parking.swift; sourceTree = "<group>"; };
+		9A6571962B23614A007BD13D /* Toilet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Toilet.swift; path = ../../../../../Downloads/Toilet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +91,7 @@
 				60DEE3062B1F015D00362421 /* Products */,
 				E41E2FB395D61E324DD0D26B /* Pods */,
 				10C23D7F387171F753315143 /* Frameworks */,
+				9A65718F2B235EF6007BD13D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,7 +113,6 @@
 				60DEE31A2B1F020D00362421 /* App */,
 				60DEE30A2B1F015D00362421 /* ContentView.swift */,
 				60DEE30C2B1F015E00362421 /* Assets.xcassets */,
-				60DEE3432B1F087D00362421 /* ApiKeys.plist */,
 				60DEE30E2B1F015E00362421 /* Preview Content */,
 			);
 			path = PJ2T7_Malddong;
@@ -218,9 +214,8 @@
 		60DEE33F2B1F032200362421 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				60DEE3452B1F0A9800362421 /* ToiletListModel.swift */,
-				2315923B2B21389A00001A86 /* Parking.swift */,
-				60DEE3452B1F0A9800362421 /* Toilet.swift */,
+				9A6571952B23614A007BD13D /* Parking.swift */,
+				9A6571962B23614A007BD13D /* Toilet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +227,14 @@
 				60DAC0632B1F4ECB00384217 /* Extension + View.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9A65718F2B235EF6007BD13D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				9A6571922B235F64007BD13D /* ApiKeys.plist */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		E41E2FB395D61E324DD0D26B /* Pods */ = {
@@ -304,9 +307,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				60DEE3102B1F015E00362421 /* Preview Assets.xcassets in Resources */,
-				A4D7E1742B20457E00D79156 /* ApiKeys.plist in Resources */,
 				60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */,
-				9AC92FA12B206481009EB051 /* ApiKeys.plist in Resources */,
+				9A6571932B235F64007BD13D /* ApiKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,10 +363,9 @@
 			files = (
 				60DEE32E2B1F027C00362421 /* ParkingLotViewModel.swift in Sources */,
 				60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */,
-				2315923C2B21389A00001A86 /* Parking.swift in Sources */,
-				60DEE3462B1F0A9800362421 /* ToiletListModel.swift in Sources */,
-				60DEE3462B1F0A9800362421 /* Toilet.swift in Sources */,
+				9A6571972B23614A007BD13D /* Parking.swift in Sources */,
 				60DEE3332B1F02A900362421 /* ToiletListView.swift in Sources */,
+				9A6571982B23614A007BD13D /* Toilet.swift in Sources */,
 				60DEE3392B1F02BA00362421 /* ToiletDetailView.swift in Sources */,
 				60DEE3292B1F026600362421 /* MyPageView.swift in Sources */,
 				60DEE30B2B1F015D00362421 /* ContentView.swift in Sources */,
@@ -525,9 +526,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
-
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -554,16 +553,14 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "앱을 사용하는 동안 위치를 얻어옵니다.";
 				INFOPLIST_FILE = "PJ2T7-Malddong-Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "앱을 사용하는 동안 위치를 얻어옵니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
-
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
