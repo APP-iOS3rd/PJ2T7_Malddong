@@ -31,6 +31,7 @@
 		9A651CC92B26A0B0005D8618 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CC82B26A0B0005D8618 /* Parking.swift */; };
 		9A651CCB2B26A0B8005D8618 /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CCA2B26A0B8005D8618 /* Toilet.swift */; };
 		9A651CCD2B26A1C4005D8618 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A651CCC2B26A1C4005D8618 /* ApiKeys.plist */; };
+		9A651CD32B26D348005D8618 /* Extension + Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CD22B26D348005D8618 /* Extension + Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,10 @@
 		9A651CC82B26A0B0005D8618 /* Parking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		9A651CCA2B26A0B8005D8618 /* Toilet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toilet.swift; sourceTree = "<group>"; };
 		9A651CCC2B26A1C4005D8618 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		9A651CCF2B26D1E4005D8618 /* LINESeedKR-Rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Rg.otf"; sourceTree = "<group>"; };
+		9A651CD02B26D1E4005D8618 /* LINESeedKR-Bd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Bd.otf"; sourceTree = "<group>"; };
+		9A651CD12B26D1E4005D8618 /* LINESeedKR-Th.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Th.otf"; sourceTree = "<group>"; };
+		9A651CD22B26D348005D8618 /* Extension + Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Font.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +111,7 @@
 		60DEE3072B1F015D00362421 /* PJ2T7_Malddong */ = {
 			isa = PBXGroup;
 			children = (
+				9A651CCE2B26D1C3005D8618 /* Fonts */,
 				605BF4212B206551006FEF25 /* PJ2T7-Malddong-Info.plist */,
 				60DEE3402B1F033A00362421 /* Extension */,
 				60DEE33F2B1F032200362421 /* Model */,
@@ -225,8 +231,19 @@
 			children = (
 				60DEE3412B1F034E00362421 /* Extension + Date.swift */,
 				60DAC0632B1F4ECB00384217 /* Extension + View.swift */,
+				9A651CD22B26D348005D8618 /* Extension + Font.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9A651CCE2B26D1C3005D8618 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9A651CD02B26D1E4005D8618 /* LINESeedKR-Bd.otf */,
+				9A651CCF2B26D1E4005D8618 /* LINESeedKR-Rg.otf */,
+				9A651CD12B26D1E4005D8618 /* LINESeedKR-Th.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		9A65718F2B235EF6007BD13D /* Recovered References */ = {
@@ -377,6 +394,7 @@
 				60DAC0642B1F4ECB00384217 /* Extension + View.swift in Sources */,
 				60DEE31F2B1F023500362421 /* LoginViewModel.swift in Sources */,
 				60DEE3252B1F024F00362421 /* MapViewModel.swift in Sources */,
+				9A651CD32B26D348005D8618 /* Extension + Font.swift in Sources */,
 				60DEE33D2B1F02EE00362421 /* SpotViewModel.swift in Sources */,
 				60DEE3342B1F02A900362421 /* ToiletListViewModel.swift in Sources */,
 				60DEE32A2B1F026600362421 /* MyPageViewModel.swift in Sources */,
