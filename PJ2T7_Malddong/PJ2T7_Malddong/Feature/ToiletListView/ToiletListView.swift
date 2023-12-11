@@ -77,25 +77,37 @@ private struct distributeView:View{
 //MARK: - GrideView
 private struct GridView:View {
     @ObservedObject private var toiletListViewModel: ToiletListViewModel
-    
+    @State var item:Toilet = Toilet(dataCd: "", laCrdnt: "", loCrdnt: "", rnAdres: "", toiletNm: "", opnTimeInfo: "", mngrInsttNm: "", telno: "", maleClosetCnt: "", maleUrinalCnt: "", maleDspsnClosetCnt: "", maleDspsnUrinalCnt: "", maleChildClosetCnt: "", maleChildUrinalCnt: "", femaleClosetCnt: "", femaleChildClosetCnt: "", femaleDspsnClosetCnt: "")
+    @State var pop = false
     init(toiletListViewModel: ToiletListViewModel) {
         self.toiletListViewModel = toiletListViewModel
     }
     
     var body: some View {
-        LazyVGrid(columns: toiletListViewModel.isGridAlign ? [
-            GridItem(.flexible()),
-            GridItem(.flexible()),] :[GridItem(.flexible())]
-                  , content: {
-            ForEach(toiletListViewModel.toiletList,id: \.self){item in
-                ToiletCellView(toiletListViewModel: toiletListViewModel, item: item)
-                    .padding()
+        
+            LazyVGrid(columns: toiletListViewModel.isGridAlign ? [
+                GridItem(.flexible()),
+                GridItem(.flexible()),] :[GridItem(.flexible())]
+                      , content: {
+                ForEach(toiletListViewModel.toiletList,id: \.self){item in
                     
+                    ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
+                        .padding()
+                        .onTapGesture {
+                            self.item = item
+                            pop = true
+                        }
+                    
+                    
+                }
                 
-            }
+                
+            })
+            .popover(isPresented: $pop, content: {
+                ToiletDetailView(item: item)
+            })
             
-            
-        })
+        
         .animation(.default)
         
     }
