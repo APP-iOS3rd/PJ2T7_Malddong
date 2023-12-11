@@ -109,6 +109,15 @@ iOSInjectionProject/
 ## Api Key ##
 ApiKeys.plist
 
+## DS_STORE ##
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+
+## xcuserstate ##
+*.xcuserstate
+
 # End of https://www.toptal.com/developers/gitignore/api/swift,xcode,cocoapods
 
 
