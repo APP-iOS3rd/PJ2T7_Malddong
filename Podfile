@@ -6,5 +6,6 @@ target 'PJ2T7_Malddong' do
   use_frameworks!
 
   # Pods for PJ2T7_Malddong
+  pod 'NMapsMap'
 
 end
