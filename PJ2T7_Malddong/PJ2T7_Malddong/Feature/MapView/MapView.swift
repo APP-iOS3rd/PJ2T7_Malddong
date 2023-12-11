@@ -11,6 +11,7 @@ import NMapsMap
 
 struct MapView: View {
     
+    
     var body: some View {
         ZStack(alignment: .topLeading) {
             UIMapView()
@@ -36,6 +37,7 @@ struct MapView: View {
             
         }.onAppear {
             NMFAuthManager.shared().clientId = getValueOfPlistFile("ApiKeys", "CLIENT_ID")
+            
         }
     }
 }
@@ -82,13 +84,19 @@ public struct customButton: View {
 }
 
 struct UIMapView: UIViewRepresentable {
+    @ObservedObject var toiletListViewModel = ToiletListViewModel()
+    @ObservedObject var parkingLotViewModel =  ParkingLotViewModel(parkingLots: [])
+    
     typealias UIViewType = NMFNaverMapView
     
     func makeUIView(context: Context) -> NMFNaverMapView {
+        toiletListViewModel.fectchData()
+        parkingLotViewModel.fetchData()
         
         NMFAuthManager.shared().clientId = getValueOfPlistFile("ApiKeys", "CLIENT_ID")
         
         let mapView = NMFNaverMapView()
+        
         mapView.showZoomControls = false
         mapView.mapView.positionMode = .direction
         mapView.mapView.zoomLevel = 17
@@ -96,7 +104,26 @@ struct UIMapView: UIViewRepresentable {
         return mapView
     }
     
-    func updateUIView(_ uiView: NMFNaverMapView, context: Context) {}
+    
+    func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
+        toiletListViewModel.toiletList.forEach {
+            let marker = NMFMarker()
+            marker.position = NMGLatLng(lat: Double($0.laCrdnt) ?? 3.0, lng: Double($0.loCrdnt) ?? 127.0)
+            marker.mapView = uiView.mapView
+            marker.width = 30
+            marker.height = 40
+            marker.iconTintColor = .malddongYellow
+        }
+        
+        parkingLotViewModel.parkingLots.forEach {
+            let marker = NMFMarker()
+            marker.position = NMGLatLng(lat: Double($0.위도) ?? 3.0, lng: Double($0.경도) ?? 127.0)
+            marker.mapView = uiView.mapView
+            marker.width = 30
+            marker.height = 40
+            marker.iconTintColor = .malddongBlue
+        }
+    }
 }
 
 
