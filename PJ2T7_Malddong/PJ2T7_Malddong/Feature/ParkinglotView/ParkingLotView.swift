@@ -130,11 +130,11 @@ private struct ParkingCellView:View{
                         .shadow(radius: 7)
                     
                     VStack{
-                        Text(item.주차장명)
+                        Text(item.name)
                             .font(.system(size: 15,weight: .bold))
                         
                         HStack{
-                            Text(item.주차장도로명주소)
+                            Text(item.rnAdres)
                                 .frame(width: 70)
                                 .font(.system(size: 10))
                                 .lineLimit(2)
@@ -172,10 +172,10 @@ private struct ParkingCellView:View{
                             .shadow(radius: 7)
                         
                         VStack{
-                            Text(item.주차장명)
+                            Text(item.name)
                                 .font(.system(size: 20,weight: .bold))
                             Text("1.6km")
-                            Text(item.주차장도로명주소)
+                            Text(item.rnAdres)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)
                         }
