@@ -92,7 +92,7 @@ private struct GridView:View {
                 GridItem(.flexible()),] :[GridItem(.flexible())]
                       , content: {
                 ForEach(toiletListViewModel.toiletList,id: \.self){item in
-                    NavigationLink(destination: ToiletDetailView(item: item)) {
+                    NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
                         
                         ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
                             .padding()
@@ -160,7 +160,8 @@ private struct ToiletCellView:View{
                                 .lineLimit(2)
                                 .foregroundStyle(Color.gray)
                             
-                            Text("1.2km")
+                            Text("\(toiletListViewModel.distanceCalc(toilet: item))km")
+                            //15592
                         }
                         
                     }.frame(maxWidth: 152,maxHeight: 70)

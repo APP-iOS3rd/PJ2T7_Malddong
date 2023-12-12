@@ -9,14 +9,21 @@ import SwiftUI
 
 struct ToiletDetailView: View {
     
-    @State var item:Toilet
+    @State private var item:Toilet
+    @State private var toiletListViewModel:ToiletListViewModel
+    init(item: Toilet, toiletListViewModel: ToiletListViewModel) {
+        self.item = item
+        self.toiletListViewModel = toiletListViewModel
+    }
     
     var body: some View {
         ScrollView{
             VStack(alignment:.leading){
-                Rectangle()
-                    .fill(.gray)
-                    .frame(width: 350,height: 250)
+                AsyncImage(url: URL(string:
+                                        toiletListViewModel.imageNilCheck(item)
+                                   )){
+                    $0.image?.resizable()
+                }
                 Rectangle()
                     .fill(.gray)
                     .frame(width: 350,height: 250)
@@ -111,5 +118,5 @@ private struct toiletInforView:View{
 }
 
 #Preview {
-    ToiletDetailView(item: Toilet(dataCd: "", laCrdnt: "", loCrdnt: "", rnAdres: "제주특별자치도 제주시 한라대학로63", toiletNm: "GS25제주한라점", opnTimeInfo: "연중무휴", mngrInsttNm: "1", telno: "1", maleClosetCnt: "1", maleUrinalCnt: "1", maleDspsnClosetCnt: "1", maleDspsnUrinalCnt: "1", maleChildClosetCnt: "1", maleChildUrinalCnt: "1", femaleClosetCnt: "1", femaleChildClosetCnt: "1", femaleDspsnClosetCnt: "1"))
+    ToiletDetailView(item: Toilet(dataCd: "", laCrdnt: "", loCrdnt: "", rnAdres: "제주특별자치도 제주시 한라대학로63", toiletNm: "GS25제주한라점", opnTimeInfo: "연중무휴", mngrInsttNm: "1", telno: "1", maleClosetCnt: "1", maleUrinalCnt: "1", maleDspsnClosetCnt: "1", maleDspsnUrinalCnt: "1", maleChildClosetCnt: "1", maleChildUrinalCnt: "1", femaleClosetCnt: "1", femaleChildClosetCnt: "1", femaleDspsnClosetCnt: "1"),toiletListViewModel: ToiletListViewModel())
 }

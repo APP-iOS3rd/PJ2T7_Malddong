@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 
 class ToiletListViewModel:ObservableObject{
@@ -110,7 +111,17 @@ extension ToiletListViewModel{
         }
         return toilet[0]
     }
-   
+    func distanceCalc(toilet:Toilet)->String{
+        //내위치 임의 설정
+        let myLocation = CLLocation(latitude: 33.44980872, longitude: 126.6182481)
+        
+        let objectLoaction = CLLocation(latitude: Double(toilet.laCrdnt)!, longitude: Double(toilet.loCrdnt)!)
+        
+        let distanceMetor = myLocation.distance(from: objectLoaction)
+        
+        return String(Int(distanceMetor)/1000)
+        
+    }
     
     
 }
