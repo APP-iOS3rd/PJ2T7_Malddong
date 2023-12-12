@@ -21,12 +21,16 @@ struct ToiletDetailView: View {
             VStack(alignment:.leading){
                 AsyncImage(url: URL(string:
                                         toiletListViewModel.imageNilCheck(item)
-                                   )){
+                                   )
+                ){
                     $0.image?.resizable()
                 }
-                Rectangle()
-                    .fill(.gray)
                     .frame(width: 350,height: 250)
+                
+            
+                UIMapView()
+                    .frame(width: 350,height: 250)
+                    
                 HStack{
                     Text(item.toiletNm)
                         .font(.system(size: 20,weight: .bold))

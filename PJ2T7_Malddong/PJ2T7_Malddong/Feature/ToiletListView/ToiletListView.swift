@@ -15,6 +15,30 @@ struct ToiletListView: View {
             ScrollView{
                 
                 VStack{
+                    HStack {
+                        NavigationLink(destination: ToiletListView()) {
+                           
+                            customButton2(title: "화장실", imageName: "tissue", backgroundColor: .malddongYellow)
+                        }
+                        NavigationLink(destination: SpotView()){
+                            
+                            customButton2(title: "관광지", imageName: "dolhareubang", backgroundColor: .malddongGreen)
+                                
+                            
+                        }
+                        NavigationLink(destination: ParkingLotView()){
+                            customButton2(title: "주차장", imageName: "car", backgroundColor: .malddongBlue)
+                        }
+                        
+                        Spacer()
+                        
+                        Image("search")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 28, height: 28)
+                            .clipped()
+                    }
+                    .padding(12)
                     distributeView(
                         toiletListViewModel: toiletListViewModel)
                     .padding(.horizontal)
@@ -79,8 +103,7 @@ private struct distributeView:View{
 //MARK: - GrideView
 private struct GridView:View {
     @ObservedObject private var toiletListViewModel: ToiletListViewModel
-    @State var item:Toilet = Toilet(dataCd: "", laCrdnt: "", loCrdnt: "", rnAdres: "", toiletNm: "", opnTimeInfo: "", mngrInsttNm: "", telno: "", maleClosetCnt: "", maleUrinalCnt: "", maleDspsnClosetCnt: "", maleDspsnUrinalCnt: "", maleChildClosetCnt: "", maleChildUrinalCnt: "", femaleClosetCnt: "", femaleChildClosetCnt: "", femaleDspsnClosetCnt: "")
-    @State var pop = false
+    
     init(toiletListViewModel: ToiletListViewModel) {
         self.toiletListViewModel = toiletListViewModel
     }
@@ -107,7 +130,7 @@ private struct GridView:View {
             
             
         
-        .animation(.default)
+        
         
     }
 }
@@ -152,6 +175,7 @@ private struct ToiletCellView:View{
                     VStack{
                         Text(item.toiletNm)
                             .font(.system(size: 15,weight: .bold))
+                            .foregroundStyle(Color.black)
                         
                         HStack{
                             Text(item.rnAdres)
@@ -161,6 +185,8 @@ private struct ToiletCellView:View{
                                 .foregroundStyle(Color.gray)
                             
                             Text("\(toiletListViewModel.distanceCalc(toilet: item))km")
+                                .font(.system(size: 12))
+                                .foregroundStyle(Color.gray)
                             //15592
                         }
                         
@@ -195,7 +221,9 @@ private struct ToiletCellView:View{
                         VStack{
                             Text(item.toiletNm)
                                 .font(.system(size: 20,weight: .bold))
-                            Text("1.6km")
+                                .foregroundStyle(Color.black)
+                            Text("\(toiletListViewModel.distanceCalc(toilet: item))km")
+                                .foregroundStyle(Color.black)
                             Text(item.rnAdres)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)

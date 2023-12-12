@@ -14,7 +14,7 @@ struct ContentView: View {
         VStack {
             ToiletListView()
         }
-        .padding()
+        
     }
 }
 
