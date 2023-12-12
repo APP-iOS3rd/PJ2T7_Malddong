@@ -11,18 +11,22 @@ struct ParkingLotView: View {
     @StateObject private var parkingLotViewModel = ParkingLotViewModel(parkingLots: [])
     
     var body: some View {
-        ScrollView{
-            VStack{
-                distributeView(
-                    parkingLotViewModel: parkingLotViewModel)
-                .padding(.horizontal)
-                
-                GridView(parkingLotViewModel: parkingLotViewModel)
-                    .padding()
+        NavigationStack {
+            ScrollView{
+                VStack{
+                    // 지역에 따라 분류하는 view
+                    distributeView(
+                        parkingLotViewModel: parkingLotViewModel)
+                    .padding(.horizontal)
+                    
+                    // 네모 뷰
+                    GridView(parkingLotViewModel: parkingLotViewModel)
+                        .padding()
+                }
             }
-        }
-        .onAppear{
-            parkingLotViewModel.fetchData()
+            .onAppear{
+                parkingLotViewModel.fetchData()
+            }
         }
     }
 }
@@ -30,7 +34,7 @@ struct ParkingLotView: View {
 // distributeView
 private struct distributeView:View{
     @ObservedObject private var parkingLotViewModel: ParkingLotViewModel
-
+    
     init(parkingLotViewModel: ParkingLotViewModel) {
         self.parkingLotViewModel = parkingLotViewModel
     }
@@ -56,7 +60,7 @@ private struct distributeView:View{
             Spacer()
             
             Picker("", selection:$parkingLotViewModel.distributeSelect
-                    , content: {
+                   , content: {
                 ForEach(parkingLotViewModel.distributeArea,id: \.self){item in
                     Text(item)
                 }
@@ -65,8 +69,10 @@ private struct distributeView:View{
     }
 }
 
+// 개별 버튼
 private struct GridView:View {
     @ObservedObject private var parkingLotViewModel: ParkingLotViewModel
+    //@State private var isActive = false
     
     init(parkingLotViewModel: ParkingLotViewModel) {
         self.parkingLotViewModel = parkingLotViewModel
@@ -77,10 +83,13 @@ private struct GridView:View {
             GridItem(.flexible()),
             GridItem(.flexible()),] :[GridItem(.flexible())]
                   , content: {
+            
             ForEach(parkingLotViewModel.parkingLots,id: \.self){item in
+                NavigationLink(destination: ParkingDetailView(parking: item)){
                 ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
-                    .padding()
+                }
             }
+            
         }).animation(.default)
     }
 }
@@ -96,39 +105,36 @@ private struct ParkingCellView:View{
     }
     
     var body: some View{
+        // 수직으로 나열
         VStack(spacing:0){
+            // 작은 그리드 정렬
             if parkingLotViewModel.isGridAlign{
                 ZStack{
-                    
-                    
                     Rectangle()
                         .frame(width: 152,height: 100)
                         .foregroundColor(.gray)
-                        //.cornerRadius(15, corners: [.topLeft, .topRight])
+                        .cornerRadius(15, corners: [.topLeft, .topRight])
                         .shadow(radius: 7)
                     
-//                    AsyncImage(url: URL(string:
-//                                            ParkingLotViewModel.imageNilCheck(item)
-//                                       )){
-//                        $0.image?.resizable()
-//                                }
-                        
+                    Image("주차장")
+                        .resizable()
                         .scaledToFit()
                         .frame(maxWidth: 152,maxHeight: 100)
                 }
+                
                 ZStack{
                     Rectangle()
                         .frame(width: 152,height: 70)
                         .foregroundColor(.white)
-                        // .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
+                        .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
                         .shadow(radius: 7)
                     
                     VStack{
-                        Text(item.주차장명)
+                        Text(item.name)
                             .font(.system(size: 15,weight: .bold))
                         
                         HStack{
-                            Text(item.주차장도로명주소)
+                            Text(item.rnAdres)
                                 .frame(width: 70)
                                 .font(.system(size: 10))
                                 .lineLimit(2)
@@ -139,39 +145,37 @@ private struct ParkingCellView:View{
                         
                     }.frame(maxWidth: 152,maxHeight: 70)
                 }
-            }else{
+            }
+            // 큰 그리드 경우
+            else{
                 HStack(spacing:0){
                     ZStack{
                         
                         Rectangle()
                             .frame(width: 210, height: 180)
                             .foregroundStyle(Color.gray)
-                            //.cornerRadius(15,corners: [.topLeft,.bottomLeft])
+                            .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                             .shadow(radius: 7)
                         
-//                        AsyncImage(url: URL(string:
-//                                                ParkingLotViewModel.imageNilCheck(item)
-//                                           )){
-//                            $0.image?.resizable()
-//                        }
+                        Image("주차장")
+                            .resizable()
                             .scaledToFit()
                             .frame(maxWidth: 210,maxHeight: 180)
-                            
                     }
                     
                     ZStack{
                         Rectangle()
                             .frame(width: 160, height: 180)
-//                            .cornerRadius(15,corners:
-//                                            [.topRight,.bottomRight])
+                            .cornerRadius(15,corners:
+                                            [.topRight,.bottomRight])
                             .foregroundStyle(Color.white)
                             .shadow(radius: 7)
                         
                         VStack{
-                            Text(item.주차장명)
+                            Text(item.name)
                                 .font(.system(size: 20,weight: .bold))
                             Text("1.6km")
-                            Text(item.주차장도로명주소)
+                            Text(item.rnAdres)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)
                         }
