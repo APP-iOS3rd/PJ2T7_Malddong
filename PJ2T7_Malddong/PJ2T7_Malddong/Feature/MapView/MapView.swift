@@ -10,13 +10,12 @@ import SwiftUI
 import NMapsMap
 
 struct MapView: View {
-    
-    
+
     var body: some View {
         ZStack(alignment: .topLeading) {
             UIMapView()
                 .edgesIgnoringSafeArea(.vertical)
-
+            
             HStack {
                 customButton(title: "화장실", imageName: "tissue", backgroundColor: .malddongYellow)
                 
@@ -33,11 +32,6 @@ struct MapView: View {
                     .clipped()
             }
             .padding(12)
-            
-            
-        }.onAppear {
-            NMFAuthManager.shared().clientId = getValueOfPlistFile("ApiKeys", "CLIENT_ID")
-            
         }
     }
 }
@@ -58,7 +52,9 @@ public struct customButton: View {
     }
     
     public var body: some View {
-        Button {} label: {
+        Button {
+            
+        } label: {
             ZStack {
                 Rectangle()
                     .foregroundColor(.clear)
@@ -90,42 +86,86 @@ struct UIMapView: UIViewRepresentable {
     typealias UIViewType = NMFNaverMapView
     
     func makeUIView(context: Context) -> NMFNaverMapView {
+        
         toiletListViewModel.fectchData()
         parkingLotViewModel.fetchData()
         
         NMFAuthManager.shared().clientId = getValueOfPlistFile("ApiKeys", "CLIENT_ID")
         
         let mapView = NMFNaverMapView()
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 33.4996213, lng: 126.5311884))
         
         mapView.showZoomControls = false
         mapView.mapView.positionMode = .direction
-        mapView.mapView.zoomLevel = 17
+        mapView.mapView.zoomLevel = 14
+        mapView.mapView.moveCamera(cameraUpdate)
         
         return mapView
     }
     
     
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
+        
         toiletListViewModel.toiletList.forEach {
+            
             let marker = NMFMarker()
             marker.position = NMGLatLng(lat: Double($0.laCrdnt) ?? 3.0, lng: Double($0.loCrdnt) ?? 127.0)
             marker.mapView = uiView.mapView
             marker.width = 30
             marker.height = 40
+            marker.iconImage = NMF_MARKER_IMAGE_BLACK
             marker.iconTintColor = .malddongYellow
+            
+            connectInfoWindow(title: $0.toiletNm, marker: marker)
+            
         }
         
         parkingLotViewModel.parkingLots.forEach {
+            
             let marker = NMFMarker()
+<<<<<<< HEAD
             marker.position = NMGLatLng(lat: Double($0.latitude) ?? 3.0, lng: Double($0.longitude) ?? 127.0)
+=======
+          
+            marker.position = NMGLatLng(lat: Double($0.latitude) ?? 3.0, lng: Double($0.longitude) ?? 127.0)
+
+>>>>>>> develop
             marker.mapView = uiView.mapView
             marker.width = 30
             marker.height = 40
+            marker.iconImage = NMF_MARKER_IMAGE_BLACK
             marker.iconTintColor = .malddongBlue
+            
+            connectInfoWindow(title: $0.name, marker: marker)
+            
+        }
+        
+        func connectInfoWindow(title: String, marker: NMFMarker) {
+
+            let infoWindow = NMFInfoWindow()
+            let dataSource = NMFInfoWindowDefaultTextSource.data()
+            
+            dataSource.title = title
+            infoWindow.dataSource = dataSource
+            marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
+                if let marker = overlay as? NMFMarker {
+                    if marker.infoWindow == nil {
+                        // 현재 마커에 정보 창이 열려있지 않을 경우 엶
+                        infoWindow.open(with: marker)
+                    } else {
+                        // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
+                        infoWindow.close()
+                    }
+                }
+                return true
+            }
+            // 지도를 탭하면 정보 창을 닫음
+            func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
+                infoWindow.close()
+            }
         }
     }
 }
-
 
 func getValueOfPlistFile(_ plistFileName:String,_ key:String) -> String? {
     guard let filePath =
@@ -144,3 +184,5 @@ func getValueOfPlistFile(_ plistFileName:String,_ key:String) -> String? {
 #Preview {
     MapView()
 }
+
+

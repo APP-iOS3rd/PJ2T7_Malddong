@@ -33,6 +33,7 @@
 		9A651CCB2B26A0B8005D8618 /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CCA2B26A0B8005D8618 /* Toilet.swift */; };
 		9A651CCD2B26A1C4005D8618 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A651CCC2B26A1C4005D8618 /* ApiKeys.plist */; };
 		9A651CD32B26D348005D8618 /* Extension + Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CD22B26D348005D8618 /* Extension + Font.swift */; };
+		9AC3618D2B2819C50053C3A6 /* MiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		9A651CD02B26D1E4005D8618 /* LINESeedKR-Bd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Bd.otf"; sourceTree = "<group>"; };
 		9A651CD12B26D1E4005D8618 /* LINESeedKR-Th.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Th.otf"; sourceTree = "<group>"; };
 		9A651CD22B26D348005D8618 /* Extension + Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Font.swift"; sourceTree = "<group>"; };
+		9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			children = (
 				60DEE3222B1F024F00362421 /* MapView.swift */,
 				60DEE3232B1F024F00362421 /* MapViewModel.swift */,
+				9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				60DEE30B2B1F015D00362421 /* ContentView.swift in Sources */,
 				60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */,
 				60DEE3242B1F024F00362421 /* MapView.swift in Sources */,
+				9AC3618D2B2819C50053C3A6 /* MiniMapView.swift in Sources */,
 				60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */,
 				60DEE3202B1F023500362421 /* LoginView.swift in Sources */,
 				60DEE3382B1F02BA00362421 /* ToiletDeatilViewModel.swift in Sources */,
