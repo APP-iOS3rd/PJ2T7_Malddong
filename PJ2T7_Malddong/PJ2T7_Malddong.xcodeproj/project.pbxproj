@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CF5CC092B2752F8003970A1 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF5CC082B2752F8003970A1 /* Spot.swift */; };
+		0CF5CC0C2B2753C7003970A1 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF5CC0B2B2753C7003970A1 /* SpotDetailView.swift */; };
+		0CF5CC0E2B2753D7003970A1 /* SpotDetailVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF5CC0D2B2753D7003970A1 /* SpotDetailVIewModel.swift */; };
+		0CF5CC102B2754EB003970A1 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5CC0F2B2754EA003970A1 /* ApiKeys.plist */; };
 		5448F092AA309CACF54DC5E4 /* Pods_PJ2T7_Malddong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */; };
 		60DAC0642B1F4ECB00384217 /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DAC0632B1F4ECB00384217 /* Extension + View.swift */; };
 		60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */; };
@@ -30,10 +34,13 @@
 		60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3412B1F034E00362421 /* Extension + Date.swift */; };
 		9A651CC92B26A0B0005D8618 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CC82B26A0B0005D8618 /* Parking.swift */; };
 		9A651CCB2B26A0B8005D8618 /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CCA2B26A0B8005D8618 /* Toilet.swift */; };
-		9A651CCD2B26A1C4005D8618 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A651CCC2B26A1C4005D8618 /* ApiKeys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CF5CC082B2752F8003970A1 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
+		0CF5CC0B2B2753C7003970A1 /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
+		0CF5CC0D2B2753D7003970A1 /* SpotDetailVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailVIewModel.swift; sourceTree = "<group>"; };
+		0CF5CC0F2B2754EA003970A1 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../ApiKeys.plist; sourceTree = "<group>"; };
 		204D46BA8C473AA83D23BEAE /* Pods-PJ2T7_Malddong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJ2T7_Malddong.debug.xcconfig"; path = "Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong.debug.xcconfig"; sourceTree = "<group>"; };
 		4C5AC3426EA5782A734D767A /* Pods-PJ2T7_Malddong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJ2T7_Malddong.release.xcconfig"; path = "Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong.release.xcconfig"; sourceTree = "<group>"; };
 		605BF4212B206551006FEF25 /* PJ2T7-Malddong-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PJ2T7-Malddong-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -61,7 +68,6 @@
 		8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PJ2T7_Malddong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A651CC82B26A0B0005D8618 /* Parking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		9A651CCA2B26A0B8005D8618 /* Toilet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toilet.swift; sourceTree = "<group>"; };
-		9A651CCC2B26A1C4005D8618 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CF5CC0A2B2753A2003970A1 /* SpotDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				0CF5CC0B2B2753C7003970A1 /* SpotDetailView.swift */,
+				0CF5CC0D2B2753D7003970A1 /* SpotDetailVIewModel.swift */,
+			);
+			path = SpotDetailView;
+			sourceTree = "<group>";
+		};
 		10C23D7F387171F753315143 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +220,7 @@
 		60DEE33A2B1F02C700362421 /* SpotView */ = {
 			isa = PBXGroup;
 			children = (
+				0CF5CC0A2B2753A2003970A1 /* SpotDetailView */,
 				60DEE33C2B1F02EE00362421 /* SpotView.swift */,
 				60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */,
 			);
@@ -216,6 +232,7 @@
 			children = (
 				9A651CC82B26A0B0005D8618 /* Parking.swift */,
 				9A651CCA2B26A0B8005D8618 /* Toilet.swift */,
+				0CF5CC082B2752F8003970A1 /* Spot.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,7 +249,7 @@
 		9A65718F2B235EF6007BD13D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				9A651CCC2B26A1C4005D8618 /* ApiKeys.plist */,
+				0CF5CC0F2B2754EA003970A1 /* ApiKeys.plist */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -307,8 +324,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				60DEE3102B1F015E00362421 /* Preview Assets.xcassets in Resources */,
+				0CF5CC102B2754EB003970A1 /* ApiKeys.plist in Resources */,
 				60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */,
-				9A651CCD2B26A1C4005D8618 /* ApiKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +388,7 @@
 				60DEE30B2B1F015D00362421 /* ContentView.swift in Sources */,
 				60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */,
 				60DEE3242B1F024F00362421 /* MapView.swift in Sources */,
+				0CF5CC0E2B2753D7003970A1 /* SpotDetailVIewModel.swift in Sources */,
 				60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */,
 				60DEE3202B1F023500362421 /* LoginView.swift in Sources */,
 				60DEE3382B1F02BA00362421 /* ToiletDeatilViewModel.swift in Sources */,
@@ -380,6 +398,8 @@
 				60DEE33D2B1F02EE00362421 /* SpotViewModel.swift in Sources */,
 				60DEE3342B1F02A900362421 /* ToiletListViewModel.swift in Sources */,
 				60DEE32A2B1F026600362421 /* MyPageViewModel.swift in Sources */,
+				0CF5CC0C2B2753C7003970A1 /* SpotDetailView.swift in Sources */,
+				0CF5CC092B2752F8003970A1 /* Spot.swift in Sources */,
 				60DEE32F2B1F027C00362421 /* ParkingLotView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
