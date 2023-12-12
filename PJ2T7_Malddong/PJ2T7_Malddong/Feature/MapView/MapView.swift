@@ -117,6 +117,7 @@ struct UIMapView: UIViewRepresentable {
             marker.iconTintColor = .malddongYellow
             
             connectInfoWindow(title: $0.toiletNm, marker: marker)
+            
         }
         
         parkingLotViewModel.parkingLots.forEach {
@@ -130,16 +131,28 @@ struct UIMapView: UIViewRepresentable {
             marker.iconTintColor = .malddongBlue
             
             connectInfoWindow(title: $0.주차장명, marker: marker)
+            
         }
         
         func connectInfoWindow(title: String, marker: NMFMarker) {
+
             let infoWindow = NMFInfoWindow()
             let dataSource = NMFInfoWindowDefaultTextSource.data()
             
             dataSource.title = title
             infoWindow.dataSource = dataSource
-            //infoWindow.open(with: marker)
-
+            marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
+                if let marker = overlay as? NMFMarker {
+                    if marker.infoWindow == nil {
+                        // 현재 마커에 정보 창이 열려있지 않을 경우 엶
+                        infoWindow.open(with: marker)
+                    } else {
+                        // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
+                        infoWindow.close()
+                    }
+                }
+                return true
+            }
             // 지도를 탭하면 정보 창을 닫음
             func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
                 infoWindow.close()
