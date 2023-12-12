@@ -34,7 +34,7 @@ struct ParkingLotView: View {
 // distributeView
 private struct distributeView:View{
     @ObservedObject private var parkingLotViewModel: ParkingLotViewModel
-
+    
     init(parkingLotViewModel: ParkingLotViewModel) {
         self.parkingLotViewModel = parkingLotViewModel
     }
@@ -60,7 +60,7 @@ private struct distributeView:View{
             Spacer()
             
             Picker("", selection:$parkingLotViewModel.distributeSelect
-                    , content: {
+                   , content: {
                 ForEach(parkingLotViewModel.distributeArea,id: \.self){item in
                     Text(item)
                 }
@@ -86,7 +86,7 @@ private struct GridView:View {
             
             ForEach(parkingLotViewModel.parkingLots,id: \.self){item in
                 NavigationLink(destination: ParkingDetailView(parking: item)){
-                    ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
+                ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
                 }
             }
             
@@ -116,7 +116,7 @@ private struct ParkingCellView:View{
                         .cornerRadius(15, corners: [.topLeft, .topRight])
                         .shadow(radius: 7)
                     
-                        Image("주차장")
+                    Image("주차장")
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: 152,maxHeight: 100)
@@ -156,8 +156,8 @@ private struct ParkingCellView:View{
                             .foregroundStyle(Color.gray)
                             .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                             .shadow(radius: 7)
-                
-                            Image("주차장")
+                        
+                        Image("주차장")
                             .resizable()
                             .scaledToFit()
                             .frame(maxWidth: 210,maxHeight: 180)
