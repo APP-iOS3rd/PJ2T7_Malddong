@@ -11,18 +11,20 @@ struct ToiletListView: View {
     @StateObject private var toiletListViewModel = ToiletListViewModel()
     
     var body: some View {
-        ScrollView{
-            
-            VStack{
-                distributeView(
-                    toiletListViewModel: toiletListViewModel)
-                .padding(.horizontal)
+        NavigationStack{
+            ScrollView{
                 
-                
-                GridView(toiletListViewModel: toiletListViewModel)
-                    .padding()
+                VStack{
+                    distributeView(
+                        toiletListViewModel: toiletListViewModel)
+                    .padding(.horizontal)
                     
                     
+                    GridView(toiletListViewModel: toiletListViewModel)
+                        .padding()
+                    
+                    
+                }
             }
         }
         
@@ -90,22 +92,19 @@ private struct GridView:View {
                 GridItem(.flexible()),] :[GridItem(.flexible())]
                       , content: {
                 ForEach(toiletListViewModel.toiletList,id: \.self){item in
+                    NavigationLink(destination: ToiletDetailView(item: item)) {
+                        
+                        ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
+                            .padding()
+                    }
+                        
                     
-                    ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
-                        .padding()
-                        .onTapGesture {
-                            self.item = item
-                            pop = true
-                        }
                     
-                    
-                }
+                }//FE
                 
                 
             })
-            .popover(isPresented: $pop, content: {
-                ToiletDetailView(item: item)
-            })
+            
             
         
         .animation(.default)
