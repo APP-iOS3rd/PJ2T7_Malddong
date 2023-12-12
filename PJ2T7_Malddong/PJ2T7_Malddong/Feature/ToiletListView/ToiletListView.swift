@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ToiletListView: View {
     @StateObject private var toiletListViewModel = ToiletListViewModel()
@@ -102,6 +103,11 @@ private struct GridView:View {
 }
 //MARK: - ToiletCellView
 private struct ToiletCellView:View{
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(entity: MyToilets.entity(), sortDescriptors: [])
+    private var myToilets: FetchedResults<MyToilets>
+    
     @ObservedObject private var toiletListViewModel:ToiletListViewModel
     private var item:Toilet
     
@@ -130,6 +136,9 @@ private struct ToiletCellView:View{
                         
                         .scaledToFit()
                         .frame(maxWidth: 152,maxHeight: 100)
+                        .onTapGesture {
+                            addItem()
+                        }
                 }
                 ZStack{
                     Rectangle()
@@ -197,6 +206,26 @@ private struct ToiletCellView:View{
                 
         }
         
+    }
+    private func addItem() {
+           withAnimation {
+               //수정 부분
+               let newToilet = MyToilets(context: viewContext)
+               newToilet.toiletNm = item.toiletNm
+               
+               saveItems()
+           }
+       }
+    
+    private func saveItems() {
+        do {
+            try viewContext.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
     }
 }
 
