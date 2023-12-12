@@ -10,29 +10,32 @@ struct Results: Decodable {
 }
 
 struct Parking: Hashable, Decodable {
-    var 경도: String
-    var 공휴일운영시작시각: String
-    var 공휴일운영종료시각:String
-    var 관리기관명:String
-    var 수정일자:String
-    var 연락처:String
     
-    var 요금정보:String
-    var 운영요일: String
-    var 위도: String
-    var 주차구획수: String
-    var 주차장관리번호: String
-    var 주차장구분: String
-    var 주차장도로명주소: String
+    enum CodingKeys: String, CodingKey {
+        case latitude = "위도"
+        case longitude = "경도"
+        case manageName = "관리기관명"
+        case phoneNo = "연락처"
+        case price = "요금정보"
+        case operatingDays = "운영요일"
+        case enableNum = "주차구획수"
+        case isPublic = "주차장구분"
+        case rnAdres = "주차장도로명주소"
+        case name = "주차장명"
+        case type = "주차장유형"
+        case lnmAdres = "주차장지번주소"
+    }
     
-    var 주차장명: String
-    var 주차장유형: String
-    var 주차장지번주소: String
-    var 지역구분: String
-    var 지역구분_sub: String
-//    var 지역중심좌표_X좌표: String
-//    var 지역중심좌표_Y좌표: String
-    var 지역코드: String
-    var 토요일운영시작시각: String
-    var 토요일운영종료시각: String
+    var latitude: String
+    var longitude: String
+    var manageName: String
+    var phoneNo: String
+    var price: String
+    var operatingDays: String
+    var enableNum: String
+    var isPublic: String
+    var rnAdres: String
+    var name: String
+    var type: String
+    var lnmAdres: String
 }

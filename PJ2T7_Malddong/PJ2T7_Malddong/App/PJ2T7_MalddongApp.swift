@@ -12,7 +12,6 @@ struct PJ2T7_MalddongApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-            
         }
     }
 }
