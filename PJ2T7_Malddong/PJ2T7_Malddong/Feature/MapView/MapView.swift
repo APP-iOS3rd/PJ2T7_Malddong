@@ -132,7 +132,7 @@ struct UIMapView: UIViewRepresentable {
             marker.iconImage = NMF_MARKER_IMAGE_BLACK
             marker.iconTintColor = .malddongBlue
             
-            connectInfoWindow(title: $0.주차장명, marker: marker)
+            connectInfoWindow(title: $0.name, marker: marker)
             
         }
         
