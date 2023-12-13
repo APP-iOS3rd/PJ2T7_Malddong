@@ -8,28 +8,26 @@
 import SwiftUI
 
 struct SpotView: View {
-    
     @StateObject private var spotViewModel = SpotViewModel(spotitem: [])
     
-    
-    
     var body: some View {
-        ScrollView{
-            
-            VStack{
-                distributeView(
-                    spotViewModel: spotViewModel)
-                .padding(.horizontal)
-                
-                
-                GridView(spotViewModel: spotViewModel)
-                    .padding()
-                
-                
+        NavigationStack {
+            ScrollView{
+                VStack{
+                    distributeView(
+                        spotViewModel:
+                            spotViewModel)
+                    .padding(.horizontal)
+                    
+                    
+                    GridView(spotViewModel:
+                                spotViewModel)
+                                .padding()
+                }
             }
-        }
-        .onAppear{
-            spotViewModel.fetchData()
+            .onAppear{
+                spotViewModel.fetchData()
+            }
         }
     }
 }
@@ -38,14 +36,11 @@ struct SpotView: View {
 private struct distributeView:View{
     @ObservedObject private var spotViewModel: SpotViewModel
     
-    
     init(spotViewModel: SpotViewModel) {
         self.spotViewModel = spotViewModel
     }
     
     var body: some View{
-        
-        
         HStack{
             Button(action: {
                 spotViewModel.gridOneLine()
@@ -54,6 +49,7 @@ private struct distributeView:View{
                     .font(.system(size: 25))
                     .foregroundStyle(Color.black)
             })
+            
             Button(action: {
                 spotViewModel.gridTwoLine()
             }, label: {
@@ -61,18 +57,21 @@ private struct distributeView:View{
                     .font(.system(size: 25))
                     .foregroundStyle(Color.black)
             })
+            
             Spacer()
-            Picker("", selection:$spotViewModel.distributeSelect
+            
+            Picker("",
+                   selection:$spotViewModel
+                   .distributeSelect
                     , content: {
-                ForEach(spotViewModel.distributeArea,id: \.self){item in
+                ForEach(spotViewModel
+                    .distributeArea,id: \.self){item in
                     Text(item)
                     
                 }
             })
         }
     }
-       
-    
 }
 
 //MARK: - GrideView
@@ -87,21 +86,23 @@ private struct GridView: View {
         LazyVGrid(columns: spotViewModel.isGridAlign ? [
             GridItem(.flexible()),
             GridItem(.flexible()),
-        ] : [GridItem(.flexible())], content: {
+        ] : [GridItem(.flexible())]
+                  , content: {
+            
             ForEach(spotViewModel.spotitem, id: \.self) { item in
-                SpotCellView(spotViewModel: spotViewModel, item: item)
-                    .padding()
-                    
+                NavigationLink(destination: SpotDetailView(spot: item)){
+                    SpotCellView(spotViewModel: spotViewModel, item: item)
+                        .padding()
+                }
             }
-        })
-        
-        .animation(.default)
+        }).animation(.default)
     }
 }
 
 // SpotCellView
 private struct SpotCellView:View{
-    @ObservedObject private var spotViewModel:SpotViewModel
+    @ObservedObject private var spotViewModel:
+    SpotViewModel
     private var item: Spot
     
     init(spotViewModel: SpotViewModel, item: Spot) {
@@ -114,8 +115,6 @@ private struct SpotCellView:View{
         VStack(spacing:0){
             if spotViewModel.isGridAlign{
                 ZStack{
-                    
-                    
                     Rectangle()
                         .frame(width: 152,height: 100)
                         .foregroundColor(.gray)
@@ -127,9 +126,9 @@ private struct SpotCellView:View{
                                        )){
                         $0.image?.resizable()
                     }
-                        
-                        .scaledToFit()
-                        .frame(maxWidth: 152,maxHeight: 100)
+                    
+                                       .scaledToFit()
+                                       .frame(maxWidth: 152,maxHeight: 100)
                 }
                 ZStack{
                     Rectangle()
@@ -154,7 +153,8 @@ private struct SpotCellView:View{
                         
                     }.frame(maxWidth: 152,maxHeight: 70)
                 }
-            }else{
+                
+            } else {
                 HStack(spacing:0){
                     ZStack{
                         
@@ -168,9 +168,9 @@ private struct SpotCellView:View{
                                            )){
                             $0.image?.resizable()
                         }
-                            .scaledToFit()
-                            .frame(maxWidth: 210,maxHeight: 180)
-                            
+                                           .scaledToFit()
+                                           .frame(maxWidth: 210,maxHeight: 180)
+                        
                     }
                     ZStack{
                         Rectangle()
@@ -190,11 +190,8 @@ private struct SpotCellView:View{
                         }
                     }
                 }//H
-                
             }
-                
         }
-        
     }
 }
 
