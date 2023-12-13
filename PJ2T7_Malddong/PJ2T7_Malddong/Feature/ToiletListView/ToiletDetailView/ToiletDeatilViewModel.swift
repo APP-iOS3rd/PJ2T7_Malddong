@@ -6,6 +6,13 @@
 //
 
 import Foundation
+import NMapsMap
 class ToiletDetailViewModel{
     //observableObject 로 View에서 받아서 사용
+  
 }
+
+
+
+    
+

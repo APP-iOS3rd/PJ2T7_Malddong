@@ -11,7 +11,10 @@
 		0CF5CC0C2B2753C7003970A1 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF5CC0B2B2753C7003970A1 /* SpotDetailView.swift */; };
 		0CF5CC0E2B2753D7003970A1 /* SpotDetailVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF5CC0D2B2753D7003970A1 /* SpotDetailVIewModel.swift */; };
 		0CF5CC102B2754EB003970A1 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5CC0F2B2754EA003970A1 /* ApiKeys.plist */; };
+		2369EE432B26EA4100723CB1 /* ParkingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2369EE422B26EA4100723CB1 /* ParkingDetailView.swift */; };
 		5448F092AA309CACF54DC5E4 /* Pods_PJ2T7_Malddong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */; };
+		6042B76D2B2851C400A7C952 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042B76C2B2851C400A7C952 /* CustomButton.swift */; };
+		60952A492B26C89E00AA3EF6 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60952A482B26C89E00AA3EF6 /* ApiKeys.plist */; };
 		60DAC0642B1F4ECB00384217 /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DAC0632B1F4ECB00384217 /* Extension + View.swift */; };
 		60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */; };
 		60DEE30B2B1F015D00362421 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE30A2B1F015D00362421 /* ContentView.swift */; };
@@ -34,6 +37,11 @@
 		60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3412B1F034E00362421 /* Extension + Date.swift */; };
 		9A651CC92B26A0B0005D8618 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CC82B26A0B0005D8618 /* Parking.swift */; };
 		9A651CCB2B26A0B8005D8618 /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CCA2B26A0B8005D8618 /* Toilet.swift */; };
+		9A651CD32B26D348005D8618 /* Extension + Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CD22B26D348005D8618 /* Extension + Font.swift */; };
+		9AC3618D2B2819C50053C3A6 /* MiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */; };
+		A46B33552B2850D70047424C /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = A46B33542B2850D70047424C /* ApiKeys.plist */; };
+		A46B33592B2851070047424C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B33562B2851070047424C /* Persistence.swift */; };
+		A46B335A2B2851070047424C /* MyData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A46B33572B2851070047424C /* MyData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +50,11 @@
 		0CF5CC0D2B2753D7003970A1 /* SpotDetailVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailVIewModel.swift; sourceTree = "<group>"; };
 		0CF5CC0F2B2754EA003970A1 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../ApiKeys.plist; sourceTree = "<group>"; };
 		204D46BA8C473AA83D23BEAE /* Pods-PJ2T7_Malddong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJ2T7_Malddong.debug.xcconfig"; path = "Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong.debug.xcconfig"; sourceTree = "<group>"; };
+		2369EE422B26EA4100723CB1 /* ParkingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingDetailView.swift; sourceTree = "<group>"; };
 		4C5AC3426EA5782A734D767A /* Pods-PJ2T7_Malddong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJ2T7_Malddong.release.xcconfig"; path = "Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong.release.xcconfig"; sourceTree = "<group>"; };
+		6042B76C2B2851C400A7C952 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		605BF4212B206551006FEF25 /* PJ2T7-Malddong-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PJ2T7-Malddong-Info.plist"; sourceTree = SOURCE_ROOT; };
+		60952A482B26C89E00AA3EF6 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		60DAC0632B1F4ECB00384217 /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
 		60DEE3052B1F015D00362421 /* PJ2T7_Malddong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PJ2T7_Malddong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJ2T7_MalddongApp.swift; sourceTree = "<group>"; };
@@ -68,6 +79,14 @@
 		8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PJ2T7_Malddong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A651CC82B26A0B0005D8618 /* Parking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		9A651CCA2B26A0B8005D8618 /* Toilet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toilet.swift; sourceTree = "<group>"; };
+		9A651CCF2B26D1E4005D8618 /* LINESeedKR-Rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Rg.otf"; sourceTree = "<group>"; };
+		9A651CD02B26D1E4005D8618 /* LINESeedKR-Bd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Bd.otf"; sourceTree = "<group>"; };
+		9A651CD12B26D1E4005D8618 /* LINESeedKR-Th.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Th.otf"; sourceTree = "<group>"; };
+		9A651CD22B26D348005D8618 /* Extension + Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Font.swift"; sourceTree = "<group>"; };
+		9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMapView.swift; sourceTree = "<group>"; };
+		A46B33542B2850D70047424C /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../Downloads/ApiKeys.plist; sourceTree = "<group>"; };
+		A46B33562B2851070047424C /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Persistence.swift; path = "../../../../../study/PJ2T7_Malddong 오후 5.17.57/PJ2T7_Malddong/PJ2T7_Malddong/Model/Persistence.swift"; sourceTree = "<group>"; };
+		A46B33582B2851070047424C /* MyData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +140,7 @@
 		60DEE3072B1F015D00362421 /* PJ2T7_Malddong */ = {
 			isa = PBXGroup;
 			children = (
+				9A651CCE2B26D1C3005D8618 /* Fonts */,
 				605BF4212B206551006FEF25 /* PJ2T7-Malddong-Info.plist */,
 				60DEE3402B1F033A00362421 /* Extension */,
 				60DEE33F2B1F032200362421 /* Model */,
@@ -176,6 +196,7 @@
 			children = (
 				60DEE3222B1F024F00362421 /* MapView.swift */,
 				60DEE3232B1F024F00362421 /* MapViewModel.swift */,
+				9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -194,6 +215,7 @@
 			children = (
 				60DEE32D2B1F027C00362421 /* ParkingLotView.swift */,
 				60DEE32C2B1F027C00362421 /* ParkingLotViewModel.swift */,
+				2369EE422B26EA4100723CB1 /* ParkingDetailView.swift */,
 			);
 			path = ParkinglotView;
 			sourceTree = "<group>";
@@ -213,6 +235,7 @@
 			children = (
 				60DEE3362B1F02BA00362421 /* ToiletDeatilViewModel.swift */,
 				60DEE3372B1F02BA00362421 /* ToiletDetailView.swift */,
+				6042B76C2B2851C400A7C952 /* CustomButton.swift */,
 			);
 			path = ToiletDetailView;
 			sourceTree = "<group>";
@@ -232,6 +255,8 @@
 			children = (
 				9A651CC82B26A0B0005D8618 /* Parking.swift */,
 				9A651CCA2B26A0B8005D8618 /* Toilet.swift */,
+				A46B33572B2851070047424C /* MyData.xcdatamodeld */,
+				A46B33562B2851070047424C /* Persistence.swift */,
 				0CF5CC082B2752F8003970A1 /* Spot.swift */,
 			);
 			path = Model;
@@ -242,14 +267,25 @@
 			children = (
 				60DEE3412B1F034E00362421 /* Extension + Date.swift */,
 				60DAC0632B1F4ECB00384217 /* Extension + View.swift */,
+				9A651CD22B26D348005D8618 /* Extension + Font.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9A651CCE2B26D1C3005D8618 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9A651CD02B26D1E4005D8618 /* LINESeedKR-Bd.otf */,
+				9A651CCF2B26D1E4005D8618 /* LINESeedKR-Rg.otf */,
+				9A651CD12B26D1E4005D8618 /* LINESeedKR-Th.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		9A65718F2B235EF6007BD13D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				0CF5CC0F2B2754EA003970A1 /* ApiKeys.plist */,
+				A46B33542B2850D70047424C /* ApiKeys.plist */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -324,7 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60DEE3102B1F015E00362421 /* Preview Assets.xcassets in Resources */,
-				0CF5CC102B2754EB003970A1 /* ApiKeys.plist in Resources */,
+				A46B33552B2850D70047424C /* ApiKeys.plist in Resources */,
 				60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,12 +418,15 @@
 				60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */,
 				9A651CC92B26A0B0005D8618 /* Parking.swift in Sources */,
 				60DEE3332B1F02A900362421 /* ToiletListView.swift in Sources */,
+				A46B335A2B2851070047424C /* MyData.xcdatamodeld in Sources */,
 				9A651CCB2B26A0B8005D8618 /* Toilet.swift in Sources */,
 				60DEE3392B1F02BA00362421 /* ToiletDetailView.swift in Sources */,
 				60DEE3292B1F026600362421 /* MyPageView.swift in Sources */,
 				60DEE30B2B1F015D00362421 /* ContentView.swift in Sources */,
 				60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */,
+				A46B33592B2851070047424C /* Persistence.swift in Sources */,
 				60DEE3242B1F024F00362421 /* MapView.swift in Sources */,
+				9AC3618D2B2819C50053C3A6 /* MiniMapView.swift in Sources */,
 				0CF5CC0E2B2753D7003970A1 /* SpotDetailVIewModel.swift in Sources */,
 				60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */,
 				60DEE3202B1F023500362421 /* LoginView.swift in Sources */,
@@ -395,7 +434,10 @@
 				60DAC0642B1F4ECB00384217 /* Extension + View.swift in Sources */,
 				60DEE31F2B1F023500362421 /* LoginViewModel.swift in Sources */,
 				60DEE3252B1F024F00362421 /* MapViewModel.swift in Sources */,
+				9A651CD32B26D348005D8618 /* Extension + Font.swift in Sources */,
 				60DEE33D2B1F02EE00362421 /* SpotViewModel.swift in Sources */,
+				6042B76D2B2851C400A7C952 /* CustomButton.swift in Sources */,
+				2369EE432B26EA4100723CB1 /* ParkingDetailView.swift in Sources */,
 				60DEE3342B1F02A900362421 /* ToiletListViewModel.swift in Sources */,
 				60DEE32A2B1F026600362421 /* MyPageViewModel.swift in Sources */,
 				0CF5CC0C2B2753C7003970A1 /* SpotDetailView.swift in Sources */,
@@ -616,6 +658,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A46B33572B2851070047424C /* MyData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A46B33582B2851070047424C /* MyData.xcdatamodel */,
+			);
+			currentVersion = A46B33582B2851070047424C /* MyData.xcdatamodel */;
+			name = MyData.xcdatamodeld;
+			path = "../../../../../study/PJ2T7_Malddong 오후 5.17.57/PJ2T7_Malddong/PJ2T7_Malddong/Model/MyData.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 60DEE2FD2B1F015D00362421 /* Project object */;
 }
