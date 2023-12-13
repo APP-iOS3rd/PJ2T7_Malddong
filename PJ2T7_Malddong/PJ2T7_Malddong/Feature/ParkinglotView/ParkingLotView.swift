@@ -72,8 +72,7 @@ private struct distributeView:View{
 // 개별 버튼
 private struct GridView:View {
     @ObservedObject private var parkingLotViewModel: ParkingLotViewModel
-    //@State private var isActive = false
-    
+
     init(parkingLotViewModel: ParkingLotViewModel) {
         self.parkingLotViewModel = parkingLotViewModel
     }
@@ -99,6 +98,10 @@ private struct ParkingCellView:View{
     @ObservedObject private var parkingLotViewModel: ParkingLotViewModel
     private var item: Parking
     
+    let CarImages = ["car1", "car2", "car3", "car4", "car5", "car6", "car7", "car8", "car9", "car10",
+                     "car11", "car12", "car13", "car14", "car15", "car16", "car17", "car18", "car19",
+                     "car20", "car21", "car22", "car23", "car24", "car25", "car26"]
+    
     init(parkingLotViewModel: ParkingLotViewModel, item: Parking) {
         self.parkingLotViewModel = parkingLotViewModel
         self.item = item
@@ -116,10 +119,15 @@ private struct ParkingCellView:View{
                         .cornerRadius(15, corners: [.topLeft, .topRight])
                         .shadow(radius: 7)
                     
-                    Image("주차장")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 152,maxHeight: 100)
+                    ForEach(0..<26) { _ in
+                        let randomIndex = Int.random(in: 0..<self.CarImages.count)
+                        let imageName = self.CarImages[randomIndex]
+                        
+                        Image(imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: 152,maxHeight: 100)
+                    }
                 }
                 
                 ZStack{
@@ -150,17 +158,21 @@ private struct ParkingCellView:View{
             else{
                 HStack(spacing:0){
                     ZStack{
-                        
                         Rectangle()
                             .frame(width: 210, height: 180)
                             .foregroundStyle(Color.gray)
                             .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                             .shadow(radius: 7)
                         
-                        Image("주차장")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: 210,maxHeight: 180)
+                        ForEach(0..<26) { _ in
+                            let randomIndex = Int.random(in: 0..<self.CarImages.count)
+                            let imageName = self.CarImages[randomIndex]
+                            
+                            Image(imageName)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: 210,maxHeight: 180)
+                        }
                     }
                     
                     ZStack{
