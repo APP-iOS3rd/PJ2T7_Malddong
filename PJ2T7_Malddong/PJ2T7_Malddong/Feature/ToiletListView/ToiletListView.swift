@@ -12,18 +12,44 @@ struct ToiletListView: View {
     @StateObject private var toiletListViewModel = ToiletListViewModel()
     
     var body: some View {
-        ScrollView{
-            
-            VStack{
-                distributeView(
-                    toiletListViewModel: toiletListViewModel)
-                .padding(.horizontal)
+        NavigationStack{
+            ScrollView{
                 
-                
-                GridView(toiletListViewModel: toiletListViewModel)
-                    .padding()
+                VStack{
+                    HStack {
+                        NavigationLink(destination: ToiletListView()) {
+                           
+                            customButton2(title: "화장실", imageName: "tissue", backgroundColor: .malddongYellow)
+                        }
+                        NavigationLink(destination: SpotView()){
+                            
+                            customButton2(title: "관광지", imageName: "dolhareubang", backgroundColor: .malddongGreen)
+                                
+                            
+                        }
+                        NavigationLink(destination: ParkingLotView()){
+                            customButton2(title: "주차장", imageName: "car", backgroundColor: .malddongBlue)
+                        }
+                        
+                        Spacer()
+                        
+                        Image("search")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 28, height: 28)
+                            .clipped()
+                    }
+                    .padding(12)
+                    distributeView(
+                        toiletListViewModel: toiletListViewModel)
+                    .padding(.horizontal)
                     
                     
+                    GridView(toiletListViewModel: toiletListViewModel)
+                        .padding()
+                    
+                    
+                }
             }
         }
         
@@ -84,20 +110,28 @@ private struct GridView:View {
     }
     
     var body: some View {
-        LazyVGrid(columns: toiletListViewModel.isGridAlign ? [
-            GridItem(.flexible()),
-            GridItem(.flexible()),] :[GridItem(.flexible())]
-                  , content: {
-            ForEach(toiletListViewModel.toiletList,id: \.self){item in
-                ToiletCellView(toiletListViewModel: toiletListViewModel, item: item)
-                    .padding()
+        
+            LazyVGrid(columns: toiletListViewModel.isGridAlign ? [
+                GridItem(.flexible()),
+                GridItem(.flexible()),] :[GridItem(.flexible())]
+                      , content: {
+                ForEach(toiletListViewModel.toiletList,id: \.self){item in
+                    NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
+                        
+                        ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
+                            .padding()
+                    }
+                        
                     
+                    
+                }//FE
                 
-            }
+                
+            })
             
             
-        })
-        .animation(.default)
+        
+        
         
     }
 }
@@ -150,6 +184,7 @@ private struct ToiletCellView:View{
                     VStack{
                         Text(item.toiletNm)
                             .font(.system(size: 15,weight: .bold))
+                            .foregroundStyle(Color.black)
                         
                         HStack{
                             Text(item.rnAdres)
@@ -158,7 +193,10 @@ private struct ToiletCellView:View{
                                 .lineLimit(2)
                                 .foregroundStyle(Color.gray)
                             
-                            Text("1.2km")
+                            Text("\(toiletListViewModel.distanceCalc(toilet: item))km")
+                                .font(.system(size: 12))
+                                .foregroundStyle(Color.gray)
+                            //15592
                         }
                         
                     }.frame(maxWidth: 152,maxHeight: 70)
@@ -192,7 +230,9 @@ private struct ToiletCellView:View{
                         VStack{
                             Text(item.toiletNm)
                                 .font(.system(size: 20,weight: .bold))
-                            Text("1.6km")
+                                .foregroundStyle(Color.black)
+                            Text("\(toiletListViewModel.distanceCalc(toilet: item))km")
+                                .foregroundStyle(Color.black)
                             Text(item.rnAdres)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)
