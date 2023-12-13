@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CD17B592B296976005AD726 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD17B582B296976005AD726 /* ApiKeys.plist */; };
 		0CD17B5B2B2969F9005AD726 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD17B5A2B2969F9005AD726 /* SpotDetailView.swift */; };
 		0CF5CC092B2752F8003970A1 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF5CC082B2752F8003970A1 /* Spot.swift */; };
 		2369EE432B26EA4100723CB1 /* ParkingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2369EE422B26EA4100723CB1 /* ParkingDetailView.swift */; };
@@ -39,11 +38,11 @@
 		9A937BA12B2953B500D313FE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A937BA02B2953B500D313FE /* Persistence.swift */; };
 		9A937BA72B29670A00D313FE /* MyData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A937BA52B29670A00D313FE /* MyData.xcdatamodeld */; };
 		9AB246552B294E9C00FFA0BA /* (null) in Sources */ = {isa = PBXBuildFile; };
+		9AB3FC722B296E6200842EB6 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AB3FC712B296E6200842EB6 /* ApiKeys.plist */; };
 		9AC3618D2B2819C50053C3A6 /* MiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0CD17B582B296976005AD726 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../ApiKeys.plist; sourceTree = "<group>"; };
 		0CD17B5A2B2969F9005AD726 /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
 		0CF5CC082B2752F8003970A1 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		204D46BA8C473AA83D23BEAE /* Pods-PJ2T7_Malddong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJ2T7_Malddong.debug.xcconfig"; path = "Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		9A651CD22B26D348005D8618 /* Extension + Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Font.swift"; sourceTree = "<group>"; };
 		9A937BA02B2953B500D313FE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9A937BA62B29670A00D313FE /* MyData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyData.xcdatamodel; sourceTree = "<group>"; };
+		9AB3FC712B296E6200842EB6 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../Desktop/ApiKeys.plist; sourceTree = "<group>"; };
 		9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -271,7 +271,7 @@
 		9A65718F2B235EF6007BD13D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				0CD17B582B296976005AD726 /* ApiKeys.plist */,
+				9AB3FC712B296E6200842EB6 /* ApiKeys.plist */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 			files = (
 				60DEE3102B1F015E00362421 /* Preview Assets.xcassets in Resources */,
 				60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */,
-				0CD17B592B296976005AD726 /* ApiKeys.plist in Resources */,
+				9AB3FC722B296E6200842EB6 /* ApiKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

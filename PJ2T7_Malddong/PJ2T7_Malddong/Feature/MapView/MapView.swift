@@ -8,9 +8,10 @@
 import SwiftUI
 
 import NMapsMap
+import CoreLocation
 
 struct MapView: View {
-
+    
     var body: some View {
         ZStack(alignment: .topLeading) {
             UIMapView()
@@ -81,7 +82,12 @@ public struct customButton: View {
 
 struct UIMapView: UIViewRepresentable {
     @ObservedObject var toiletListViewModel = ToiletListViewModel()
+    @ObservedObject var spotViewModel = SpotViewModel(spotitem: [])
     @ObservedObject var parkingLotViewModel =  ParkingLotViewModel(parkingLots: [])
+    
+    @State private var isToiletInfoWindowTouched = false
+    @State private var isSpotInfoWindowTouched = false
+    @State private var isParkingInfoWindowTouched = false
     
     typealias UIViewType = NMFNaverMapView
     
@@ -89,6 +95,7 @@ struct UIMapView: UIViewRepresentable {
         
         toiletListViewModel.fectchData()
         parkingLotViewModel.fetchData()
+        spotViewModel.fetchData()
         
         NMFAuthManager.shared().clientId = getValueOfPlistFile("ApiKeys", "CLIENT_ID")
         
@@ -107,36 +114,38 @@ struct UIMapView: UIViewRepresentable {
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
         
         toiletListViewModel.toiletList.forEach {
-            
-            let marker = NMFMarker()
-            marker.position = NMGLatLng(lat: Double($0.laCrdnt) ?? 3.0, lng: Double($0.loCrdnt) ?? 127.0)
-            marker.mapView = uiView.mapView
-            marker.width = 30
-            marker.height = 40
-            marker.iconImage = NMF_MARKER_IMAGE_BLACK
-            marker.iconTintColor = .malddongYellow
-            
-            connectInfoWindow(title: $0.toiletNm, marker: marker)
-            
+            connectMarker(title: $0.toiletNm, latitude: Double($0.laCrdnt), longitude: Double($0.loCrdnt), color: .malddongYellow)
         }
         
         parkingLotViewModel.parkingLots.forEach {
-            
-            let marker = NMFMarker()
+            connectMarker(title: $0.name, latitude: Double($0.latitude), longitude: Double($0.longitude), color: .malddongBlue)
+        }
         
-            marker.position = NMGLatLng(lat: Double($0.latitude) ?? 3.0, lng: Double($0.longitude) ?? 127.0)
+        spotViewModel.spotitem.forEach {
+            connectMarker(title: $0.title, latitude: $0.latitude, longitude: $0.longitude, color: .malddongGreen)
+        }
+        
+
+        
+        
+        
+        // MARK: Marker 찍기
+        func connectMarker( title:String, latitude: Double?, longitude: Double?, color: UIColor) {
+            let marker = NMFMarker()
+            
+            marker.position = NMGLatLng(lat: latitude ?? 3.0 , lng: longitude ?? 127.0)
             marker.mapView = uiView.mapView
             marker.width = 30
             marker.height = 40
             marker.iconImage = NMF_MARKER_IMAGE_BLACK
-            marker.iconTintColor = .malddongBlue
+            marker.iconTintColor = color
             
-            connectInfoWindow(title: $0.name, marker: marker)
-            
+            connectInfoWindow(title: title, marker: marker)
         }
         
+        // MARK: InfoWindow 연결하기
         func connectInfoWindow(title: String, marker: NMFMarker) {
-
+            
             let infoWindow = NMFInfoWindow()
             let dataSource = NMFInfoWindowDefaultTextSource.data()
             
@@ -154,7 +163,15 @@ struct UIMapView: UIViewRepresentable {
                 }
                 return true
             }
-            // 지도를 탭하면 정보 창을 닫음
+            
+            infoWindow.touchHandler = { (overlay: NMFOverlay) -> Bool in
+                // 여기에 터치 이벤트 발생 시 실행할 코드를 작성합니다.
+//                NavigationLink()
+                return true  // true를 반환하면 이벤트가 더 이상 전달되지 않습니다.
+            }
+            
+            
+            // TODO: 지도를 탭하면 정보 창을 닫음
             func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
                 infoWindow.close()
             }
