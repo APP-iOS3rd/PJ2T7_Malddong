@@ -23,9 +23,10 @@ class ToiletListViewModel:ObservableObject{
     
     init(
         toiletList: [Toilet] = [],
-        distributeSelect: String = "제주시",
+        distributeSelect: String = "전체",
         isGridAlign: Bool = true,
-        distributeArea: [String] = ["제주시","서귀포시"]
+        distributeArea: [String] = [
+            "전체","한경면","한림읍","애월읍","시내동","조천읍","구좌읍","우도면"]
         
     ) {
         self.toiletList = toiletList

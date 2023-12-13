@@ -28,7 +28,11 @@ struct ToiletDetailView: View {
                     .frame(width: 350,height: 250)
                 
             
-                UIMapView()
+                UIMiniMapView(
+                    title: item.toiletNm,
+                    latitude: Double(item.laCrdnt)!,
+                    longitude: Double(item.loCrdnt)!
+                    )
                     .frame(width: 350,height: 250)
                     
                 HStack{
