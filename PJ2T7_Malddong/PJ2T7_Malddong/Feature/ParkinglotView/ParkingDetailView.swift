@@ -13,28 +13,15 @@ struct ParkingDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                UIMiniMapView(title: "\(parking.name)", 
-                              latitude: NSNumberFormatter().numberFromString(parking.latitude).doubleValue,
-                              longitude: "\(parking.longitude)".doubleValue)
-                    .frame(width: 350, height: 200)
-                
-                Image("주차장")
-                    .resizable()
+                UIMiniMapView(title: "\(parking.name)", latitude: Double("\(parking.latitude)")!, longitude: Double("\(parking.longitude)")!)
                     .scaledToFit()
-                    .frame(maxWidth: 320,maxHeight: 180)
-                    .background(Color.blue)
-                
-                // 지도자리
-                Image("주차장")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 320,maxHeight: 180)
-                    .background(Color.blue)
+                    .frame(maxWidth: 320,maxHeight: 360)
+                    .padding()
                 
                 ParkingInfoSection(title: "\(parking.operatingDays)", content: Color.gray, fontSize: 15, alignment: .trailing)
                 
                 ParkingInfoSection(title: "\(parking.name)", content: .black, fontSize: 20, alignment: .leading)
-                ParkingInfoSection(title: "\(parking.rnAdres)", content: Color.gray, fontSize: 15, alignment: .leading, bottomPadding: 10)
+                ParkingInfoSection(title: parking.rnAdres, content: Color.gray, fontSize: 15, alignment: .leading, bottomPadding: 10)
                 
                 HStack(alignment: .center, spacing: 50){
                     ParkingDetailItem(title: "전화번호", value: "\(parking.phoneNo)", titleColor: .red, valueColor: .gray, alignment: .leading)

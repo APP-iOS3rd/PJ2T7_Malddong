@@ -123,13 +123,8 @@ struct UIMapView: UIViewRepresentable {
         parkingLotViewModel.parkingLots.forEach {
             
             let marker = NMFMarker()
-<<<<<<< HEAD
+        
             marker.position = NMGLatLng(lat: Double($0.latitude) ?? 3.0, lng: Double($0.longitude) ?? 127.0)
-=======
-          
-            marker.position = NMGLatLng(lat: Double($0.latitude) ?? 3.0, lng: Double($0.longitude) ?? 127.0)
-
->>>>>>> develop
             marker.mapView = uiView.mapView
             marker.width = 30
             marker.height = 40
