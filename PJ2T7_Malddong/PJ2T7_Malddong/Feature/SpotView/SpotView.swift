@@ -121,14 +121,14 @@ private struct SpotCellView:View{
                         .cornerRadius(15,corners: [.topLeft,.topRight])
                         .shadow(radius: 7)
                     
-                    AsyncImage(url: URL(string:
-                                            item.thumbnailPath
-                                       )){
-                        $0.image?.resizable()
+                    GeometryReader { geometry in
+                        AsyncImage(url: URL(string: item.thumbnailPath)) {
+                            $0.image?.resizable()
+                        }
+                        .aspectRatio(contentMode: .fill)
+                        .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
                     }
-                    
-                                       .scaledToFit()
-                                       .frame(maxWidth: 152,maxHeight: 100)
                 }
                 ZStack{
                     Rectangle()
@@ -160,17 +160,17 @@ private struct SpotCellView:View{
                         
                         Rectangle()
                             .frame(width: 210, height: 180)
-                            .foregroundStyle(Color.gray)
+                            .foregroundColor(Color("MalddongGray"))
                             .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                             .shadow(radius: 7)
-                        AsyncImage(url: URL(string:
-                                                item.thumbnailPath
-                                           )){
-                            $0.image?.resizable()
+                        GeometryReader { geometry in
+                            AsyncImage(url: URL(string: item.thumbnailPath)) {
+                                $0.image?.resizable()
+                            }
+                            .aspectRatio(contentMode: .fill)
+                            .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
                         }
-                                           .scaledToFit()
-                                           .frame(maxWidth: 210,maxHeight: 180)
-                        
                     }
                     ZStack{
                         Rectangle()
@@ -181,8 +181,9 @@ private struct SpotCellView:View{
                             .shadow(radius: 7)
                         
                         VStack{
-                            Text(item.contentsLabel)
+                            Text(item.title)
                                 .font(.system(size: 20,weight: .bold))
+                                .padding(10)
                             Text("1.6km")
                             Text(item.roadAddress)
                                 .font(.system(size: 14))
