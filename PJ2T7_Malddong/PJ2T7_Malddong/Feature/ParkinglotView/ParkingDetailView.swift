@@ -13,6 +13,10 @@ struct ParkingDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
+                UIMiniMapView(title: "\(parking.name)", 
+                              latitude: NSNumberFormatter().numberFromString(parking.latitude).doubleValue,
+                              longitude: "\(parking.longitude)".doubleValue)
+                    .frame(width: 350, height: 200)
                 
                 Image("주차장")
                     .resizable()
