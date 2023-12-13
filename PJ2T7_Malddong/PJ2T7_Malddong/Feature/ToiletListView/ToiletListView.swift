@@ -192,6 +192,7 @@ private struct ToiletCellView:View{
                             Text(item.toiletNm)
                                 .font(.system(size: 20,weight: .bold))
                                 .foregroundStyle(Color.black)
+                                .padding(10)
                             Text("\(toiletListViewModel.distanceCalc(toilet: item))km")
                                 .foregroundStyle(Color.black)
                             Text(item.rnAdres)
