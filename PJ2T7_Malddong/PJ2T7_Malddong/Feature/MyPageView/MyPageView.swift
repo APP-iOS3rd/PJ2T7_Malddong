@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 extension View {
     // Extension 에서 겹쳐서 우선 주석 처리
@@ -18,15 +19,20 @@ extension View {
 //struct RoundedCorner: Shape {
 //    var radius: CGFloat = .infinity
 //    var corners: UIRectCorner = .allCorners
-//    
+//
 //    func path(in rect: CGRect) -> Path {
 //        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-//        
+//
 //        return Path(path.cgPath)
 //    }
 //}
 
 struct MyPageView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(entity: MyToilets.entity(), sortDescriptors: [])
+    private var myToilets: FetchedResults<MyToilets>
+    
     @State private var toiletsDetail = true
     @State private var parkingsDetail = false
     @State private var tourlistsDetail = false
@@ -48,7 +54,7 @@ struct MyPageView: View {
                 }
                 DisclosureGroup("화장실", isExpanded: $toiletsDetail) {
                     LazyVGrid(columns: gridItems, spacing: 30) {
-                        ForEach((0...5), id: \.self) { index in
+                        ForEach(myToilets) { toilets in
                             ZStack {
                                 RoundedRectangle(cornerRadius: 20)
                                     .fill(Color.white)
@@ -68,7 +74,7 @@ struct MyPageView: View {
                                         }
                                     }
                                     Spacer()
-                                    Text("목록")
+                                    Text(toilets.toiletNm ?? "")
                                         .foregroundStyle(.secondary)
                                         .padding()
                                 }
@@ -114,7 +120,7 @@ struct MyPageView: View {
 //        .tabItem {
 //            Image(systemName: "person")
 //        }
-//    
+//
 //    MyPageView()
 //        .tabItem {
 //            Image(systemName: "heart")
