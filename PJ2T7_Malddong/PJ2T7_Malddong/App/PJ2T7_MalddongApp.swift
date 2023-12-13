@@ -11,7 +11,7 @@ import SwiftUI
 struct PJ2T7_MalddongApp: App {
     var body: some Scene {
         WindowGroup {
-            ParkingLotView()
+            ContentView()
         }
     }
 }
