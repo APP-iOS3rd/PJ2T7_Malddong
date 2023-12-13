@@ -40,6 +40,8 @@
 		9AB246562B294E9C00FFA0BA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB246542B294E9C00FFA0BA /* Persistence.swift */; };
 		9AC3618D2B2819C50053C3A6 /* MiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */; };
 		A46B33552B2850D70047424C /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = A46B33542B2850D70047424C /* ApiKeys.plist */; };
+		A46B33592B2851070047424C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B33562B2851070047424C /* Persistence.swift */; };
+		A46B335A2B2851070047424C /* MyData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A46B33572B2851070047424C /* MyData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,8 @@
 		9AB246542B294E9C00FFA0BA /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMapView.swift; sourceTree = "<group>"; };
 		A46B33542B2850D70047424C /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../Downloads/ApiKeys.plist; sourceTree = "<group>"; };
+		A46B33562B2851070047424C /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Persistence.swift; path = "../../../../../study/PJ2T7_Malddong 오후 5.17.57/PJ2T7_Malddong/PJ2T7_Malddong/Model/Persistence.swift"; sourceTree = "<group>"; };
+		A46B33582B2851070047424C /* MyData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,9 +255,9 @@
 			children = (
 				9A651CC82B26A0B0005D8618 /* Parking.swift */,
 				9A651CCA2B26A0B8005D8618 /* Toilet.swift */,
-				9AB246522B294E9C00FFA0BA /* MyData.xcdatamodeld */,
-				9AB246542B294E9C00FFA0BA /* Persistence.swift */,
 				0CF5CC082B2752F8003970A1 /* Spot.swift */,
+				A46B33572B2851070047424C /* MyData.xcdatamodeld */,
+				A46B33562B2851070047424C /* Persistence.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -414,11 +418,13 @@
 				60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */,
 				9A651CC92B26A0B0005D8618 /* Parking.swift in Sources */,
 				60DEE3332B1F02A900362421 /* ToiletListView.swift in Sources */,
+				A46B335A2B2851070047424C /* MyData.xcdatamodeld in Sources */,
 				9A651CCB2B26A0B8005D8618 /* Toilet.swift in Sources */,
 				60DEE3392B1F02BA00362421 /* ToiletDetailView.swift in Sources */,
 				60DEE3292B1F026600362421 /* MyPageView.swift in Sources */,
 				60DEE30B2B1F015D00362421 /* ContentView.swift in Sources */,
 				60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */,
+				A46B33592B2851070047424C /* Persistence.swift in Sources */,
 				60DEE3242B1F024F00362421 /* MapView.swift in Sources */,
 				9AC3618D2B2819C50053C3A6 /* MiniMapView.swift in Sources */,
 				0CF5CC0E2B2753D7003970A1 /* SpotDetailVIewModel.swift in Sources */,
@@ -656,13 +662,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9AB246522B294E9C00FFA0BA /* MyData.xcdatamodeld */ = {
+		A46B33572B2851070047424C /* MyData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9AB246532B294E9C00FFA0BA /* MyData.xcdatamodel */,
+				A46B33582B2851070047424C /* MyData.xcdatamodel */,
 			);
-			currentVersion = 9AB246532B294E9C00FFA0BA /* MyData.xcdatamodel */;
-			path = MyData.xcdatamodeld;
+			currentVersion = A46B33582B2851070047424C /* MyData.xcdatamodel */;
+			name = MyData.xcdatamodeld;
+			path = "../../../../../study/PJ2T7_Malddong 오후 5.17.57/PJ2T7_Malddong/PJ2T7_Malddong/Model/MyData.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

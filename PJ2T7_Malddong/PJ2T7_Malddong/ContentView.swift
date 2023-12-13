@@ -11,10 +11,21 @@ struct ContentView: View {
     
     
     var body: some View {
-        VStack {
+        TabView {
             ToiletListView()
+                .tabItem {
+                    Image(systemName: "house")
+                }
+            MapView()
+                .tabItem {
+                    Image(systemName: "map.fill")
+                }
+            MyPageView()
+                .tabItem {
+                    Image(systemName: "heart")
+                }
         }
-        
+
     }
 }
 
