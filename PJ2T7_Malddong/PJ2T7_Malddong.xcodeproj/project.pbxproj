@@ -36,12 +36,11 @@
 		9A651CC92B26A0B0005D8618 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CC82B26A0B0005D8618 /* Parking.swift */; };
 		9A651CCB2B26A0B8005D8618 /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CCA2B26A0B8005D8618 /* Toilet.swift */; };
 		9A651CD32B26D348005D8618 /* Extension + Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CD22B26D348005D8618 /* Extension + Font.swift */; };
-		9AB246552B294E9C00FFA0BA /* MyData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AB246522B294E9C00FFA0BA /* MyData.xcdatamodeld */; };
-		9AB246562B294E9C00FFA0BA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB246542B294E9C00FFA0BA /* Persistence.swift */; };
+		9A937BA12B2953B500D313FE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A937BA02B2953B500D313FE /* Persistence.swift */; };
+		9A937BA72B29670A00D313FE /* MyData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A937BA52B29670A00D313FE /* MyData.xcdatamodeld */; };
+		9AB246552B294E9C00FFA0BA /* (null) in Sources */ = {isa = PBXBuildFile; };
 		9AC3618D2B2819C50053C3A6 /* MiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */; };
 		A46B33552B2850D70047424C /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = A46B33542B2850D70047424C /* ApiKeys.plist */; };
-		A46B33592B2851070047424C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B33562B2851070047424C /* Persistence.swift */; };
-		A46B335A2B2851070047424C /* MyData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A46B33572B2851070047424C /* MyData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,12 +80,10 @@
 		9A651CD02B26D1E4005D8618 /* LINESeedKR-Bd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Bd.otf"; sourceTree = "<group>"; };
 		9A651CD12B26D1E4005D8618 /* LINESeedKR-Th.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Th.otf"; sourceTree = "<group>"; };
 		9A651CD22B26D348005D8618 /* Extension + Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Font.swift"; sourceTree = "<group>"; };
-		9AB246532B294E9C00FFA0BA /* MyData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyData.xcdatamodel; sourceTree = "<group>"; };
-		9AB246542B294E9C00FFA0BA /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		9A937BA02B2953B500D313FE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		9A937BA62B29670A00D313FE /* MyData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyData.xcdatamodel; sourceTree = "<group>"; };
 		9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMapView.swift; sourceTree = "<group>"; };
 		A46B33542B2850D70047424C /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../Downloads/ApiKeys.plist; sourceTree = "<group>"; };
-		A46B33562B2851070047424C /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Persistence.swift; path = "../../../../../study/PJ2T7_Malddong 오후 5.17.57/PJ2T7_Malddong/PJ2T7_Malddong/Model/Persistence.swift"; sourceTree = "<group>"; };
-		A46B33582B2851070047424C /* MyData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,8 +253,8 @@
 				9A651CC82B26A0B0005D8618 /* Parking.swift */,
 				9A651CCA2B26A0B8005D8618 /* Toilet.swift */,
 				0CF5CC082B2752F8003970A1 /* Spot.swift */,
-				A46B33572B2851070047424C /* MyData.xcdatamodeld */,
-				A46B33562B2851070047424C /* Persistence.swift */,
+				9A937BA02B2953B500D313FE /* Persistence.swift */,
+				9A937BA52B29670A00D313FE /* MyData.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -418,20 +415,20 @@
 				60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */,
 				9A651CC92B26A0B0005D8618 /* Parking.swift in Sources */,
 				60DEE3332B1F02A900362421 /* ToiletListView.swift in Sources */,
-				A46B335A2B2851070047424C /* MyData.xcdatamodeld in Sources */,
 				9A651CCB2B26A0B8005D8618 /* Toilet.swift in Sources */,
 				60DEE3392B1F02BA00362421 /* ToiletDetailView.swift in Sources */,
 				60DEE3292B1F026600362421 /* MyPageView.swift in Sources */,
 				60DEE30B2B1F015D00362421 /* ContentView.swift in Sources */,
+				9A937BA12B2953B500D313FE /* Persistence.swift in Sources */,
+				9A937BA72B29670A00D313FE /* MyData.xcdatamodeld in Sources */,
 				60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */,
-				A46B33592B2851070047424C /* Persistence.swift in Sources */,
 				60DEE3242B1F024F00362421 /* MapView.swift in Sources */,
 				9AC3618D2B2819C50053C3A6 /* MiniMapView.swift in Sources */,
 				0CF5CC0E2B2753D7003970A1 /* SpotDetailVIewModel.swift in Sources */,
 				60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */,
 				60DEE3202B1F023500362421 /* LoginView.swift in Sources */,
 				60DEE3382B1F02BA00362421 /* ToiletDeatilViewModel.swift in Sources */,
-				9AB246552B294E9C00FFA0BA /* MyData.xcdatamodeld in Sources */,
+				9AB246552B294E9C00FFA0BA /* (null) in Sources */,
 				60DAC0642B1F4ECB00384217 /* Extension + View.swift in Sources */,
 				60DEE31F2B1F023500362421 /* LoginViewModel.swift in Sources */,
 				60DEE3252B1F024F00362421 /* MapViewModel.swift in Sources */,
@@ -444,7 +441,6 @@
 				0CF5CC0C2B2753C7003970A1 /* SpotDetailView.swift in Sources */,
 				0CF5CC092B2752F8003970A1 /* Spot.swift in Sources */,
 				60DEE32F2B1F027C00362421 /* ParkingLotView.swift in Sources */,
-				9AB246562B294E9C00FFA0BA /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,14 +658,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A46B33572B2851070047424C /* MyData.xcdatamodeld */ = {
+		9A937BA52B29670A00D313FE /* MyData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A46B33582B2851070047424C /* MyData.xcdatamodel */,
+				9A937BA62B29670A00D313FE /* MyData.xcdatamodel */,
 			);
-			currentVersion = A46B33582B2851070047424C /* MyData.xcdatamodel */;
-			name = MyData.xcdatamodeld;
-			path = "../../../../../study/PJ2T7_Malddong 오후 5.17.57/PJ2T7_Malddong/PJ2T7_Malddong/Model/MyData.xcdatamodeld";
+			currentVersion = 9A937BA62B29670A00D313FE /* MyData.xcdatamodel */;
+			path = MyData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
