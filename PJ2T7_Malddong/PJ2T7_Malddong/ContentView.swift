@@ -25,9 +25,6 @@ struct ContentView: View {
                     Image(systemName: "heart")
                 }
         }
-        VStack {
-            ToiletListView()
-        }
     }
 }
 
