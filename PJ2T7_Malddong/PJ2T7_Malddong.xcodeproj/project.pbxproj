@@ -40,7 +40,6 @@
 		9A937BA12B2953B500D313FE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A937BA02B2953B500D313FE /* Persistence.swift */; };
 		9A937BA72B29670A00D313FE /* MyData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A937BA52B29670A00D313FE /* MyData.xcdatamodeld */; };
 		9AB246552B294E9C00FFA0BA /* (null) in Sources */ = {isa = PBXBuildFile; };
-		9AB3FC722B296E6200842EB6 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AB3FC712B296E6200842EB6 /* ApiKeys.plist */; };
 		9AC3618D2B2819C50053C3A6 /* MiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +83,6 @@
 		9A651CD22B26D348005D8618 /* Extension + Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Font.swift"; sourceTree = "<group>"; };
 		9A937BA02B2953B500D313FE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9A937BA62B29670A00D313FE /* MyData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyData.xcdatamodel; sourceTree = "<group>"; };
-		9AB3FC712B296E6200842EB6 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../Desktop/ApiKeys.plist; sourceTree = "<group>"; };
 		9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -582,7 +580,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "PJ2T7-Malddong-Info.plist";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "앱을 사용하는 동안 위치를 얻어옵니다.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -616,7 +615,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "PJ2T7-Malddong-Info.plist";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "앱을 사용하는 동안 위치를 얻어옵니다.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -9,6 +9,7 @@ import SwiftUI
 
 import CoreLocation
 import NMapsMap
+import MapKit
 
 struct UIMapView: UIViewRepresentable {
     @ObservedObject var toiletListViewModel = ToiletListViewModel()
@@ -19,20 +20,33 @@ struct UIMapView: UIViewRepresentable {
     @State private var isSpotInfoWindowTouched = false
     @State private var isParkingInfoWindowTouched = false
     
+    let locationManger = CLLocationManager()
+    
     typealias UIViewType = NMFNaverMapView
     
+    // MARK: 내 위치
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator.shared
+    }
+    
     func makeUIView(context: Context) -> NMFNaverMapView {
+        NMFAuthManager.shared().clientId = getValueOfPlistFile("ApiKeys", "CLIENT_ID")
+        
+        let coodinator = makeCoordinator()
+        coodinator.checkLocationAuthorization()
+        coodinator.checkIfLocationServiceIsEnabled()
+        coodinator.fetchUserLocation()
+        
         toiletListViewModel.fectchData()
         parkingLotViewModel.fetchData()
         spotViewModel.fetchData()
         
-        NMFAuthManager.shared().clientId = getValueOfPlistFile("ApiKeys", "CLIENT_ID")
-        
-        let mapView = NMFNaverMapView(frame: .zero)
+        let mapView = NMFNaverMapView()
         let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 33.4996213, lng: 126.5311884))
         
         mapView.showZoomControls = false
-        mapView.mapView.positionMode = .direction
+        mapView.mapView.positionMode = .normal
         mapView.mapView.zoomLevel = 14
         mapView.mapView.moveCamera(cameraUpdate)
         
@@ -103,23 +117,73 @@ struct UIMapView: UIViewRepresentable {
             }
         }
     }
-}
-
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    private let locationManager = CLLocationManager()
-    @Published var location: CLLocation?
-
-    override init() {
-        super.init()
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        self.location = location
+    
+    final class Coordinator: NSObject, ObservableObject,NMFMapViewCameraDelegate, NMFMapViewTouchDelegate, CLLocationManagerDelegate {
+        static let shared = Coordinator()
+        @Published var coord: (Double, Double) = (0.0, 0.0)
+        @Published var userLocation: (Double, Double) = (0.0, 0.0)
+        
+        var locationManager: CLLocationManager?
+        let view = NMFNaverMapView(frame: .zero)
+        
+        // MARK: - 위치 정보 동의 확인
+        func checkLocationAuthorization() {
+            guard let locationManager = locationManager else { return }
+            
+            switch locationManager.authorizationStatus {
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+            case .restricted:
+                print("위치 정보 접근이 제한되었습니다.")
+            case .denied:
+                print("위치 정보 접근을 거절했습니다. 설정에 가서 변경하세요.")
+            case .authorizedAlways, .authorizedWhenInUse:
+                print("Success")
+                
+                coord = (Double(locationManager.location?.coordinate.latitude ?? 0.0), Double(locationManager.location?.coordinate.longitude ?? 0.0))
+                userLocation = (Double(locationManager.location?.coordinate.latitude ?? 0.0), Double(locationManager.location?.coordinate.longitude ?? 0.0))
+                
+                fetchUserLocation()
+                
+            @unknown default:
+                break
+            }
+        }
+        
+        func checkIfLocationServiceIsEnabled() {
+            DispatchQueue.global().async {
+                if CLLocationManager.locationServicesEnabled() {
+                    DispatchQueue.main.async {
+                        self.locationManager = CLLocationManager()
+                        self.locationManager!.delegate = self
+                        self.checkLocationAuthorization()
+                    }
+                } else {
+                    print("Show an alert letting them know this is off and to go turn i on")
+                }
+            }
+        }
+        
+        func fetchUserLocation() {
+            if let locationManager = locationManager {
+                let lat = locationManager.location?.coordinate.latitude
+                let lng = locationManager.location?.coordinate.longitude
+                let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: lat ?? 0.0, lng: lng ?? 0.0), zoomTo: 15)
+                cameraUpdate.animation = .easeIn
+                cameraUpdate.animationDuration = 1
+                
+                let locationOverlay = view.mapView.locationOverlay
+                locationOverlay.location = NMGLatLng(lat: lat ?? 0.0, lng: lng ?? 0.0)
+                locationOverlay.hidden = false
+                
+                locationOverlay.icon = NMFOverlayImage(name: "location_overlay_icon")
+                locationOverlay.iconWidth = CGFloat(NMF_LOCATION_OVERLAY_SIZE_AUTO)
+                locationOverlay.iconHeight = CGFloat(NMF_LOCATION_OVERLAY_SIZE_AUTO)
+                locationOverlay.anchor = CGPoint(x: 0.5, y: 1)
+                
+                view.mapView.moveCamera(cameraUpdate)
+            }
+        }
     }
 }
 
@@ -136,5 +200,10 @@ func getValueOfPlistFile(_ plistFileName:String,_ key:String) -> String? {
     return value
 }
 
+
+
+#Preview {
+    MapView()
+}
 
 
