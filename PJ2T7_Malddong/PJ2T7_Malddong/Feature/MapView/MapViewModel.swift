@@ -11,10 +11,20 @@ import CoreLocation
 import NMapsMap
 import MapKit
 
+//class MapViewModel: ObservableObject {
+//    @ObservedObject var toiletListViewModel = ToiletListViewModel()
+//    @ObservedObject var spotViewModel = SpotViewModel(spotitem: [])
+//    @ObservedObject var parkingLotViewModel =  ParkingLotViewModel(parkingLots: [])
+//    
+//    @State var stackPath = NavigationPath()
+//}
+
 struct UIMapView: UIViewRepresentable {
     @ObservedObject var toiletListViewModel = ToiletListViewModel.shared
     @ObservedObject var spotViewModel = SpotViewModel.shared
     @ObservedObject var parkingLotViewModel =  ParkingLotViewModel.shared
+    
+//    let mapViewModel = MapViewModel()
     
     @State private var isToiletInfoWindowTouched = false
     @State private var isSpotInfoWindowTouched = false
@@ -70,7 +80,7 @@ struct UIMapView: UIViewRepresentable {
         
         // MARK: Marker 찍기
         
-        func connectMarker( title:String, latitude: Double?, longitude: Double?, color: UIColor) {
+        func connectMarker(title:String, latitude: Double?, longitude: Double?, color: UIColor) {
             let marker = NMFMarker()
             
             marker.position = NMGLatLng(lat: latitude ?? 3.0 , lng: longitude ?? 127.0)
@@ -107,7 +117,7 @@ struct UIMapView: UIViewRepresentable {
             
             infoWindow.touchHandler = { (overlay: NMFOverlay) -> Bool in
                 // 여기에 터치 이벤트 발생 시 실행할 코드를 작성합니다.
-                //                NavigationLink()
+                
                 return true  // true를 반환하면 이벤트가 더 이상 전달되지 않습니다.
             }
             
