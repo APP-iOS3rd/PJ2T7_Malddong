@@ -10,54 +10,103 @@ import CoreData
 
 struct ToiletListView: View {
     @StateObject private var toiletListViewModel = ToiletListViewModel()
+    @State private var searchText: String = ""
+    @State private var isSearchBarvisible: Bool = false
+    var filteredToiletList: [Toilet] {
+        toiletListViewModel.filteredToiletList
+    }
+
+    
     
     var body: some View {
         NavigationStack{
             ScrollView{
-                
                 VStack{
-                    HStack {
-                        NavigationLink(destination: ToiletListView()) {
-                           
-                            customButton2(title: "화장실", imageName: "tissue", backgroundColor: .malddongYellow)
-                        }
-                        NavigationLink(destination: SpotView()){
-                            
-                            customButton2(title: "관광지", imageName: "dolhareubang", backgroundColor: .malddongGreen)
+                        HStack {
+                            NavigationLink(destination: ToiletListView()) {
                                 
+                                customButton2(title: "화장실", imageName: "tissue", backgroundColor: .malddongYellow)
+                            }
+                            NavigationLink(destination: SpotView()){
+                                
+                                customButton2(title: "관광지", imageName: "dolhareubang", backgroundColor: .malddongGreen)
+                                
+                                
+                            }
+                            NavigationLink(destination: ParkingLotView()){
+                                customButton2(title: "주차장", imageName: "car", backgroundColor: .malddongBlue)
+                            }
+                            
+                            Spacer()
+                            
+                            // 검색 버튼
+                            Button(action: {
+                                withAnimation {
+                                    isSearchBarvisible.toggle()
+                                    
+                                    if isSearchBarvisible {
+                                        search()
+                                    }
+                                }
+                                
+                            }){
+                                Image("search")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 28, height: 28)
+                                    .clipped()
+                                    .padding(12)
+                            }
+                        }// HStack
+                        
+                        
+                        // TextField
+                        if isSearchBarvisible {
+                            HStack{
+                                TextField("검색어를 입력하세요.", text: $searchText)
+                                    .frame(height: 40)
+                                    .transition(.move(edge: .top))
+                                    .animation(.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0))
+                                
+                                Button("검색"){
+                                    search()
+                                }.padding()
+                            }
+                            .background(Color.white)
+                            .border(.gray, width: 2)
+                            .cornerRadius(15)
+                            .padding()
                             
                         }
-                        NavigationLink(destination: ParkingLotView()){
-                            customButton2(title: "주차장", imageName: "car", backgroundColor: .malddongBlue)
-                        }
                         
-                        Spacer()
+                        distributeView(
+                            toiletListViewModel: toiletListViewModel)
+                        .padding(.horizontal)
                         
-                        Image("search")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 28, height: 28)
-                            .clipped()
-                    }
-                    .padding(12)
-                    distributeView(
-                        toiletListViewModel: toiletListViewModel)
-                    .padding(.horizontal)
-                    
-                    
-                    GridView(toiletListViewModel: toiletListViewModel)
-                        .padding()
-                    
-                    
-                }
+                        
+                        GridView(toiletListViewModel: toiletListViewModel)
+                            .padding()
+                        
+                        
+                    }// VStack
             }
         }
-        
-        
         .onAppear{
             toiletListViewModel.fectchData()
         }
     }
+    private func search(){
+        print("검색 시작: \(searchText)")
+        
+        if searchText.isEmpty {
+            // 검색 내용이 없으면 리셋
+            toiletListViewModel.resetFilter()
+        } else {
+            toiletListViewModel.filterByName(searchText)
+        }
+    }
+    
+    
 }
 
 //TODO: - distributeView/grid 패턴 변경 버튼
@@ -97,8 +146,6 @@ private struct distributeView:View{
             })
         }
     }
-       
-    
 }
 
 //MARK: - GrideView

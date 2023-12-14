@@ -13,6 +13,8 @@ class ToiletListViewModel:ObservableObject{
     @Published var toiletList: [Toilet]
     @Published var distributeSelect: String
     @Published var isGridAlign:Bool
+    @Published var filteredToiletList: [Toilet] = []
+
     var distributeArea : [String]
     
     
@@ -123,8 +125,16 @@ extension ToiletListViewModel{
         
     }
     
-    
-    
+    // 검색 기능
+    func filterByName(_ parkingLotName: String){
+        filteredToiletList = toiletList.filter { toilet in
+            return toilet.toiletNm.lowercased().contains(parkingLotName.lowercased())
+        }
+    }
+    func resetFilter() {
+        filteredToiletList = toiletList
+    }
+
 }
 
 
