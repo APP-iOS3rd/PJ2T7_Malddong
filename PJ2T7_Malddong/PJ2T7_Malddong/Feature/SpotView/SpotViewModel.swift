@@ -113,9 +113,17 @@ class SpotViewModel: ObservableObject {
     // 거리 표시
     func distanceCalc(spot:Spot)->String{
         //내위치 임의 설정
-        let myLocation = CLLocation(latitude: 33.44980872, longitude: 126.6182481)
+        let manager = CLLocationManager()
+        manager.desiredAccuracy=kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
         
-        let objectLoaction = CLLocation(latitude: Double("\(spot.latitude)")!, longitude: Double("\(spot.longitude)")!)
+        let lat = manager.location?.coordinate.latitude
+        let lo = manager.location?.coordinate.longitude
+        
+        
+        let myLocation = CLLocation(latitude: lat ?? 37.0, longitude: lo ?? 127.0)
+        
+        let objectLoaction = CLLocation(latitude: Double(spot.latitude) ?? 3.0, longitude: Double(spot.longitude) ?? 127.0)
         
         let distanceMetor = myLocation.distance(from: objectLoaction)
         

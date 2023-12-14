@@ -100,9 +100,16 @@ class ParkingLotViewModel: ObservableObject {
     // 거리 표시
     func distanceCalc(parking:Parking)->String{
         //내위치 임의 설정
-        let myLocation = CLLocation(latitude: 33.44980872, longitude: 126.6182481)
+        let manager = CLLocationManager()
+        manager.desiredAccuracy=kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
         
-        let objectLoaction = CLLocation(latitude: Double(parking.latitude)!, longitude: Double(parking.longitude)!)
+        let lat = manager.location?.coordinate.latitude
+        let lo = manager.location?.coordinate.longitude
+        
+        let myLocation = CLLocation(latitude: lat ?? 37.0, longitude: lo ?? 127.0)
+        
+        let objectLoaction = CLLocation(latitude: Double(parking.latitude) ?? 3.0, longitude: Double(parking.longitude) ?? 127.0)
         
         let distanceMetor = myLocation.distance(from: objectLoaction)
         
