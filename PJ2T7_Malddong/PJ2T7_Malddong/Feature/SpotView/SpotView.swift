@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SpotView: View {
-    @StateObject private var spotViewModel = SpotViewModel(spotitem: [])
+    @StateObject private var spotViewModel = SpotViewModel.shared
     
     var body: some View {
         NavigationStack {
@@ -89,7 +89,7 @@ private struct GridView: View {
         ] : [GridItem(.flexible())]
                   , content: {
             
-            ForEach(spotViewModel.spotitem, id: \.self) { item in
+            ForEach(spotViewModel.filteredSpotList, id: \.self) { item in
                 NavigationLink(destination: SpotDetailView(spot: item)){
                     SpotCellView(spotViewModel: spotViewModel, item: item)
                         .padding()
@@ -149,9 +149,9 @@ private struct SpotCellView:View{
                                 .font(.system(size: 10))
                                 .lineLimit(2)
                                 .foregroundStyle(Color.gray)
-                            
-                            Text("1.2km")
-                                .foregroundStyle(Color.black)
+
+                            Text("\(spotViewModel.distanceCalc(spot: item))km")
+                                .foregroundStyle(Color.gray)
                         }
                         
                     }.frame(maxWidth: 152,maxHeight: 70)
@@ -187,8 +187,10 @@ private struct SpotCellView:View{
                                 .font(.system(size: 20,weight: .bold))
                                 .foregroundStyle(Color.black)
                                 .padding(10)
-                            Text("1.6km")
-                                .foregroundStyle(Color.black)
+
+                            Text("\(spotViewModel.distanceCalc(spot: item))km")
+                                .foregroundStyle(Color.gray)
+
                             Text(item.roadAddress)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)

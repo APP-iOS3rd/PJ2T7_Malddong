@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ParkingLotView: View {
-    @StateObject private var parkingLotViewModel = ParkingLotViewModel(parkingLots: [])
+    @StateObject private var parkingLotViewModel = ParkingLotViewModel.shared
     
+    var filteredParkingList: [Parking] {
+        parkingLotViewModel.filteredParkingList
+    }
     var body: some View {
         NavigationStack {
             ScrollView{
@@ -83,12 +86,11 @@ private struct GridView:View {
             GridItem(.flexible()),] :[GridItem(.flexible())]
                   , content: {
             
-            ForEach(parkingLotViewModel.parkingLots,id: \.self){item in
+            ForEach(parkingLotViewModel.filteredParkingList,id: \.self){item in
                 NavigationLink(destination: ParkingDetailView(parking: item)){
                     ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
                 }
-            }
-            
+            } 
         })
     }
 }
@@ -130,7 +132,7 @@ private struct ParkingCellView:View{
                             .clipShape(RoundedRectangle(cornerRadius: 15))
                     }
                 }
-                
+
                 ZStack{
                     Rectangle()
                         .frame(width: 152,height: 70)
@@ -149,11 +151,10 @@ private struct ParkingCellView:View{
                                 .font(.system(size: 10))
                                 .lineLimit(2)
                                 .foregroundStyle(Color.gray)
-                            
-                            Text("1.2km") // 거리 설정
-                                .foregroundStyle(Color.black)
+
+                            Text("\(parkingLotViewModel.distanceCalc(parking: item))km")
+                                .foregroundStyle(Color.gray)
                         }
-                        
                     }.frame(maxWidth: 152,maxHeight: 70)
                     
                 }
@@ -190,10 +191,12 @@ private struct ParkingCellView:View{
                         VStack{
                             Text(item.name)
                                 .font(.system(size: 20,weight: .bold))
-                                .foregroundStyle(.black)
-                                .padding(10)
-                            Text("1.6km")
                                 .foregroundStyle(Color.black)
+                                .padding(10)
+                          
+                            Text("\(parkingLotViewModel.distanceCalc(parking: item))km")
+                                .foregroundStyle(Color.gray)
+
                             Text(item.rnAdres)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)
