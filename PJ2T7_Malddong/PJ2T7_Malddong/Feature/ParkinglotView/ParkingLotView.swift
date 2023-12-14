@@ -87,10 +87,18 @@ private struct GridView:View {
                   , content: {
             
             ForEach(parkingLotViewModel.filteredParkingList,id: \.self){item in
-                NavigationLink(destination: ParkingDetailView(parking: item)){
-                    ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
-                }
-            } 
+                
+                if parkingLotViewModel.distributeSelect == "전체"{
+                    
+                    NavigationLink(destination: ParkingDetailView(parking: item)){
+                        
+                        ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
+                    }
+                } else if item.lnmAdres.contains(parkingLotViewModel.distributeSelect){
+                    ParkingCellView(parkingLotViewModel: parkingLotViewModel, item:item)
+                        .padding()
+             }
+            }
         })
     }
 }

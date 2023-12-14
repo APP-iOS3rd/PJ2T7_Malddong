@@ -22,9 +22,9 @@ class SpotViewModel: ObservableObject {
     
     private init() {
         self.spotitem = [Spot]()
-        self.distributeSelect = "제주시"
+        self.distributeSelect = "전체"
         self.isGridAlign = true
-        self.distributeArea = ["제주시","서귀포시"]
+        self.distributeArea = ["전체","한경면","한림읍","애월읍","조천읍","구좌읍"]
     }
     
 //    init(
