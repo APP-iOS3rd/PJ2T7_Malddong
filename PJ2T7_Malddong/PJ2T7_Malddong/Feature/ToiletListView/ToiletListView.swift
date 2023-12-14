@@ -91,7 +91,6 @@ private struct GridView:View {
                 ForEach(toiletListViewModel.toiletList,id: \.self){item in
                     
                     if toiletListViewModel.distributeSelect == "전체"{
-                        
                         NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
                             
                             ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)

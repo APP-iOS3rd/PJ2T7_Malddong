@@ -25,9 +25,7 @@ class ToiletListViewModel:ObservableObject{
         toiletList: [Toilet] = [],
         distributeSelect: String = "전체",
         isGridAlign: Bool = true,
-        distributeArea: [String] = [
-            "전체","한경면","한림읍","애월읍","조천읍","구좌읍"]
-        
+        distributeArea: [String] = ["전체","한경면","한림읍","애월읍","조천읍","구좌읍"]
     ) {
         self.toiletList = toiletList
         self.distributeSelect = distributeSelect
@@ -55,7 +53,7 @@ extension ToiletListViewModel{
         guard let apiKey = apiKey else {return}
         
         let urlString =
-        "https://apis.data.go.kr/6510000/publicToiletService/getPublicToiletInfoList?pageNo=1&numOfRows=10&serviceKey=\(apiKey)"
+        "https://apis.data.go.kr/6510000/publicToiletService/getPublicToiletInfoList?pageNo=1&numOfRows=500&serviceKey=\(apiKey)"
         
         guard let url = URL(string: urlString) else { return }
         
