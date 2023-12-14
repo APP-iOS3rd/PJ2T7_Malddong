@@ -173,7 +173,7 @@ private struct ParkingCellView:View{
                         Rectangle()
                             .frame(width: 210,height: 180)
                             .foregroundColor(Color("White"))
-                            .cornerRadius(15, corners: [.topLeft, .topRight])
+                            .cornerRadius(15, corners: [.topLeft, .bottomLeft])
                             .shadow(radius: 7)
                         
                         ForEach(0..<26) { _ in
