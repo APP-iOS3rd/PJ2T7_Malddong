@@ -11,24 +11,16 @@ import CoreLocation
 import NMapsMap
 import MapKit
 
-//class MapViewModel: ObservableObject {
-//    @ObservedObject var toiletListViewModel = ToiletListViewModel()
-//    @ObservedObject var spotViewModel = SpotViewModel(spotitem: [])
-//    @ObservedObject var parkingLotViewModel =  ParkingLotViewModel(parkingLots: [])
-//    
-//    @State var stackPath = NavigationPath()
-//}
-
 struct UIMapView: UIViewRepresentable {
     @ObservedObject var toiletListViewModel = ToiletListViewModel.shared
     @ObservedObject var spotViewModel = SpotViewModel.shared
     @ObservedObject var parkingLotViewModel =  ParkingLotViewModel.shared
     
-//    let mapViewModel = MapViewModel()
-    
     @State private var isToiletInfoWindowTouched = false
     @State private var isSpotInfoWindowTouched = false
     @State private var isParkingInfoWindowTouched = false
+    
+    @State private var isNextViewActive = false
     
     let locationManger = CLLocationManager()
     
@@ -55,10 +47,11 @@ struct UIMapView: UIViewRepresentable {
         let mapView = NMFNaverMapView()
         let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 33.4996213, lng: 126.5311884))
         
-        mapView.showZoomControls = false
+        mapView.showZoomControls = true
         mapView.mapView.positionMode = .normal
         mapView.mapView.zoomLevel = 14
         mapView.mapView.moveCamera(cameraUpdate)
+        mapView.showLocationButton = true
         
         return mapView
     }
@@ -115,9 +108,12 @@ struct UIMapView: UIViewRepresentable {
                 return true
             }
             
-            infoWindow.touchHandler = { (overlay: NMFOverlay) -> Bool in
+            infoWindow.touchHandler = { _ in
                 // 여기에 터치 이벤트 발생 시 실행할 코드를 작성합니다.
-                
+                isNextViewActive = true
+                NavigationLink(destination: SpotDetailView(spot: spotViewModel.spotitem[0]), isActive: $isNextViewActive) {
+                    EmptyView()
+                }
                 return true  // true를 반환하면 이벤트가 더 이상 전달되지 않습니다.
             }
             
