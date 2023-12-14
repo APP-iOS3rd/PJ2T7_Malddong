@@ -62,7 +62,7 @@ private struct distributeView:View{
             })
             Spacer()
             Picker("", selection:$toiletListViewModel.distributeSelect
-                    , content: {
+                   , content: {
                 ForEach(toiletListViewModel.distributeArea,id: \.self){item in
                     Text(item)
                     
@@ -70,7 +70,7 @@ private struct distributeView:View{
             })
         }
     }
-       
+    
     
 }
 
@@ -84,12 +84,13 @@ private struct GridView:View {
     
     var body: some View {
         
-            LazyVGrid(columns: toiletListViewModel.isGridAlign ? [
-                GridItem(.flexible()),
-                GridItem(.flexible()),] :[GridItem(.flexible())]
-                      , content: {
-                ForEach(toiletListViewModel.toiletList,id: \.self){item in
-                    
+        LazyVGrid(columns: toiletListViewModel.isGridAlign ? [
+            GridItem(.flexible()),
+            GridItem(.flexible()),] :[GridItem(.flexible())]
+                  , content: {
+            ForEach(toiletListViewModel.toiletList,id: \.self){item in
+                
+                if toiletListViewModel.distributeSelect == "전체"{
                     if toiletListViewModel.distributeSelect == "전체"{
                         NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
                             
@@ -97,13 +98,10 @@ private struct GridView:View {
                                 .padding()
                         }
                     }else if item.lnmAdres.contains(toiletListViewModel.distributeSelect){
-                        
-                        NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
-                            
-                            ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
-                                .padding()
-                        }
+                        ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
+                            .padding()
                     }
+                }
             }//FE
         })
     }
@@ -139,12 +137,12 @@ private struct ToiletCellView:View{
                                        )){
                         $0.image?.resizable()
                     }
-                        .frame(width: 152,height: 100)
-                        .cornerRadius(15,corners: [.topLeft,.topRight])
-                        .onTapGesture {
-//                            addItem()
-                        }
-                        
+                                       .frame(width: 152,height: 100)
+                                       .cornerRadius(15,corners: [.topLeft,.topRight])
+                                       .onTapGesture {
+                                           //                            addItem()
+                                       }
+                    
                     
                 }
                 ZStack{
@@ -184,14 +182,14 @@ private struct ToiletCellView:View{
                             .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                             .shadow(radius: 7)
                         
-                            AsyncImage(url: URL(string: toiletListViewModel.imageNilCheck(item))) {
-                                $0.image?.resizable()
-                            }
-                            .frame(width: 210, height: 180)
-                            .cornerRadius(15,corners: [.topLeft,.bottomLeft])
-                            
+                        AsyncImage(url: URL(string: toiletListViewModel.imageNilCheck(item))) {
+                            $0.image?.resizable()
+                        }
+                        .frame(width: 210, height: 180)
+                        .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                         
-                            
+                        
+                        
                     }
                     ZStack{
                         Rectangle()
@@ -214,40 +212,40 @@ private struct ToiletCellView:View{
                         }
                     }
                 }//H
-                   
+                
                 
                 
             }
-                
+            
         }
         
     }
-//    private func addItem() {
-//           withAnimation {
-//               //수정 부분
-//               let newToilet = MyToilets(context: viewContext)
-//               newToilet.toiletNm = item.toiletNm
-//               
-//               saveItems()
-//           }
-//       }
+    //    private func addItem() {
+    //           withAnimation {
+    //               //수정 부분
+    //               let newToilet = MyToilets(context: viewContext)
+    //               newToilet.toiletNm = item.toiletNm
+    //               
+    //               saveItems()
+    //           }
+    //       }
     
-//    private func saveItems() {
-//        do {
-//            try viewContext.save()
-//        } catch {
-//            // Replace this implementation with code to handle the error appropriately.
-//            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//            let nsError = error as NSError
-//            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            print("error")
-//        }
-//    }
+    //    private func saveItems() {
+    //        do {
+    //            try viewContext.save()
+    //        } catch {
+    //            // Replace this implementation with code to handle the error appropriately.
+    //            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+    //            let nsError = error as NSError
+    //            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+    //            print("error")
+    //        }
+    //    }
 }
 
-        
-        
-        
+
+
+
 
 #Preview {
     ToiletListView()

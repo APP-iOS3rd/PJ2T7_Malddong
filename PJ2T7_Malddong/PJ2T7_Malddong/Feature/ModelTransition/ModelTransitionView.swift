@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ModelTransitionView: View {
     @State private var modelSelection: Int = 0
-
+    
     var body: some View {
         VStack {
             HStack {
@@ -18,13 +18,13 @@ struct ModelTransitionView: View {
                 }) {
                     customButton2(title: "화장실", imageName: "tissue", backgroundColor: modelSelection == 0 ? .malddongYellow : .malddongGray)
                 }
-
+                
                 Button(action: {
                     modelSelection = 1
                 }) {
                     customButton2(title: "관광지", imageName: "dolhareubang", backgroundColor: modelSelection == 1 ? .malddongGreen : .malddongGray)
                 }
-
+                
                 Button(action: {
                     modelSelection = 2
                 }) {
@@ -39,14 +39,14 @@ struct ModelTransitionView: View {
                     .clipped()
             }
             .padding(16)
-
+            
             switch modelSelection {
             case 0:
                 ToiletListView()
             case 1:
-                ParkingLotView()
-            case 2:
                 SpotView()
+            case 2:
+                ParkingLotView()
             default:
                 ToiletListView()
             }

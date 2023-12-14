@@ -49,9 +49,9 @@ class ParkingLotViewModel: ObservableObject {
     }
     
     func gridOneLine(){
-            isGridAlign = false
-        }
-        
+        isGridAlign = false
+    }
+    
     func gridTwoLine(){
         isGridAlign = true
     }
@@ -59,14 +59,14 @@ class ParkingLotViewModel: ObservableObject {
     
     func fetchData(){
         guard let apiKey = apikey else { return }
-
+        
         let urlString = 
         "https://api.odcloud.kr/api/15050093/v1/uddi:d19c8e21-4445-43fe-b2a6-865dff832e08?page=1&perPage=600&cond%5B%EC%A7%80%EC%97%AD%EC%BD%94%EB%93%9C%3A%3AEQ%5D=50110&serviceKey=\(apiKey)"
         
         guard let url = URL(string: urlString) else { return }
         let session = URLSession(configuration: .default)
         
-
+        
         let task = session.dataTask(with: url){ data, response, error in
             if let error = error {
                 print(error.localizedDescription)
