@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class ParkingLotViewModel: ObservableObject {
     static let shared = ParkingLotViewModel()
@@ -94,6 +95,19 @@ class ParkingLotViewModel: ObservableObject {
             }
         }
         task.resume()
+    }
+    
+    // 거리 표시
+    func distanceCalc(parking:Parking)->String{
+        //내위치 임의 설정
+        let myLocation = CLLocation(latitude: 33.44980872, longitude: 126.6182481)
+        
+        let objectLoaction = CLLocation(latitude: Double(parking.latitude)!, longitude: Double(parking.longitude)!)
+        
+        let distanceMetor = myLocation.distance(from: objectLoaction)
+        
+        return String(Int(distanceMetor)/1000)
+        
     }
     
     // 검색 기능

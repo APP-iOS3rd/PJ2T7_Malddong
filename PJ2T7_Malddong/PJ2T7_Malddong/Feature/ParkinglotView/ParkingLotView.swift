@@ -142,6 +142,7 @@ private struct ParkingCellView:View{
                     VStack{
                         Text(item.name)
                             .font(.system(size: 15,weight: .bold))
+                            .foregroundStyle(Color.black)
                         
                         HStack{
                             Text(item.rnAdres)
@@ -150,7 +151,8 @@ private struct ParkingCellView:View{
                                 .lineLimit(2)
                                 .foregroundStyle(Color.gray)
                             
-                            Text("1.2km") // 거리 설정
+                            Text("\(parkingLotViewModel.distanceCalc(parking: item))km")
+                                .foregroundStyle(Color.gray)
                         }
                         
                     }.frame(maxWidth: 152,maxHeight: 70)
@@ -189,8 +191,10 @@ private struct ParkingCellView:View{
                         VStack{
                             Text(item.name)
                                 .font(.system(size: 20,weight: .bold))
+                                .foregroundStyle(Color.black)
                                 .padding(10)
-                            Text("1.6km")
+                            Text("\(parkingLotViewModel.distanceCalc(parking: item))km")
+                                .foregroundStyle(Color.gray)
                             Text(item.rnAdres)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)
