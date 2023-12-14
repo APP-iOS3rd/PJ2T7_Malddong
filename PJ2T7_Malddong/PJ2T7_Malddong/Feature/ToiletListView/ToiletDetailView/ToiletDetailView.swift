@@ -135,7 +135,7 @@ private func ToiletInfoSection(title: String, content: Color, fontSize: CGFloat,
     }
 }
 
-
-#Preview {
-    ToiletDetailView(item: Toilet(dataCd: "pt0001", laCrdnt: "33.44980872", loCrdnt: "126.6182481",  lnmAdres: "제주특별자치도 제주시 봉개동 237-2", toiletNm: "", opnTimeInfo: "", mngrInsttNm: "", telno: "", maleClosetCnt: "", maleUrinalCnt: "", maleDspsnClosetCnt: "", maleDspsnUrinalCnt: "", maleChildClosetCnt: "", maleChildUrinalCnt: "", femaleClosetCnt: "", femaleChildClosetCnt: "", femaleDspsnClosetCnt: ""), toiletListViewModel:ToiletListViewModel() )
-}
+//
+//#Preview {
+//    ToiletDetailView(item: Toilet(dataCd: "pt0001", laCrdnt: "33.44980872", loCrdnt: "126.6182481",  lnmAdres: "제주특별자치도 제주시 봉개동 237-2", toiletNm: "", opnTimeInfo: "", mngrInsttNm: "", telno: "", maleClosetCnt: "", maleUrinalCnt: "", maleDspsnClosetCnt: "", maleDspsnUrinalCnt: "", maleChildClosetCnt: "", maleChildUrinalCnt: "", femaleClosetCnt: "", femaleChildClosetCnt: "", femaleDspsnClosetCnt: ""), toiletListViewModel:ToiletListViewModel() )
+//}

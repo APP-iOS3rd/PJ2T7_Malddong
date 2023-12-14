@@ -39,7 +39,7 @@ struct ToiletListView: View {
             }
         }
         .onAppear{
-            toiletListViewModel.fectchData()
+            toiletListViewModel.fetchData()
         }
     }
 }
@@ -93,11 +93,11 @@ private struct GridView:View {
             GridItem(.flexible()),
             GridItem(.flexible()),] :[GridItem(.flexible())]
                   , content: {
-            ForEach(toiletListViewModel.toiletList,id: \.self){item in
+            ForEach(toiletListViewModel.filteredToiletList,id: \.self){item in
                 
                 if toiletListViewModel.distributeSelect == "전체"{
                     
-                        NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
+                        NavigationLink(destination: ToiletDetailView(item: item)) {
                             
                             ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
                                 .padding()

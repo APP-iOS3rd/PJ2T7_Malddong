@@ -71,8 +71,6 @@ class SpotViewModel: ObservableObject {
     }
     
     
-    
-    
     func fetchData() {
         guard let touristApiKey = touristApiKey else { return }
         
@@ -97,17 +95,7 @@ class SpotViewModel: ObservableObject {
             
             let str = String(decoding: data, as: UTF8.self)
             print(str)
-            
-            do {
-                let results = try JSONDecoder().decode(SpotResult.self, from: data)
-                DispatchQueue.main.async {
-                    self.spotitem = results.info
-                    print(results)
-                }
-                
-                let str = String(decoding: data, as: UTF8.self)
-                print(str)
-                
+
                 do {
                     let results = try JSONDecoder().decode(SpotResult.self, from: data)
                     DispatchQueue.main.async {
@@ -119,10 +107,8 @@ class SpotViewModel: ObservableObject {
                     print("여기 : " + error.localizedDescription)
                 }
             }
-            
-        }
         task.resume()
-    }
+        }
     
     // 거리 표시
     func distanceCalc(spot:Spot)->String{
