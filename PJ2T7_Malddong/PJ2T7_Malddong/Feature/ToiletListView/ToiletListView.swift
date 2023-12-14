@@ -22,73 +22,19 @@ struct ToiletListView: View {
         NavigationStack{
             ScrollView{
                 VStack{
-                        HStack {
-                            NavigationLink(destination: ToiletListView()) {
-                                
-                                customButton2(title: "화장실", imageName: "tissue", backgroundColor: .malddongYellow)
-                            }
-                            NavigationLink(destination: SpotView()){
-                                
-                                customButton2(title: "관광지", imageName: "dolhareubang", backgroundColor: .malddongGreen)
-                                
-                                
-                            }
-                            NavigationLink(destination: ParkingLotView()){
-                                customButton2(title: "주차장", imageName: "car", backgroundColor: .malddongBlue)
-                            }
-                            
-                            Spacer()
-                            
-                            // 검색 버튼
-                            Button(action: {
-                                withAnimation {
-                                    isSearchBarvisible.toggle()
-                                    
-                                    if isSearchBarvisible {
-                                        search()
-                                    }
-                                }
-                                
-                            }){
-                                Image("search")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 28, height: 28)
-                                    .clipped()
-                                    .padding(12)
-                            }
-                        }// HStack
-                        
-                        
-                        // TextField
-                        if isSearchBarvisible {
-                            HStack{
-                                TextField("검색어를 입력하세요.", text: $searchText)
-                                    .frame(height: 40)
-                                    .transition(.move(edge: .top))
-                                    .animation(.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0))
-                                
-                                Button("검색"){
-                                    search()
-                                }.padding()
-                            }
-                            .background(Color.white)
-                            .border(.gray, width: 2)
-                            .cornerRadius(15)
-                            .padding()
-                            
-                        }
-                        
-                        distributeView(
-                            toiletListViewModel: toiletListViewModel)
-                        .padding(.horizontal)
-                        
-                        
-                        GridView(toiletListViewModel: toiletListViewModel)
-                            .padding()
-                        
-                        
-                    }// VStack
+                    distributeView(
+                        toiletListViewModel: toiletListViewModel)
+                    .padding(.horizontal)
+                    
+                    
+                    GridView(toiletListViewModel: toiletListViewModel)
+                        .padding()
+                    
+                    
+                }
+            }
+            .onAppear{
+                toiletListViewModel.fectchData()
             }
         }
         .onAppear{
@@ -168,18 +114,8 @@ private struct GridView:View {
                         ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
                             .padding()
                     }
-                        
-                    
-                    
-                }//FE
-                
-                
-            })
-            
-            
-        
-        
-        
+            }//FE
+        })
     }
 }
 //MARK: - ToiletCellView
@@ -202,24 +138,20 @@ private struct ToiletCellView:View{
             if toiletListViewModel.isGridAlign{
                 ZStack{
                     
-                    
                     Rectangle()
                         .frame(width: 152,height: 100)
                         .foregroundColor(.gray)
                         .cornerRadius(15,corners: [.topLeft,.topRight])
                         .shadow(radius: 7)
                     
-                    AsyncImage(url: URL(string:
-                                            toiletListViewModel.imageNilCheck(item)
-                                       )){
-                        $0.image?.resizable()
-                    }
-                        
-                        .scaledToFit()
-                        .frame(maxWidth: 152,maxHeight: 100)
-                        .onTapGesture {
-                            addItem()
+                    GeometryReader { geometry in
+                        AsyncImage(url: URL(string: toiletListViewModel.imageNilCheck(item))) {
+                            $0.image?.resizable()
                         }
+                        .aspectRatio(contentMode: .fill)
+                        .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                    }
                 }
                 ZStack{
                     Rectangle()
@@ -257,13 +189,14 @@ private struct ToiletCellView:View{
                             .foregroundStyle(Color.gray)
                             .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                             .shadow(radius: 7)
-                        AsyncImage(url: URL(string:
-                                                toiletListViewModel.imageNilCheck(item)
-                                           )){
-                            $0.image?.resizable()
+                        GeometryReader { geometry in
+                            AsyncImage(url: URL(string: toiletListViewModel.imageNilCheck(item))) {
+                                $0.image?.resizable()
+                            }
+                            .aspectRatio(contentMode: .fill)
+                            .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
                         }
-                            .scaledToFit()
-                            .frame(maxWidth: 210,maxHeight: 180)
                             
                     }
                     ZStack{
@@ -278,6 +211,7 @@ private struct ToiletCellView:View{
                             Text(item.toiletNm)
                                 .font(.system(size: 20,weight: .bold))
                                 .foregroundStyle(Color.black)
+                                .padding(10)
                             Text("\(toiletListViewModel.distanceCalc(toilet: item))km")
                                 .foregroundStyle(Color.black)
                             Text(item.rnAdres)
