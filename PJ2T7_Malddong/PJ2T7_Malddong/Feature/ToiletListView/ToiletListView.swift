@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+
 struct ToiletListView: View {
     @StateObject private var toiletListViewModel = ToiletListViewModel()
     
@@ -29,9 +30,9 @@ struct ToiletListView: View {
                 }
             }
             
-        }
-        .onAppear {
-            toiletListViewModel.fetchData()
+            .onAppear {
+                toiletListViewModel.fetchData()
+            }
         }
     }
 }
@@ -94,7 +95,7 @@ private struct GridView:View {
             ForEach(toiletListViewModel.toiletList,id: \.self){item in
                 
                 if toiletListViewModel.distributeSelect == "전체"{
-                    if toiletListViewModel.distributeSelect == "전체"{
+                    
                         NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
                             
                             ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
@@ -103,7 +104,7 @@ private struct GridView:View {
                     }else if item.lnmAdres.contains(toiletListViewModel.distributeSelect){
                         ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
                             .padding()
-                    }
+                    
                 }
             }//FE
         })

@@ -27,16 +27,16 @@ struct ToiletDetailView: View {
                 }
                 .frame(width: 350,height: 250)
                 
-                UIMiniMapView(title: "\(item.toiletNm)", latitude: Double("\(item.laCrdnt)")!, longitude: Double("\(item.loCrdnt)")!)
-                    .frame(width: 350,height: 250)
-                    .scaledToFit()
+                UIMiniMapView(title: item.toiletNm, latitude: Double(item.laCrdnt)!, longitude: Double(item.loCrdnt)!
+                )
+                .frame(width: 350,height: 250)
                 
-                ToiletInfoSection(title: "\(item.opnTimeInfo)", content: Color.gray, fontSize: 13, alignment: .trailing)
+                ToiletInfoSection(title: item.opnTimeInfo, content: Color.gray, fontSize: 13, alignment: .trailing)
                 
                 Spacer()
                 
-                ToiletInfoSection(title: "\(item.toiletNm)", content: Color.black, fontSize: 20, alignment: .leading, bottomPadding: 1)
-                ToiletInfoSection(title: "\(item.lnmAdres)", content: Color.gray, fontSize: 15, alignment: .leading)
+                ToiletInfoSection(title: item.toiletNm, content: Color.black, fontSize: 20, alignment: .leading, bottomPadding: 1)
+                ToiletInfoSection(title: item.lnmAdres, content: Color.gray, fontSize: 15, alignment: .leading)
 
                 HStack {
                     VStack(alignment:.leading){

@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreLocation
-
+import MapKit
 
 class ToiletListViewModel:ObservableObject{
     @Published var toiletList: [Toilet]
@@ -121,6 +121,7 @@ extension ToiletListViewModel{
         return String(Int(distanceMetor)/1000)
         
     }
+    
     
     
     
