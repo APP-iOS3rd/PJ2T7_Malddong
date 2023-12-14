@@ -35,7 +35,8 @@ struct Toilet:Hashable,Decodable{
     
     var laCrdnt:String
     var loCrdnt:String
-    var rnAdres:String
+//    var emdNm:String
+    var lnmAdres:String
     var toiletNm:String
     var opnTimeInfo:String
     

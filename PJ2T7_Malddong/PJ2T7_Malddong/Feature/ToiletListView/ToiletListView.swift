@@ -11,6 +11,7 @@ import CoreData
 struct ToiletListView: View {
     @StateObject private var toiletListViewModel = ToiletListViewModel()
     
+    
     var body: some View {
         NavigationStack{
             distributeView(
@@ -23,13 +24,11 @@ struct ToiletListView: View {
                     
                     GridView(toiletListViewModel: toiletListViewModel)
                         .padding()
-                    
+                        
                     
                 }
             }
-            .onAppear{
-                toiletListViewModel.fectchData()
-            }
+            
         }
     }
 }
@@ -98,7 +97,7 @@ private struct GridView:View {
                             ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
                                 .padding()
                         }
-                    }else if item.rnAdres.contains(toiletListViewModel.distributeSelect){
+                    }else if item.lnmAdres.contains(toiletListViewModel.distributeSelect){
                         
                         NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
                             
@@ -162,7 +161,7 @@ private struct ToiletCellView:View{
                             .foregroundStyle(Color.black)
                         
                         HStack{
-                            Text(item.rnAdres)
+                            Text(item.lnmAdres)
                                 .frame(width: 70)
                                 .font(.system(size: 10))
                                 .lineLimit(2)
@@ -210,7 +209,7 @@ private struct ToiletCellView:View{
                                 .padding(10)
                             Text("\(toiletListViewModel.distanceCalc(toilet: item))km")
                                 .foregroundStyle(Color.black)
-                            Text(item.rnAdres)
+                            Text(item.lnmAdres)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)
                         }
