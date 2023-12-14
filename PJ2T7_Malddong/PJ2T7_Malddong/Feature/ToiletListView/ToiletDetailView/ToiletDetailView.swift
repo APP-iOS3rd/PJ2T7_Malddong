@@ -27,11 +27,6 @@ struct ToiletDetailView: View {
                 }
                 .frame(width: 350,height: 250)
                 
-                //후보1
-                UIMapView()
-                    .frame(width: 350,height: 250)
-                
-                //후보2
                 UIMiniMapView(title: "\(item.toiletNm)", latitude: Double("\(item.laCrdnt)")!, longitude: Double("\(item.loCrdnt)")!)
                     .frame(width: 350,height: 250)
                     .scaledToFit()
