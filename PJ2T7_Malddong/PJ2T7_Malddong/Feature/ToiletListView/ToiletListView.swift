@@ -13,12 +13,12 @@ struct ToiletListView: View {
     
     var body: some View {
         NavigationStack{
+            distributeView(
+                toiletListViewModel: toiletListViewModel)
+            .padding(.horizontal)
             ScrollView{
                 
                 VStack{
-                    distributeView(
-                        toiletListViewModel: toiletListViewModel)
-                    .padding(.horizontal)
                     
                     
                     GridView(toiletListViewModel: toiletListViewModel)
@@ -90,10 +90,21 @@ private struct GridView:View {
                 GridItem(.flexible()),] :[GridItem(.flexible())]
                       , content: {
                 ForEach(toiletListViewModel.toiletList,id: \.self){item in
-                    NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
+                    
+                    if toiletListViewModel.distributeSelect == "전체"{
                         
-                        ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
-                            .padding()
+                        NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
+                            
+                            ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
+                                .padding()
+                        }
+                    }else if item.rnAdres.contains(toiletListViewModel.distributeSelect){
+                        
+                        NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
+                            
+                            ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
+                                .padding()
+                        }
                     }
             }//FE
         })
@@ -125,14 +136,18 @@ private struct ToiletCellView:View{
                         .cornerRadius(15,corners: [.topLeft,.topRight])
                         .shadow(radius: 7)
                     
-                    GeometryReader { geometry in
-                        AsyncImage(url: URL(string: toiletListViewModel.imageNilCheck(item))) {
-                            $0.image?.resizable()
-                        }
-                        .aspectRatio(contentMode: .fill)
-                        .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                    AsyncImage(url: URL(string:
+                                            toiletListViewModel.imageNilCheck(item)
+                                       )){
+                        $0.image?.resizable()
                     }
+                        .frame(width: 152,height: 100)
+                        .cornerRadius(15,corners: [.topLeft,.topRight])
+                        .onTapGesture {
+//                            addItem()
+                        }
+                        
+                    
                 }
                 ZStack{
                     Rectangle()
@@ -170,14 +185,14 @@ private struct ToiletCellView:View{
                             .foregroundStyle(Color.gray)
                             .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                             .shadow(radius: 7)
-                        GeometryReader { geometry in
+                        
                             AsyncImage(url: URL(string: toiletListViewModel.imageNilCheck(item))) {
                                 $0.image?.resizable()
                             }
-                            .aspectRatio(contentMode: .fill)
-                            .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                        }
+                            .frame(width: 210, height: 180)
+                            .cornerRadius(15,corners: [.topLeft,.bottomLeft])
+                            
+                        
                             
                     }
                     ZStack{
@@ -209,26 +224,27 @@ private struct ToiletCellView:View{
         }
         
     }
-    private func addItem() {
-           withAnimation {
-               //수정 부분
-               let newToilet = MyToilets(context: viewContext)
-               newToilet.toiletNm = item.toiletNm
-               
-               saveItems()
-           }
-       }
+//    private func addItem() {
+//           withAnimation {
+//               //수정 부분
+//               let newToilet = MyToilets(context: viewContext)
+//               newToilet.toiletNm = item.toiletNm
+//               
+//               saveItems()
+//           }
+//       }
     
-    private func saveItems() {
-        do {
-            try viewContext.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
-    }
+//    private func saveItems() {
+//        do {
+//            try viewContext.save()
+//        } catch {
+//            // Replace this implementation with code to handle the error appropriately.
+//            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//            let nsError = error as NSError
+//            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//            print("error")
+//        }
+//    }
 }
 
         
