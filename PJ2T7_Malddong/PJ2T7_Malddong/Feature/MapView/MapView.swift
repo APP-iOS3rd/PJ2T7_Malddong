@@ -80,8 +80,8 @@ public struct customButton: View {
 }
 
 struct UIMapView: UIViewRepresentable {
-    @ObservedObject var toiletListViewModel = ToiletListViewModel()
-    @ObservedObject var parkingLotViewModel =  ParkingLotViewModel(parkingLots: [])
+    @ObservedObject var toiletListViewModel = ToiletListViewModel.shared
+    @ObservedObject var parkingLotViewModel =  ParkingLotViewModel.shared
     
     typealias UIViewType = NMFNaverMapView
     

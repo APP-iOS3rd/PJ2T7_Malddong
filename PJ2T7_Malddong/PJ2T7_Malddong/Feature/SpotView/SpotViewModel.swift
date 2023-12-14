@@ -7,28 +7,37 @@
 
 import Foundation
 class SpotViewModel: ObservableObject {
+    static let shared = SpotViewModel()
+    
     @Published var spotitem = [Spot]()
     @Published var distributeSelect: String
     @Published var isGridAlign:Bool
     var distributeArea : [String]
+    @Published var filteredSpotList: [Spot] = []
     
         private var touristApiKey: String? {
             get { getValueOfPlistFile("ApiKeys", "TOURIST_API_KEY") }
         }
     
-    
-    init(
-        spotitem: [Spot] = [],
-        distributeSelect: String = "제주시",
-        isGridAlign: Bool = true,
-        distributeArea: [String] = ["제주시","서귀포시"]
-        
-    ){
-        self.spotitem = spotitem
-        self.distributeSelect = distributeSelect
-        self.isGridAlign = isGridAlign
-        self.distributeArea = distributeArea
+    private init() {
+        self.spotitem = [Spot]()
+        self.distributeSelect = "제주시"
+        self.isGridAlign = true
+        self.distributeArea = ["제주시","서귀포시"]
     }
+    
+//    init(
+//        spotitem: [Spot] = [],
+//        distributeSelect: String = "제주시",
+//        isGridAlign: Bool = true,
+//        distributeArea: [String] = ["제주시","서귀포시"]
+//        
+//    ){
+//        self.spotitem = spotitem
+//        self.distributeSelect = distributeSelect
+//        self.isGridAlign = isGridAlign
+//        self.distributeArea = distributeArea
+//    }
     
     let apiKey = "TOURIST_API_KEY"
     
@@ -93,6 +102,7 @@ class SpotViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self.spotitem = results.info
                         print(results)
+                        self.resetFilter()
                     }
                 } catch let error {
                     print("여기 : " + error.localizedDescription)
@@ -101,8 +111,15 @@ class SpotViewModel: ObservableObject {
             }
             task.resume()
         }
+    // 검색 기능
+    func filterByName(_ spotName: String){
+        filteredSpotList = spotitem.filter { spot in
+            return spot.title.lowercased().contains(spotName.lowercased())
+        }
+    }
     
-   
-    
+    func resetFilter() {
+        filteredSpotList = spotitem
+    } 
 }
 

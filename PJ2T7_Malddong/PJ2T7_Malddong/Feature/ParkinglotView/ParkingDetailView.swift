@@ -37,8 +37,7 @@ struct ParkingDetailView: View {
                 {
                     ParkingDetailItem(title: "구분", value: "\(parking.isPublic)", titleColor: .red, valueColor: .gray, alignment: .leading)
                     ParkingDetailItem(title: "유형", value: "\(parking.type)", titleColor: .red, valueColor: .gray, alignment: .trailing)
-                }
-                
+                } 
             }
         }
     }

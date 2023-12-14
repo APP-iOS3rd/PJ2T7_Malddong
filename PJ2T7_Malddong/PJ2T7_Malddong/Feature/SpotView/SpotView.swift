@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SpotView: View {
-    @StateObject private var spotViewModel = SpotViewModel(spotitem: [])
+    @StateObject private var spotViewModel = SpotViewModel.shared
     
     var body: some View {
         NavigationStack {
@@ -89,7 +89,7 @@ private struct GridView: View {
         ] : [GridItem(.flexible())]
                   , content: {
             
-            ForEach(spotViewModel.spotitem, id: \.self) { item in
+            ForEach(spotViewModel.filteredSpotList, id: \.self) { item in
                 NavigationLink(destination: SpotDetailView(spot: item)){
                     SpotCellView(spotViewModel: spotViewModel, item: item)
                         .padding()

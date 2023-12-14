@@ -9,28 +9,23 @@ import SwiftUI
 import CoreData
 
 struct ToiletListView: View {
-    @StateObject private var toiletListViewModel = ToiletListViewModel()
-    @State private var searchText: String = ""
-    @State private var isSearchBarvisible: Bool = false
+    @StateObject var toiletListViewModel = ToiletListViewModel.shared
     var filteredToiletList: [Toilet] {
         toiletListViewModel.filteredToiletList
     }
 
-    
-    
     var body: some View {
+        
         NavigationStack{
             ScrollView{
                 VStack{
+                    
                     distributeView(
                         toiletListViewModel: toiletListViewModel)
                     .padding(.horizontal)
-                    
-                    
+                       
                     GridView(toiletListViewModel: toiletListViewModel)
                         .padding()
-                    
-                    
                 }
             }
             .onAppear{
@@ -41,18 +36,6 @@ struct ToiletListView: View {
             toiletListViewModel.fectchData()
         }
     }
-    private func search(){
-        print("검색 시작: \(searchText)")
-        
-        if searchText.isEmpty {
-            // 검색 내용이 없으면 리셋
-            toiletListViewModel.resetFilter()
-        } else {
-            toiletListViewModel.filterByName(searchText)
-        }
-    }
-    
-    
 }
 
 //TODO: - distributeView/grid 패턴 변경 버튼
@@ -65,8 +48,6 @@ private struct distributeView:View{
     }
     
     var body: some View{
-        
-        
         HStack{
             Button(action: {
                 toiletListViewModel.gridOneLine()
@@ -87,7 +68,6 @@ private struct distributeView:View{
                     , content: {
                 ForEach(toiletListViewModel.distributeArea,id: \.self){item in
                     Text(item)
-                    
                 }
             })
         }
@@ -108,8 +88,9 @@ private struct GridView:View {
                 GridItem(.flexible()),
                 GridItem(.flexible()),] :[GridItem(.flexible())]
                       , content: {
-                ForEach(toiletListViewModel.toiletList,id: \.self){item in
-                    NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
+                
+                ForEach(toiletListViewModel.filteredToiletList, id: \.self){item in
+                    NavigationLink(destination: ToiletDetailView(item: item)) {
                         
                         ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
                             .padding()
@@ -118,6 +99,7 @@ private struct GridView:View {
         })
     }
 }
+
 //MARK: - ToiletCellView
 private struct ToiletCellView:View{
     @Environment(\.managedObjectContext) private var viewContext
@@ -220,13 +202,8 @@ private struct ToiletCellView:View{
                         }
                     }
                 }//H
-                   
-                
-                
             }
-                
         }
-        
     }
     private func addItem() {
            withAnimation {
@@ -249,10 +226,6 @@ private struct ToiletCellView:View{
         }
     }
 }
-
-        
-        
-        
 
 #Preview {
     ToiletListView()

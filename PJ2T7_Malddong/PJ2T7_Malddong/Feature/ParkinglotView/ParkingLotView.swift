@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ParkingLotView: View {
-    @StateObject private var parkingLotViewModel = ParkingLotViewModel(parkingLots: [])
+    @StateObject private var parkingLotViewModel = ParkingLotViewModel.shared
     
+    var filteredParkingList: [Parking] {
+        parkingLotViewModel.filteredParkingList
+    }
     var body: some View {
         NavigationStack {
             ScrollView{
@@ -72,7 +75,7 @@ private struct distributeView:View{
 // 개별 버튼
 private struct GridView:View {
     @ObservedObject private var parkingLotViewModel: ParkingLotViewModel
-
+    
     init(parkingLotViewModel: ParkingLotViewModel) {
         self.parkingLotViewModel = parkingLotViewModel
     }
@@ -83,12 +86,11 @@ private struct GridView:View {
             GridItem(.flexible()),] :[GridItem(.flexible())]
                   , content: {
             
-            ForEach(parkingLotViewModel.parkingLots,id: \.self){item in
+            ForEach(parkingLotViewModel.filteredParkingList,id: \.self){item in
                 NavigationLink(destination: ParkingDetailView(parking: item)){
-                ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
+                    ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
                 }
             }
-            
         }).animation(.default)
     }
 }
@@ -129,11 +131,7 @@ private struct ParkingCellView:View{
                             .frame(maxWidth: 152, maxHeight: 100)
                             .clipShape(RoundedRectangle(cornerRadius: 15))
                     }
-                
-            }
-        
-    
-        
+                }
                 ZStack{
                     Rectangle()
                         .frame(width: 152,height: 70)
@@ -162,24 +160,24 @@ private struct ParkingCellView:View{
             else{
                 HStack(spacing:0){
                     ZStack{
-                                        Rectangle()
-                                            .frame(width: 210,height: 180)
-                                            .foregroundColor(Color("MalddongGray"))
-                                            .cornerRadius(15, corners: [.topLeft, .topRight])
-                                            .shadow(radius: 7)
-                                        
-                                        ForEach(0..<26) { _ in
-                                            let randomIndex = Int.random(in: 0..<self.CarImages.count)
-                                            let imageName = self.CarImages[randomIndex]
-                                            
-                                            Image(imageName)
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(maxWidth: 210, maxHeight: 180)
-                                                .clipShape(RoundedRectangle(cornerRadius: 15))
-                                        }
-                                    
-                                }
+                        Rectangle()
+                            .frame(width: 210,height: 180)
+                            .foregroundColor(Color("MalddongGray"))
+                            .cornerRadius(15, corners: [.topLeft, .topRight])
+                            .shadow(radius: 7)
+                        
+                        ForEach(0..<26) { _ in
+                            let randomIndex = Int.random(in: 0..<self.CarImages.count)
+                            let imageName = self.CarImages[randomIndex]
+                            
+                            Image(imageName)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(maxWidth: 210, maxHeight: 180)
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                        }
+                        
+                    }
                     ZStack{
                         Rectangle()
                             .frame(width: 160, height: 180)
