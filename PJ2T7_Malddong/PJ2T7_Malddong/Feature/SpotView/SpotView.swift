@@ -22,7 +22,7 @@ struct SpotView: View {
                     
                     GridView(spotViewModel:
                                 spotViewModel)
-                                .padding()
+                    .padding()
                 }
             }
             .onAppear{
@@ -62,13 +62,13 @@ private struct distributeView:View{
             
             Picker("",
                    selection:$spotViewModel
-                   .distributeSelect
-                    , content: {
+                .distributeSelect
+                   , content: {
                 ForEach(spotViewModel
                     .distributeArea,id: \.self){item in
-                    Text(item)
-                    
-                }
+                        Text(item)
+                        
+                    }
             })
         }
     }
@@ -77,11 +77,11 @@ private struct distributeView:View{
 //MARK: - GrideView
 private struct GridView: View {
     @ObservedObject private var spotViewModel: SpotViewModel
-
+    
     init(spotViewModel: SpotViewModel) {
         self.spotViewModel = spotViewModel
     }
-
+    
     var body: some View {
         LazyVGrid(columns: spotViewModel.isGridAlign ? [
             GridItem(.flexible()),
@@ -95,7 +95,7 @@ private struct GridView: View {
                         .padding()
                 }
             }
-        }).animation(.default)
+        })
     }
 }
 
@@ -115,19 +115,20 @@ private struct SpotCellView:View{
         VStack(spacing:0){
             if spotViewModel.isGridAlign{
                 ZStack{
+                    
                     Rectangle()
                         .frame(width: 152,height: 100)
                         .foregroundColor(.gray)
                         .cornerRadius(15,corners: [.topLeft,.topRight])
                         .shadow(radius: 7)
                     
-                    GeometryReader { geometry in
-                        AsyncImage(url: URL(string: item.thumbnailPath)) {
-                            $0.image?.resizable()
-                        }
-                        .aspectRatio(contentMode: .fill)
-                        .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                    
+                    AsyncImage(url: URL(string: item.thumbnailPath)) {
+                        $0.image?.resizable()
+                    }
+                    .frame(width: 152,height: 100)
+                    .cornerRadius(15,corners: [.topLeft,.topRight])
+                    .onTapGesture {
                     }
                 }
                 ZStack{
@@ -148,7 +149,7 @@ private struct SpotCellView:View{
                                 .font(.system(size: 10))
                                 .lineLimit(2)
                                 .foregroundStyle(Color.gray)
-                            
+
                             Text("\(spotViewModel.distanceCalc(spot: item))km")
                                 .foregroundStyle(Color.gray)
                         }
@@ -162,17 +163,16 @@ private struct SpotCellView:View{
                         
                         Rectangle()
                             .frame(width: 210, height: 180)
-                            .foregroundColor(Color("MalddongGray"))
+                            .foregroundStyle(Color.gray)
                             .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                             .shadow(radius: 7)
-                        GeometryReader { geometry in
-                            AsyncImage(url: URL(string: item.thumbnailPath)) {
-                                $0.image?.resizable()
-                            }
-                            .aspectRatio(contentMode: .fill)
-                            .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                        
+                        AsyncImage(url: URL(string: item.thumbnailPath)) {
+                            $0.image?.resizable()
                         }
+                        .frame(width: 210, height: 180)
+                        .cornerRadius(15,corners: [.topLeft,.bottomLeft])
+                        
                     }
                     ZStack{
                         Rectangle()
@@ -187,8 +187,10 @@ private struct SpotCellView:View{
                                 .font(.system(size: 20,weight: .bold))
                                 .foregroundStyle(Color.black)
                                 .padding(10)
+
                             Text("\(spotViewModel.distanceCalc(spot: item))km")
                                 .foregroundStyle(Color.gray)
+
                             Text(item.roadAddress)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)
@@ -200,9 +202,9 @@ private struct SpotCellView:View{
     }
 }
 
-        
-        
-        
+
+
+
 
 #Preview {
     SpotView()

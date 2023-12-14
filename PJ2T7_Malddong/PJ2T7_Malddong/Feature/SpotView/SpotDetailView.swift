@@ -16,22 +16,19 @@ struct SpotDetailView: View {
                 
                 AsyncImage(url: URL(string:
                                         spot.thumbnailPath
-                        )){
+                                   )){
                     $0.image?.resizable()
                 }
-                                   .scaledToFit()
-                                   .frame(maxWidth: 320,maxHeight: 180)
                 
-                // 지도자리
-                Image("")
-                    .resizable()
+                                   .frame(maxWidth: 350,maxHeight: 250)
+                
+                UIMiniMapView(title: "\(spot.title)", latitude: Double("\(spot.latitude)")!, longitude: Double("\(spot.longitude)")!)
+                    .frame(width: 350,height: 250)
                     .scaledToFit()
-                    .frame(maxWidth: 320,maxHeight: 180)
-                    .background(Color.blue)
                 
                 SpotInfoSection(title: "\(spot.tag)", content: Color.gray, fontSize: 13, alignment: .trailing)
-                    
-               
+                
+                
                 Spacer()
                 
                 SpotInfoSection(title: "\(spot.title)", content: .black, fontSize: 20, alignment: .leading, bottomPadding: 1)
@@ -58,12 +55,11 @@ private func SpotInfoSection(title: String, content: Color, fontSize: CGFloat, a
         Text(title)
             .foregroundColor(content)
             .font(.custom("LINESeedKR-Bd", size: fontSize))
-  
             .frame(maxWidth:320, alignment: alignment)
             .padding(.bottom, bottomPadding)
             .italic() //이텔릭체가 적용이 X
         // Font(UIFont.LINESeedKR(size: 12, weight: .bold)))
-            
+        
     }
 }
 

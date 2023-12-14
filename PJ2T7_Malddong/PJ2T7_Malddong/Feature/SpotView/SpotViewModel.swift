@@ -16,9 +16,9 @@ class SpotViewModel: ObservableObject {
     var distributeArea : [String]
     @Published var filteredSpotList: [Spot] = []
     
-        private var touristApiKey: String? {
-            get { getValueOfPlistFile("ApiKeys", "TOURIST_API_KEY") }
-        }
+    private var touristApiKey: String? {
+        get { getValueOfPlistFile("ApiKeys", "TOURIST_API_KEY") }
+    }
     
     private init() {
         self.spotitem = [Spot]()
@@ -63,36 +63,46 @@ class SpotViewModel: ObservableObject {
     }
     
     func gridOneLine(){
-            isGridAlign = false
-        }
-        
+        isGridAlign = false
+    }
+    
     func gridTwoLine(){
         isGridAlign = true
     }
     
     
     
+    
+    func fetchData() {
+        guard let touristApiKey = touristApiKey else { return }
         
-        func fetchData() {
-            guard let touristApiKey = touristApiKey else { return }
+        let urlString = "http://api.jejuits.go.kr/api/infoTourList?code=\(touristApiKey)"
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        let session = URLSession(configuration: .default)
+        
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("Error : " + error.localizedDescription)
+                return
+            }
             
-            let urlString = "http://api.jejuits.go.kr/api/infoTourList?code=\(touristApiKey)"
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
             
-            guard let url = URL(string: urlString) else { return }
+            guard let data = data else {
+                print("No data received")
+                return
+            }
             
-            let session = URLSession(configuration: .default)
+            let str = String(decoding: data, as: UTF8.self)
+            print(str)
             
-            let task = session.dataTask(with: url) { data, response, error in
-                if let error = error {
-                    print("Error : " + error.localizedDescription)
-                    return
-                }
-                
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
-                
-                guard let data = data else {
-                    print("No data received")
-                    return
+            do {
+                let results = try JSONDecoder().decode(SpotResult.self, from: data)
+                DispatchQueue.main.async {
+                    self.spotitem = results.info
+                    print(results)
                 }
                 
                 let str = String(decoding: data, as: UTF8.self)
@@ -108,10 +118,11 @@ class SpotViewModel: ObservableObject {
                 } catch let error {
                     print("여기 : " + error.localizedDescription)
                 }
-                
             }
-            task.resume()
+            
         }
+        task.resume()
+    }
     
     // 거리 표시
     func distanceCalc(spot:Spot)->String{
@@ -122,8 +133,7 @@ class SpotViewModel: ObservableObject {
         
         let distanceMetor = myLocation.distance(from: objectLoaction)
         
-        return String(Int(distanceMetor)/1000)
-        
+        return String(Int(distanceMetor)/1000)   
     }
     
     // 검색 기능
@@ -132,6 +142,7 @@ class SpotViewModel: ObservableObject {
             return spot.title.lowercased().contains(spotName.lowercased())
         }
     }
+
     
     func resetFilter() {
         filteredSpotList = spotitem

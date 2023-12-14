@@ -42,11 +42,11 @@ extension ToiletListViewModel{
         isGridAlign = true
     }
     
-    func fectchData(){
+    func fetchData(){
         guard let apiKey = apiKey else {return}
         
         let urlString =
-        "https://apis.data.go.kr/6510000/publicToiletService/getPublicToiletInfoList?pageNo=1&numOfRows=10&serviceKey=\(apiKey)"
+        "https://apis.data.go.kr/6510000/publicToiletService/getPublicToiletInfoList?pageNo=1&numOfRows=500&serviceKey=\(apiKey)"
         
         guard let url = URL(string: urlString) else { return }
         

@@ -90,8 +90,8 @@ private struct GridView:View {
                 NavigationLink(destination: ParkingDetailView(parking: item)){
                     ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
                 }
-            }
-        }).animation(.default)
+            } 
+        })
     }
 }
 
@@ -127,11 +127,12 @@ private struct ParkingCellView:View{
                         
                         Image(imageName)
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
                             .frame(maxWidth: 152, maxHeight: 100)
+                            .aspectRatio(contentMode: .fill)
                             .clipShape(RoundedRectangle(cornerRadius: 15))
                     }
                 }
+
                 ZStack{
                     Rectangle()
                         .frame(width: 152,height: 70)
@@ -150,21 +151,20 @@ private struct ParkingCellView:View{
                                 .font(.system(size: 10))
                                 .lineLimit(2)
                                 .foregroundStyle(Color.gray)
-                            
+
                             Text("\(parkingLotViewModel.distanceCalc(parking: item))km")
                                 .foregroundStyle(Color.gray)
                         }
-                        
                     }.frame(maxWidth: 152,maxHeight: 70)
+                    
                 }
-            }
-            // 큰 그리드 경우
-            else{
+                // 큰 그리드 경우
+            } else{
                 HStack(spacing:0){
                     ZStack{
                         Rectangle()
                             .frame(width: 210,height: 180)
-                            .foregroundColor(Color("MalddongGray"))
+                            .foregroundColor(Color("White"))
                             .cornerRadius(15, corners: [.topLeft, .topRight])
                             .shadow(radius: 7)
                         
@@ -174,8 +174,8 @@ private struct ParkingCellView:View{
                             
                             Image(imageName)
                                 .resizable()
-                                .aspectRatio(contentMode: .fill)
                                 .frame(maxWidth: 210, maxHeight: 180)
+                                .aspectRatio(contentMode: .fill)
                                 .clipShape(RoundedRectangle(cornerRadius: 15))
                         }
                         
@@ -193,8 +193,10 @@ private struct ParkingCellView:View{
                                 .font(.system(size: 20,weight: .bold))
                                 .foregroundStyle(Color.black)
                                 .padding(10)
+                          
                             Text("\(parkingLotViewModel.distanceCalc(parking: item))km")
                                 .foregroundStyle(Color.gray)
+
                             Text(item.rnAdres)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)

@@ -7,14 +7,18 @@
 
 import SwiftUI
 
+import CoreLocation
 import NMapsMap
 
 struct MapView: View {
-
+//    @ObservedObject var locationManager = LocationManager()
+    
     var body: some View {
         ZStack(alignment: .topLeading) {
+            
             UIMapView()
                 .edgesIgnoringSafeArea(.vertical)
+            
             
             HStack {
                 customButton(title: "화장실", imageName: "tissue", backgroundColor: .malddongYellow)
@@ -174,7 +178,6 @@ func getValueOfPlistFile(_ plistFileName:String,_ key:String) -> String? {
     }
     return value
 }
-
 
 #Preview {
     MapView()
