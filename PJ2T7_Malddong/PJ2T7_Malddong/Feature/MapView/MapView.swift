@@ -14,24 +14,16 @@ struct MapView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-
+            
             UIMapView()
                 .edgesIgnoringSafeArea(.vertical)
             
             HStack {
-                customButton(title: "화장실", imageName: "tissue", backgroundColor: .malddongYellow)
-                
-                customButton(title: "관광지", imageName: "dolhareubang", backgroundColor: .malddongGreen)
-                
-                customButton(title: "주차장", imageName: "car", backgroundColor: .malddongBlue)
-                
                 Spacer()
-                
-                Image("search")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 28, height: 28)
-                    .clipped()
+                customButton(title: "화장실", imageName: "tissue", backgroundColor: .malddongYellow)
+                customButton(title: "관광지", imageName: "dolhareubang", backgroundColor: .malddongGreen)
+                customButton(title: "주차장", imageName: "car", backgroundColor: .malddongBlue)
+                Spacer()
             }
             .padding(12)
         }
