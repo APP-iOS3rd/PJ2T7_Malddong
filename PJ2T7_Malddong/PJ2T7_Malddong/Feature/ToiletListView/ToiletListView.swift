@@ -13,12 +13,12 @@ struct ToiletListView: View {
     
     var body: some View {
         NavigationStack{
+            distributeView(
+                toiletListViewModel: toiletListViewModel)
+            .padding(.horizontal)
             ScrollView{
                 
                 VStack{
-                    distributeView(
-                        toiletListViewModel: toiletListViewModel)
-                    .padding(.horizontal)
                     
                     
                     GridView(toiletListViewModel: toiletListViewModel)
@@ -141,16 +141,13 @@ private struct ToiletCellView:View{
                                        )){
                         $0.image?.resizable()
                     }
-                        
-                        .scaledToFit()
-                        .frame(maxWidth: 152,maxHeight: 100)
+                        .frame(width: 152,height: 100)
+                        .cornerRadius(15,corners: [.topLeft,.topRight])
                         .onTapGesture {
 //                            addItem()
                         }
-                        .aspectRatio(contentMode: .fill)
-                        .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                    }
+                        
+                    
                 }
                 ZStack{
                     Rectangle()
@@ -188,14 +185,14 @@ private struct ToiletCellView:View{
                             .foregroundStyle(Color.gray)
                             .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                             .shadow(radius: 7)
-                        GeometryReader { geometry in
+                        
                             AsyncImage(url: URL(string: toiletListViewModel.imageNilCheck(item))) {
                                 $0.image?.resizable()
                             }
-                            .aspectRatio(contentMode: .fill)
-                            .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                        }
+                            .frame(width: 210, height: 180)
+                            .cornerRadius(15,corners: [.topLeft,.bottomLeft])
+                            
+                        
                             
                     }
                     ZStack{
