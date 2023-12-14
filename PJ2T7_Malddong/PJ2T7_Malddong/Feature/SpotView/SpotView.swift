@@ -140,6 +140,7 @@ private struct SpotCellView:View{
                     VStack{
                         Text(item.title)
                             .font(.system(size: 15,weight: .bold))
+                            .foregroundStyle(Color.black)
                         
                         HStack{
                             Text(item.roadAddress)
@@ -148,7 +149,8 @@ private struct SpotCellView:View{
                                 .lineLimit(2)
                                 .foregroundStyle(Color.gray)
                             
-                            Text("1.2km")
+                            Text("\(spotViewModel.distanceCalc(spot: item))km")
+                                .foregroundStyle(Color.gray)
                         }
                         
                     }.frame(maxWidth: 152,maxHeight: 70)
@@ -183,8 +185,10 @@ private struct SpotCellView:View{
                         VStack{
                             Text(item.title)
                                 .font(.system(size: 20,weight: .bold))
+                                .foregroundStyle(Color.black)
                                 .padding(10)
-                            Text("1.6km")
+                            Text("\(spotViewModel.distanceCalc(spot: item))km")
+                                .foregroundStyle(Color.gray)
                             Text(item.roadAddress)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)

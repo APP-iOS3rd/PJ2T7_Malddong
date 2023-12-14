@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 class SpotViewModel: ObservableObject {
     static let shared = SpotViewModel()
     
@@ -111,6 +112,20 @@ class SpotViewModel: ObservableObject {
             }
             task.resume()
         }
+    
+    // 거리 표시
+    func distanceCalc(spot:Spot)->String{
+        //내위치 임의 설정
+        let myLocation = CLLocation(latitude: 33.44980872, longitude: 126.6182481)
+        
+        let objectLoaction = CLLocation(latitude: Double("\(spot.latitude)")!, longitude: Double("\(spot.longitude)")!)
+        
+        let distanceMetor = myLocation.distance(from: objectLoaction)
+        
+        return String(Int(distanceMetor)/1000)
+        
+    }
+    
     // 검색 기능
     func filterByName(_ spotName: String){
         filteredSpotList = spotitem.filter { spot in
