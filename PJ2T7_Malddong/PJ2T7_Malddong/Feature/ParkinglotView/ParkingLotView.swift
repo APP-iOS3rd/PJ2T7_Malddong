@@ -72,7 +72,7 @@ private struct distributeView:View{
 // 개별 버튼
 private struct GridView:View {
     @ObservedObject private var parkingLotViewModel: ParkingLotViewModel
-
+    
     init(parkingLotViewModel: ParkingLotViewModel) {
         self.parkingLotViewModel = parkingLotViewModel
     }
@@ -85,11 +85,11 @@ private struct GridView:View {
             
             ForEach(parkingLotViewModel.parkingLots,id: \.self){item in
                 NavigationLink(destination: ParkingDetailView(parking: item)){
-                ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
+                    ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
                 }
             }
             
-        }).animation(.default)
+        })
     }
 }
 
@@ -124,16 +124,14 @@ private struct ParkingCellView:View{
                         let imageName = self.CarImages[randomIndex]
                         
                         Image(imageName)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(maxWidth: 152, maxHeight: 100)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .frame(width: 152,height: 100)
+                            .cornerRadius(15,corners: [.topLeft,.topRight])
+                            .onTapGesture {
+                            }
                     }
+                    
+                }
                 
-            }
-        
-    
-        
                 ZStack{
                     Rectangle()
                         .frame(width: 152,height: 70)
@@ -144,6 +142,7 @@ private struct ParkingCellView:View{
                     VStack{
                         Text(item.name)
                             .font(.system(size: 15,weight: .bold))
+                            .foregroundStyle(Color.black)
                         
                         HStack{
                             Text(item.rnAdres)
@@ -153,33 +152,32 @@ private struct ParkingCellView:View{
                                 .foregroundStyle(Color.gray)
                             
                             Text("1.2km") // 거리 설정
+                                .foregroundStyle(Color.black)
                         }
                         
                     }.frame(maxWidth: 152,maxHeight: 70)
+                    
                 }
-            }
-            // 큰 그리드 경우
-            else{
+                // 큰 그리드 경우
+            } else{
                 HStack(spacing:0){
                     ZStack{
-                                        Rectangle()
-                                            .frame(width: 210,height: 180)
-                                            .foregroundColor(Color("MalddongGray"))
-                                            .cornerRadius(15, corners: [.topLeft, .topRight])
-                                            .shadow(radius: 7)
-                                        
-                                        ForEach(0..<26) { _ in
-                                            let randomIndex = Int.random(in: 0..<self.CarImages.count)
-                                            let imageName = self.CarImages[randomIndex]
-                                            
-                                            Image(imageName)
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(maxWidth: 210, maxHeight: 180)
-                                                .clipShape(RoundedRectangle(cornerRadius: 15))
-                                        }
-                                    
-                                }
+                        Rectangle()
+                            .frame(width: 210,height: 180)
+                            .foregroundColor(Color("MalddongGray"))
+                            .cornerRadius(15, corners: [.topLeft, .topRight])
+                            .shadow(radius: 7)
+                        
+                        ForEach(0..<26) { _ in
+                            let randomIndex = Int.random(in: 0..<self.CarImages.count)
+                            let imageName = self.CarImages[randomIndex]
+                            
+                            Image(imageName)
+                                .frame(width: 210, height: 180)
+                                .cornerRadius(15,corners: [.topLeft,.bottomLeft])
+                        }
+                        
+                    }
                     ZStack{
                         Rectangle()
                             .frame(width: 160, height: 180)
@@ -191,8 +189,10 @@ private struct ParkingCellView:View{
                         VStack{
                             Text(item.name)
                                 .font(.system(size: 20,weight: .bold))
+                                .foregroundStyle(.black)
                                 .padding(10)
                             Text("1.6km")
+                                .foregroundStyle(Color.black)
                             Text(item.rnAdres)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)

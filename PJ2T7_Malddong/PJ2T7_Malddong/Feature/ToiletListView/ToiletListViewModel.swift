@@ -37,7 +37,7 @@ class ToiletListViewModel:ObservableObject{
     }
     
     
-  
+    
     
 }
 extension ToiletListViewModel{
