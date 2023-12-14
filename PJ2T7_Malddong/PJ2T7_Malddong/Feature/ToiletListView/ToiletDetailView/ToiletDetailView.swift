@@ -42,7 +42,7 @@ struct ToiletDetailView: View {
                     Text(item.opnTimeInfo)
                         .font(.system(size: 15))
                 }
-                Text(item.rnAdres)
+                Text(item.lnmAdres)
             }
             .padding()
             HStack{
@@ -126,5 +126,5 @@ private struct toiletInforView:View{
 }
 
 #Preview {
-    ToiletDetailView(item: Toilet(dataCd: "", laCrdnt: "", loCrdnt: "", rnAdres: "제주특별자치도 제주시 한라대학로63", toiletNm: "GS25제주한라점", opnTimeInfo: "연중무휴", mngrInsttNm: "1", telno: "1", maleClosetCnt: "1", maleUrinalCnt: "1", maleDspsnClosetCnt: "1", maleDspsnUrinalCnt: "1", maleChildClosetCnt: "1", maleChildUrinalCnt: "1", femaleClosetCnt: "1", femaleChildClosetCnt: "1", femaleDspsnClosetCnt: "1"),toiletListViewModel: ToiletListViewModel())
+    ToiletDetailView(item: Toilet(dataCd: "pt0001", laCrdnt: "33.44980872", loCrdnt: "126.6182481",  lnmAdres: "제주특별자치도 제주시 봉개동 237-2", toiletNm: "", opnTimeInfo: "", mngrInsttNm: "", telno: "", maleClosetCnt: "", maleUrinalCnt: "", maleDspsnClosetCnt: "", maleDspsnUrinalCnt: "", maleChildClosetCnt: "", maleChildUrinalCnt: "", femaleClosetCnt: "", femaleChildClosetCnt: "", femaleDspsnClosetCnt: ""), toiletListViewModel:ToiletListViewModel() )
 }
