@@ -24,11 +24,6 @@ struct ToiletListView: View {
             .padding(.horizontal)
             ScrollView{
                 VStack{
-                    
-                    distributeView(
-                        toiletListViewModel: toiletListViewModel)
-                    .padding(.horizontal)
-                       
                     GridView(toiletListViewModel: toiletListViewModel)
                         .padding()
                 }

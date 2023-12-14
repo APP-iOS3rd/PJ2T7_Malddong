@@ -27,9 +27,9 @@ class ToiletListViewModel:ObservableObject{
     
     private init(){
         self.toiletList = [Toilet]()
-        self.distributeSelect = "제주시"
+        self.distributeSelect = "전체"
         self.isGridAlign = true
-        self.distributeArea = ["제주시","서귀포시"]
+        self.distributeArea = ["전체","한경면","한림읍","애월읍","조천읍","구좌읍"]
     }
 }
 extension ToiletListViewModel{
@@ -115,7 +115,7 @@ extension ToiletListViewModel{
         
         let myLocation = CLLocation(latitude: lat!, longitude: lo!)
         
-        let objectLoaction = CLLocation(latitude: Double(toilet.laCrdnt)!, longitude: Double(toilet.loCrdnt)!)
+        let objectLoaction = CLLocation(latitude: Double(toilet.laCrdnt) ?? 3.0, longitude: Double(toilet.loCrdnt) ?? 127.0)
         
         let distanceMetor = myLocation.distance(from: objectLoaction)
         
