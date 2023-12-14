@@ -113,7 +113,7 @@ extension ToiletListViewModel{
         let lat = manager.location?.coordinate.latitude
         let lo = manager.location?.coordinate.longitude
         
-        let myLocation = CLLocation(latitude: lat!, longitude: lo!)
+        let myLocation = CLLocation(latitude: lat ?? 37.0, longitude: lo ?? 127.0)
         
         let objectLoaction = CLLocation(latitude: Double(toilet.laCrdnt) ?? 3.0, longitude: Double(toilet.loCrdnt) ?? 127.0)
         
