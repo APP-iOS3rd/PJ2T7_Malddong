@@ -7,7 +7,8 @@
 
 import Foundation
 import CoreLocation
-import MapKit
+
+import UIKit
 
 class ToiletListViewModel:ObservableObject{
     @Published var toiletList: [Toilet]
@@ -111,8 +112,14 @@ extension ToiletListViewModel{
         return toilet[0]
     }
     func distanceCalc(toilet:Toilet)->String{
-        //내위치 임의 설정
-        let myLocation = CLLocation(latitude: 33.44980872, longitude: 126.6182481)
+        let manager = CLLocationManager()
+        manager.desiredAccuracy=kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        
+        let lat = manager.location?.coordinate.latitude
+        let lo = manager.location?.coordinate.longitude
+        
+        let myLocation = CLLocation(latitude: lat!, longitude: lo!)
         
         let objectLoaction = CLLocation(latitude: Double(toilet.laCrdnt)!, longitude: Double(toilet.loCrdnt)!)
         
