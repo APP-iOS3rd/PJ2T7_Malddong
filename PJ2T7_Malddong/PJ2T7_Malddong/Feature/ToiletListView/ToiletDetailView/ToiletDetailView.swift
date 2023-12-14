@@ -36,7 +36,7 @@ struct ToiletDetailView: View {
                 Spacer()
                 
                 ToiletInfoSection(title: "\(item.toiletNm)", content: Color.black, fontSize: 20, alignment: .leading, bottomPadding: 1)
-                ToiletInfoSection(title: "\(item.rnAdres)", content: Color.gray, fontSize: 15, alignment: .leading)
+                ToiletInfoSection(title: "\(item.lnmAdres)", content: Color.gray, fontSize: 15, alignment: .leading)
 
                 HStack {
                     VStack(alignment:.leading){

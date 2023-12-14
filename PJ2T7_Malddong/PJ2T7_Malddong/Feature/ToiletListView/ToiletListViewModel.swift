@@ -49,7 +49,7 @@ extension ToiletListViewModel{
         isGridAlign = true
     }
     
-    func fectchData(){
+    func fetchData(){
         guard let apiKey = apiKey else {return}
         
         let urlString =

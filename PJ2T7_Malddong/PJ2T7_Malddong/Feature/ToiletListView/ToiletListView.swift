@@ -30,6 +30,9 @@ struct ToiletListView: View {
             }
             
         }
+        .onAppear {
+            toiletListViewModel.fetchData()
+        }
     }
 }
 

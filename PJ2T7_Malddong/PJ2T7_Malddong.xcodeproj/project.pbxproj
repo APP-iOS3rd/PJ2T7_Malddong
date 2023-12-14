@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0CD17B5B2B2969F9005AD726 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD17B5A2B2969F9005AD726 /* SpotDetailView.swift */; };
 		0CD17B5E2B296F63005AD726 /* ModelTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD17B5D2B296F62005AD726 /* ModelTransitionView.swift */; };
-		0CE327222B2AA643007A17FF /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CE327212B2AA643007A17FF /* ApiKeys.plist */; };
 		0CF5CC092B2752F8003970A1 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF5CC082B2752F8003970A1 /* Spot.swift */; };
 		2369EE432B26EA4100723CB1 /* ParkingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2369EE422B26EA4100723CB1 /* ParkingDetailView.swift */; };
 		5448F092AA309CACF54DC5E4 /* Pods_PJ2T7_Malddong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */; };
@@ -34,6 +33,7 @@
 		60DEE33D2B1F02EE00362421 /* SpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */; };
 		60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE33C2B1F02EE00362421 /* SpotView.swift */; };
 		60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3412B1F034E00362421 /* Extension + Date.swift */; };
+		9A312F062B2ABD3D0046EB26 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A312F052B2ABD3D0046EB26 /* ApiKeys.plist */; };
 		9A651CC92B26A0B0005D8618 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CC82B26A0B0005D8618 /* Parking.swift */; };
 		9A651CCB2B26A0B8005D8618 /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CCA2B26A0B8005D8618 /* Toilet.swift */; };
 		9A651CD32B26D348005D8618 /* Extension + Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CD22B26D348005D8618 /* Extension + Font.swift */; };
@@ -46,7 +46,6 @@
 /* Begin PBXFileReference section */
 		0CD17B5A2B2969F9005AD726 /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
 		0CD17B5D2B296F62005AD726 /* ModelTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTransitionView.swift; sourceTree = "<group>"; };
-		0CE327212B2AA643007A17FF /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../ApiKeys.plist; sourceTree = "<group>"; };
 		0CF5CC082B2752F8003970A1 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		204D46BA8C473AA83D23BEAE /* Pods-PJ2T7_Malddong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJ2T7_Malddong.debug.xcconfig"; path = "Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong.debug.xcconfig"; sourceTree = "<group>"; };
 		2369EE422B26EA4100723CB1 /* ParkingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingDetailView.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		60DEE33C2B1F02EE00362421 /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
 		60DEE3412B1F034E00362421 /* Extension + Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Date.swift"; sourceTree = "<group>"; };
 		8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PJ2T7_Malddong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A312F052B2ABD3D0046EB26 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../Desktop/ApiKeys.plist; sourceTree = "<group>"; };
 		9A651CC82B26A0B0005D8618 /* Parking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		9A651CCA2B26A0B8005D8618 /* Toilet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toilet.swift; sourceTree = "<group>"; };
 		9A651CCF2B26D1E4005D8618 /* LINESeedKR-Rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Rg.otf"; sourceTree = "<group>"; };
@@ -282,7 +282,7 @@
 		9A65718F2B235EF6007BD13D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				0CE327212B2AA643007A17FF /* ApiKeys.plist */,
+				9A312F052B2ABD3D0046EB26 /* ApiKeys.plist */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -357,8 +357,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				60DEE3102B1F015E00362421 /* Preview Assets.xcassets in Resources */,
-				0CE327222B2AA643007A17FF /* ApiKeys.plist in Resources */,
 				60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */,
+				9A312F062B2ABD3D0046EB26 /* ApiKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

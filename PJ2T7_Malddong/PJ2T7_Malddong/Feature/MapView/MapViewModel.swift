@@ -38,7 +38,7 @@ struct UIMapView: UIViewRepresentable {
         coodinator.checkIfLocationServiceIsEnabled()
         coodinator.fetchUserLocation()
         
-        toiletListViewModel.fectchData()
+        toiletListViewModel.fetchData()
         parkingLotViewModel.fetchData()
         spotViewModel.fetchData()
         
