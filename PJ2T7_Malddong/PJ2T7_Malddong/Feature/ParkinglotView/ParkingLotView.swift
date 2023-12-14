@@ -115,7 +115,7 @@ private struct ParkingCellView:View{
                 ZStack{
                     Rectangle()
                         .frame(width: 152,height: 100)
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color("MalddongGray"))
                         .cornerRadius(15, corners: [.topLeft, .topRight])
                         .shadow(radius: 7)
                     
@@ -125,11 +125,15 @@ private struct ParkingCellView:View{
                         
                         Image(imageName)
                             .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: 152,maxHeight: 100)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(maxWidth: 152, maxHeight: 100)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
                     }
-                }
                 
+            }
+        
+    
+        
                 ZStack{
                     Rectangle()
                         .frame(width: 152,height: 70)
@@ -158,23 +162,24 @@ private struct ParkingCellView:View{
             else{
                 HStack(spacing:0){
                     ZStack{
-                        Rectangle()
-                            .frame(width: 210, height: 180)
-                            .foregroundStyle(Color.gray)
-                            .cornerRadius(15,corners: [.topLeft,.bottomLeft])
-                            .shadow(radius: 7)
-                        
-                        ForEach(0..<26) { _ in
-                            let randomIndex = Int.random(in: 0..<self.CarImages.count)
-                            let imageName = self.CarImages[randomIndex]
-                            
-                            Image(imageName)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(maxWidth: 210,maxHeight: 180)
-                        }
-                    }
-                    
+                                        Rectangle()
+                                            .frame(width: 210,height: 180)
+                                            .foregroundColor(Color("MalddongGray"))
+                                            .cornerRadius(15, corners: [.topLeft, .topRight])
+                                            .shadow(radius: 7)
+                                        
+                                        ForEach(0..<26) { _ in
+                                            let randomIndex = Int.random(in: 0..<self.CarImages.count)
+                                            let imageName = self.CarImages[randomIndex]
+                                            
+                                            Image(imageName)
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(maxWidth: 210, maxHeight: 180)
+                                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                                        }
+                                    
+                                }
                     ZStack{
                         Rectangle()
                             .frame(width: 160, height: 180)
@@ -186,6 +191,7 @@ private struct ParkingCellView:View{
                         VStack{
                             Text(item.name)
                                 .font(.system(size: 20,weight: .bold))
+                                .padding(10)
                             Text("1.6km")
                             Text(item.rnAdres)
                                 .font(.system(size: 14))

@@ -13,36 +13,12 @@ struct ToiletListView: View {
     
     var body: some View {
         NavigationStack{
+            distributeView(
+                toiletListViewModel: toiletListViewModel)
+            .padding(.horizontal)
             ScrollView{
                 
                 VStack{
-                    HStack {
-                        NavigationLink(destination: ToiletListView()) {
-                           
-                            customButton2(title: "화장실", imageName: "tissue", backgroundColor: .malddongYellow)
-                        }
-                        NavigationLink(destination: SpotView()){
-                            
-                            customButton2(title: "관광지", imageName: "dolhareubang", backgroundColor: .malddongGreen)
-                                
-                            
-                        }
-                        NavigationLink(destination: ParkingLotView()){
-                            customButton2(title: "주차장", imageName: "car", backgroundColor: .malddongBlue)
-                        }
-                        
-                        Spacer()
-                        
-                        Image("search")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 28, height: 28)
-                            .clipped()
-                    }
-                    .padding(12)
-                    distributeView(
-                        toiletListViewModel: toiletListViewModel)
-                    .padding(.horizontal)
                     
                     
                     GridView(toiletListViewModel: toiletListViewModel)
@@ -51,11 +27,9 @@ struct ToiletListView: View {
                     
                 }
             }
-        }
-        
-        
-        .onAppear{
-            toiletListViewModel.fectchData()
+            .onAppear{
+                toiletListViewModel.fectchData()
+            }
         }
     }
 }
@@ -116,23 +90,24 @@ private struct GridView:View {
                 GridItem(.flexible()),] :[GridItem(.flexible())]
                       , content: {
                 ForEach(toiletListViewModel.toiletList,id: \.self){item in
-                    NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
+                    
+                    if toiletListViewModel.distributeSelect == "전체"{
                         
-                        ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
-                            .padding()
+                        NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
+                            
+                            ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
+                                .padding()
+                        }
+                    }else if item.rnAdres.contains(toiletListViewModel.distributeSelect){
+                        
+                        NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
+                            
+                            ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
+                                .padding()
+                        }
                     }
-                        
-                    
-                    
-                }//FE
-                
-                
-            })
-            
-            
-        
-        
-        
+            }//FE
+        })
     }
 }
 //MARK: - ToiletCellView
@@ -155,7 +130,6 @@ private struct ToiletCellView:View{
             if toiletListViewModel.isGridAlign{
                 ZStack{
                     
-                    
                     Rectangle()
                         .frame(width: 152,height: 100)
                         .foregroundColor(.gray)
@@ -167,12 +141,13 @@ private struct ToiletCellView:View{
                                        )){
                         $0.image?.resizable()
                     }
-                        
-                        .scaledToFit()
-                        .frame(maxWidth: 152,maxHeight: 100)
+                        .frame(width: 152,height: 100)
+                        .cornerRadius(15,corners: [.topLeft,.topRight])
                         .onTapGesture {
-                            addItem()
+//                            addItem()
                         }
+                        
+                    
                 }
                 ZStack{
                     Rectangle()
@@ -210,13 +185,14 @@ private struct ToiletCellView:View{
                             .foregroundStyle(Color.gray)
                             .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                             .shadow(radius: 7)
-                        AsyncImage(url: URL(string:
-                                                toiletListViewModel.imageNilCheck(item)
-                                           )){
-                            $0.image?.resizable()
-                        }
-                            .scaledToFit()
-                            .frame(maxWidth: 210,maxHeight: 180)
+                        
+                            AsyncImage(url: URL(string: toiletListViewModel.imageNilCheck(item))) {
+                                $0.image?.resizable()
+                            }
+                            .frame(width: 210, height: 180)
+                            .cornerRadius(15,corners: [.topLeft,.bottomLeft])
+                            
+                        
                             
                     }
                     ZStack{
@@ -231,6 +207,7 @@ private struct ToiletCellView:View{
                             Text(item.toiletNm)
                                 .font(.system(size: 20,weight: .bold))
                                 .foregroundStyle(Color.black)
+                                .padding(10)
                             Text("\(toiletListViewModel.distanceCalc(toilet: item))km")
                                 .foregroundStyle(Color.black)
                             Text(item.rnAdres)
@@ -247,26 +224,27 @@ private struct ToiletCellView:View{
         }
         
     }
-    private func addItem() {
-           withAnimation {
-               //수정 부분
-               let newToilet = MyToilets(context: viewContext)
-               newToilet.toiletNm = item.toiletNm
-               
-               saveItems()
-           }
-       }
+//    private func addItem() {
+//           withAnimation {
+//               //수정 부분
+//               let newToilet = MyToilets(context: viewContext)
+//               newToilet.toiletNm = item.toiletNm
+//               
+//               saveItems()
+//           }
+//       }
     
-    private func saveItems() {
-        do {
-            try viewContext.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
-    }
+//    private func saveItems() {
+//        do {
+//            try viewContext.save()
+//        } catch {
+//            // Replace this implementation with code to handle the error appropriately.
+//            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//            let nsError = error as NSError
+//            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//            print("error")
+//        }
+//    }
 }
 
         
