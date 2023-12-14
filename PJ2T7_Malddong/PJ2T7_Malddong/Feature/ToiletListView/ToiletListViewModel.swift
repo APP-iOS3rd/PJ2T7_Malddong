@@ -8,11 +8,14 @@
 import Foundation
 import CoreLocation
 
-
 class ToiletListViewModel:ObservableObject{
+    static let shared = ToiletListViewModel()
+    
     @Published var toiletList: [Toilet]
     @Published var distributeSelect: String
     @Published var isGridAlign:Bool
+    @Published var filteredToiletList: [Toilet] = []
+
     var distributeArea : [String]
     
     
@@ -21,22 +24,12 @@ class ToiletListViewModel:ObservableObject{
         get{ getValueOfPlistFile("ApiKeys",api_key)}
     }
     
-    init(
-        toiletList: [Toilet] = [],
-        distributeSelect: String = "전체",
-        isGridAlign: Bool = true,
-        distributeArea: [String] = ["전체","한경면","한림읍","애월읍","조천읍","구좌읍"]
-    ) {
-        self.toiletList = toiletList
-        self.distributeSelect = distributeSelect
-        self.isGridAlign = isGridAlign
-        self.distributeArea = distributeArea
-        
+    private init(){
+        self.toiletList = [Toilet]()
+        self.distributeSelect = "제주시"
+        self.isGridAlign = true
+        self.distributeArea = ["제주시","서귀포시"]
     }
-    
-    
-    
-    
 }
 extension ToiletListViewModel{
     //TODO: - 우 상단에 피커를 선택했을때 동네별로 분류해야함
@@ -81,6 +74,7 @@ extension ToiletListViewModel{
                 
                 DispatchQueue.main.async{
                     self.toiletList = json.response.body.items.item
+                    self.resetFilter()
                 }
             }catch let error{
                 print(error.localizedDescription)
@@ -122,8 +116,16 @@ extension ToiletListViewModel{
         
     }
     
+    // 검색 기능
+    func filterByName(_ toiletName: String){
+        filteredToiletList = toiletList.filter { toilet in
+            return toilet.toiletNm.lowercased().contains(toiletName.lowercased())
+        }
+    }
     
-    
+    func resetFilter() {
+        filteredToiletList = toiletList
+    }
 }
 
 

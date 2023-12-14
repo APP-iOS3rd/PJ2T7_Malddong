@@ -10,11 +10,16 @@ import SwiftUI
 struct ToiletDetailView: View {
     
     @State private var item:Toilet
-    @State private var toiletListViewModel:ToiletListViewModel
-    init(item: Toilet, toiletListViewModel: ToiletListViewModel) {
+    @StateObject private var toiletListViewModel = ToiletListViewModel.shared
+    
+    init(item: Toilet) {
         self.item = item
-        self.toiletListViewModel = toiletListViewModel
     }
+    
+//    init(item: Toilet, toiletListViewModel: ToiletListViewModel) {
+//        self.item = item
+//        self.toiletListViewModel = toiletListViewModel
+//    }
     
     var body: some View {
         ScrollView{
@@ -113,9 +118,6 @@ private struct toiletInforView:View{
                 
             }
             .opacity(text.contains("남자") ? 1 : 0)
-            
-            
-            
         }
     }
 }
