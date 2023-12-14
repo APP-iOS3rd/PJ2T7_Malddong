@@ -8,29 +8,32 @@
 import SwiftUI
 import CoreData
 
+
 struct ToiletListView: View {
-    @StateObject private var toiletListViewModel = ToiletListViewModel()
-    
-    
+
+    @StateObject var toiletListViewModel = ToiletListViewModel.shared
+    var filteredToiletList: [Toilet] {
+        toiletListViewModel.filteredToiletList
+    }
+  
     var body: some View {
+        
         NavigationStack{
             distributeView(
                 toiletListViewModel: toiletListViewModel)
             .padding(.horizontal)
             ScrollView{
-                
                 VStack{
-                    
-                    
                     GridView(toiletListViewModel: toiletListViewModel)
                         .padding()
-                        
-                    
                 }
             }
             
+            .onAppear {
+                toiletListViewModel.fetchData()
+            }
         }
-        .onAppear {
+        .onAppear{
             toiletListViewModel.fetchData()
         }
     }
@@ -46,8 +49,6 @@ private struct distributeView:View{
     }
     
     var body: some View{
-        
-        
         HStack{
             Button(action: {
                 toiletListViewModel.gridOneLine()
@@ -68,13 +69,10 @@ private struct distributeView:View{
                    , content: {
                 ForEach(toiletListViewModel.distributeArea,id: \.self){item in
                     Text(item)
-                    
                 }
             })
         }
     }
-    
-    
 }
 
 //MARK: - GrideView
@@ -86,16 +84,15 @@ private struct GridView:View {
     }
     
     var body: some View {
-        
         LazyVGrid(columns: toiletListViewModel.isGridAlign ? [
             GridItem(.flexible()),
             GridItem(.flexible()),] :[GridItem(.flexible())]
                   , content: {
-            ForEach(toiletListViewModel.toiletList,id: \.self){item in
+            ForEach(toiletListViewModel.filteredToiletList,id: \.self){item in
                 
                 if toiletListViewModel.distributeSelect == "전체"{
-                    if toiletListViewModel.distributeSelect == "전체"{
-                        NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
+                    
+                        NavigationLink(destination: ToiletDetailView(item: item)) {
                             
                             ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
                                 .padding()
@@ -103,12 +100,12 @@ private struct GridView:View {
                     }else if item.lnmAdres.contains(toiletListViewModel.distributeSelect){
                         ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
                             .padding()
-                    }
                 }
             }//FE
         })
     }
 }
+
 //MARK: - ToiletCellView
 private struct ToiletCellView:View{
     @Environment(\.managedObjectContext) private var viewContext
@@ -215,13 +212,8 @@ private struct ToiletCellView:View{
                         }
                     }
                 }//H
-                
-                
-                
             }
-            
         }
-        
     }
     //    private func addItem() {
     //           withAnimation {
@@ -245,10 +237,6 @@ private struct ToiletCellView:View{
     //        }
     //    }
 }
-
-
-
-
 
 #Preview {
     ToiletListView()

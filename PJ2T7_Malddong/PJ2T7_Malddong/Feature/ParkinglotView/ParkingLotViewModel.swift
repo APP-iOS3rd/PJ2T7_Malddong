@@ -6,24 +6,23 @@
 //
 
 import Foundation
+import CoreLocation
 
 class ParkingLotViewModel: ObservableObject {
+    static let shared = ParkingLotViewModel()
+
     @Published var parkingLots: [Parking]
     @Published var distributeSelect: String
     @Published var isGridAlign:Bool
+    @Published var filteredParkingList: [Parking] = []
+    
     var distributeArea : [String]
     
-    init(
-        parkingLots: [Parking],
-        distributeSelect: String = "제주시",
-        isGridAlign: Bool = true,
-        distributeArea: [String] = ["제주시","서귀포시"]
-        
-    ){
-        self.parkingLots = parkingLots
-        self.distributeSelect = distributeSelect
-        self.isGridAlign = isGridAlign
-        self.distributeArea = distributeArea
+    private init(){
+        self.parkingLots = [Parking]()
+        self.distributeSelect = "제주시"
+        self.isGridAlign = true
+        self.distributeArea = ["제주시","서귀포시"]
     }
     
     let apiKey = "PARKING_API_KEY"
@@ -55,7 +54,6 @@ class ParkingLotViewModel: ObservableObject {
     func gridTwoLine(){
         isGridAlign = true
     }
-    
     
     func fetchData(){
         guard let apiKey = apikey else { return }
@@ -89,6 +87,7 @@ class ParkingLotViewModel: ObservableObject {
                 
                 DispatchQueue.main.async {
                     self.parkingLots = json.data
+                    self.resetFilter()
                 }
                 
             } catch let error {
@@ -96,5 +95,29 @@ class ParkingLotViewModel: ObservableObject {
             }
         }
         task.resume()
+    }
+    
+    // 거리 표시
+    func distanceCalc(parking:Parking)->String{
+        //내위치 임의 설정
+        let myLocation = CLLocation(latitude: 33.44980872, longitude: 126.6182481)
+        
+        let objectLoaction = CLLocation(latitude: Double(parking.latitude)!, longitude: Double(parking.longitude)!)
+        
+        let distanceMetor = myLocation.distance(from: objectLoaction)
+        
+        return String(Int(distanceMetor)/1000)
+        
+    }
+    
+    // 검색 기능
+    func filterByName(_ parkingName: String){
+        filteredParkingList = parkingLots.filter { parking in
+            return parking.name.lowercased().contains(parkingName.lowercased())
+        }
+    }
+    
+    func resetFilter() {
+        filteredParkingList = parkingLots
     }
 }

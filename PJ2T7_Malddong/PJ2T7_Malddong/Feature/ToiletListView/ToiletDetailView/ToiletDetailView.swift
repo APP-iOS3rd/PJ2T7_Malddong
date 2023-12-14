@@ -10,11 +10,16 @@ import SwiftUI
 struct ToiletDetailView: View {
     
     @State private var item:Toilet
-    @State private var toiletListViewModel:ToiletListViewModel
-    init(item: Toilet, toiletListViewModel: ToiletListViewModel) {
+    @StateObject private var toiletListViewModel = ToiletListViewModel.shared
+    
+    init(item: Toilet) {
         self.item = item
-        self.toiletListViewModel = toiletListViewModel
     }
+    
+//    init(item: Toilet, toiletListViewModel: ToiletListViewModel) {
+//        self.item = item
+//        self.toiletListViewModel = toiletListViewModel
+//    }
     
     var body: some View {
         ScrollView{
@@ -27,16 +32,16 @@ struct ToiletDetailView: View {
                 }
                 .frame(width: 350,height: 250)
                 
-                UIMiniMapView(title: "\(item.toiletNm)", latitude: Double("\(item.laCrdnt)")!, longitude: Double("\(item.loCrdnt)")!)
-                    .frame(width: 350,height: 250)
-                    .scaledToFit()
+                UIMiniMapView(title: item.toiletNm, latitude: Double(item.laCrdnt)!, longitude: Double(item.loCrdnt)!
+                )
+                .frame(width: 350,height: 250)
                 
-                ToiletInfoSection(title: "\(item.opnTimeInfo)", content: Color.gray, fontSize: 13, alignment: .trailing)
+                ToiletInfoSection(title: item.opnTimeInfo, content: Color.gray, fontSize: 13, alignment: .trailing)
                 
                 Spacer()
                 
-                ToiletInfoSection(title: "\(item.toiletNm)", content: Color.black, fontSize: 20, alignment: .leading, bottomPadding: 1)
-                ToiletInfoSection(title: "\(item.lnmAdres)", content: Color.gray, fontSize: 15, alignment: .leading)
+                ToiletInfoSection(title: item.toiletNm, content: Color.black, fontSize: 20, alignment: .leading, bottomPadding: 1)
+                ToiletInfoSection(title: item.lnmAdres, content: Color.gray, fontSize: 15, alignment: .leading)
 
                 HStack {
                     VStack(alignment:.leading){
@@ -113,9 +118,6 @@ private struct toiletInforView:View{
                 
             }
             .opacity(text.contains("남자") ? 1 : 0)
-            
-            
-            
         }
     }
 }
@@ -133,7 +135,7 @@ private func ToiletInfoSection(title: String, content: Color, fontSize: CGFloat,
     }
 }
 
-
-#Preview {
-    ToiletDetailView(item: Toilet(dataCd: "pt0001", laCrdnt: "33.44980872", loCrdnt: "126.6182481",  lnmAdres: "제주특별자치도 제주시 봉개동 237-2", toiletNm: "", opnTimeInfo: "", mngrInsttNm: "", telno: "", maleClosetCnt: "", maleUrinalCnt: "", maleDspsnClosetCnt: "", maleDspsnUrinalCnt: "", maleChildClosetCnt: "", maleChildUrinalCnt: "", femaleClosetCnt: "", femaleChildClosetCnt: "", femaleDspsnClosetCnt: ""), toiletListViewModel:ToiletListViewModel() )
-}
+//
+//#Preview {
+//    ToiletDetailView(item: Toilet(dataCd: "pt0001", laCrdnt: "33.44980872", loCrdnt: "126.6182481",  lnmAdres: "제주특별자치도 제주시 봉개동 237-2", toiletNm: "", opnTimeInfo: "", mngrInsttNm: "", telno: "", maleClosetCnt: "", maleUrinalCnt: "", maleDspsnClosetCnt: "", maleDspsnUrinalCnt: "", maleChildClosetCnt: "", maleChildUrinalCnt: "", femaleClosetCnt: "", femaleChildClosetCnt: "", femaleDspsnClosetCnt: ""), toiletListViewModel:ToiletListViewModel() )
+//}

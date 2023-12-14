@@ -20,9 +20,9 @@ import MapKit
 //}
 
 struct UIMapView: UIViewRepresentable {
-    @ObservedObject var toiletListViewModel = ToiletListViewModel()
-    @ObservedObject var spotViewModel = SpotViewModel(spotitem: [])
-    @ObservedObject var parkingLotViewModel =  ParkingLotViewModel(parkingLots: [])
+    @ObservedObject var toiletListViewModel = ToiletListViewModel.shared
+    @ObservedObject var spotViewModel = SpotViewModel.shared
+    @ObservedObject var parkingLotViewModel =  ParkingLotViewModel.shared
     
 //    let mapViewModel = MapViewModel()
     
