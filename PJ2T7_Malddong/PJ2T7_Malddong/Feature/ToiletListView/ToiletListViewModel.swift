@@ -25,9 +25,7 @@ class ToiletListViewModel:ObservableObject{
         toiletList: [Toilet] = [],
         distributeSelect: String = "전체",
         isGridAlign: Bool = true,
-        distributeArea: [String] = [
-            "전체","한경면","한림읍","애월읍","시내동","조천읍","구좌읍","우도면"]
-        
+        distributeArea: [String] = ["전체","한경면","한림읍","애월읍","조천읍","구좌읍"]
     ) {
         self.toiletList = toiletList
         self.distributeSelect = distributeSelect
