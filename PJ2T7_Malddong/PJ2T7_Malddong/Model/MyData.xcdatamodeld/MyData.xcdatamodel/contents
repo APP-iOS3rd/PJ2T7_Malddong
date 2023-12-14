@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C64" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="MyParkings" representedClassName="MyParkings" syncable="YES" codeGenerationType="class"/>
+    <entity name="MyToilets" representedClassName=".MyToilets" syncable="YES" codeGenerationType="class">
+        <attribute name="dataCd" attributeType="String"/>
+        <attribute name="femaleChildClosetCnt" attributeType="String"/>
+        <attribute name="femaleClosetCnt" attributeType="String"/>
+        <attribute name="femaleDspsnClosetCnt" attributeType="String"/>
+        <attribute name="laCrdnt" attributeType="String"/>
+        <attribute name="loCrdnt" attributeType="String"/>
+        <attribute name="maleChildClosetCnt" attributeType="String"/>
+        <attribute name="maleChildUrinalCnt" attributeType="String"/>
+        <attribute name="maleClosetCnt" attributeType="String"/>
+        <attribute name="maleDspsnClosetCnt" attributeType="String"/>
+        <attribute name="maleDspsnUrinalCnt" attributeType="String"/>
+        <attribute name="maleUrinalCnt" attributeType="String"/>
+        <attribute name="mngrInsttNm" attributeType="String"/>
+        <attribute name="opnTimeInfo" attributeType="String"/>
+        <attribute name="photo" optional="YES" attributeType="Binary"/>
+        <attribute name="rnAdres" attributeType="String"/>
+        <attribute name="telno" attributeType="String"/>
+        <attribute name="toiletNm" attributeType="String"/>
+    </entity>
+</model>

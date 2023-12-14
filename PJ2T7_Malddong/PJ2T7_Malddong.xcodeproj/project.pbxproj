@@ -3,10 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CD17B5B2B2969F9005AD726 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD17B5A2B2969F9005AD726 /* SpotDetailView.swift */; };
+		0CD17B5E2B296F63005AD726 /* ModelTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD17B5D2B296F62005AD726 /* ModelTransitionView.swift */; };
+		0CE4B2282B2AE2E400D1982F /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CE4B2272B2AE2E400D1982F /* ApiKeys.plist */; };
+		0CF5CC092B2752F8003970A1 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF5CC082B2752F8003970A1 /* Spot.swift */; };
+		2369EE432B26EA4100723CB1 /* ParkingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2369EE422B26EA4100723CB1 /* ParkingDetailView.swift */; };
+		5448F092AA309CACF54DC5E4 /* Pods_PJ2T7_Malddong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */; };
+		6042B76D2B2851C400A7C952 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042B76C2B2851C400A7C952 /* CustomButton.swift */; };
+		60DAC0642B1F4ECB00384217 /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DAC0632B1F4ECB00384217 /* Extension + View.swift */; };
 		60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */; };
 		60DEE30B2B1F015D00362421 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE30A2B1F015D00362421 /* ContentView.swift */; };
 		60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60DEE30C2B1F015E00362421 /* Assets.xcassets */; };
@@ -20,17 +28,32 @@
 		60DEE32E2B1F027C00362421 /* ParkingLotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE32C2B1F027C00362421 /* ParkingLotViewModel.swift */; };
 		60DEE32F2B1F027C00362421 /* ParkingLotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE32D2B1F027C00362421 /* ParkingLotView.swift */; };
 		60DEE3332B1F02A900362421 /* ToiletListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3312B1F02A900362421 /* ToiletListView.swift */; };
-		60DEE3342B1F02A900362421 /* ToiletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3322B1F02A900362421 /* ToiletViewModel.swift */; };
+		60DEE3342B1F02A900362421 /* ToiletListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3322B1F02A900362421 /* ToiletListViewModel.swift */; };
 		60DEE3382B1F02BA00362421 /* ToiletDeatilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3362B1F02BA00362421 /* ToiletDeatilViewModel.swift */; };
 		60DEE3392B1F02BA00362421 /* ToiletDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3372B1F02BA00362421 /* ToiletDetailView.swift */; };
 		60DEE33D2B1F02EE00362421 /* SpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */; };
 		60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE33C2B1F02EE00362421 /* SpotView.swift */; };
 		60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3412B1F034E00362421 /* Extension + Date.swift */; };
-		60DEE3442B1F087D00362421 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60DEE3432B1F087D00362421 /* ApiKeys.plist */; };
-		60DEE3462B1F0A9800362421 /* ToiletListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DEE3452B1F0A9800362421 /* ToiletListModel.swift */; };
+		9A651CC92B26A0B0005D8618 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CC82B26A0B0005D8618 /* Parking.swift */; };
+		9A651CCB2B26A0B8005D8618 /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CCA2B26A0B8005D8618 /* Toilet.swift */; };
+		9A651CD32B26D348005D8618 /* Extension + Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A651CD22B26D348005D8618 /* Extension + Font.swift */; };
+		9A937BA12B2953B500D313FE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A937BA02B2953B500D313FE /* Persistence.swift */; };
+		9A937BA72B29670A00D313FE /* MyData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A937BA52B29670A00D313FE /* MyData.xcdatamodeld */; };
+		9AB246552B294E9C00FFA0BA /* (null) in Sources */ = {isa = PBXBuildFile; };
+		9AC3618D2B2819C50053C3A6 /* MiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CD17B5A2B2969F9005AD726 /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
+		0CD17B5D2B296F62005AD726 /* ModelTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTransitionView.swift; sourceTree = "<group>"; };
+		0CE4B2272B2AE2E400D1982F /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../ApiKeys.plist; sourceTree = "<group>"; };
+		0CF5CC082B2752F8003970A1 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
+		204D46BA8C473AA83D23BEAE /* Pods-PJ2T7_Malddong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJ2T7_Malddong.debug.xcconfig"; path = "Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong.debug.xcconfig"; sourceTree = "<group>"; };
+		2369EE422B26EA4100723CB1 /* ParkingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingDetailView.swift; sourceTree = "<group>"; };
+		4C5AC3426EA5782A734D767A /* Pods-PJ2T7_Malddong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJ2T7_Malddong.release.xcconfig"; path = "Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong.release.xcconfig"; sourceTree = "<group>"; };
+		6042B76C2B2851C400A7C952 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		605BF4212B206551006FEF25 /* PJ2T7-Malddong-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PJ2T7-Malddong-Info.plist"; sourceTree = SOURCE_ROOT; };
+		60DAC0632B1F4ECB00384217 /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
 		60DEE3052B1F015D00362421 /* PJ2T7_Malddong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PJ2T7_Malddong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60DEE3082B1F015D00362421 /* PJ2T7_MalddongApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJ2T7_MalddongApp.swift; sourceTree = "<group>"; };
 		60DEE30A2B1F015D00362421 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,14 +68,22 @@
 		60DEE32C2B1F027C00362421 /* ParkingLotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingLotViewModel.swift; sourceTree = "<group>"; };
 		60DEE32D2B1F027C00362421 /* ParkingLotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingLotView.swift; sourceTree = "<group>"; };
 		60DEE3312B1F02A900362421 /* ToiletListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletListView.swift; sourceTree = "<group>"; };
-		60DEE3322B1F02A900362421 /* ToiletViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletViewModel.swift; sourceTree = "<group>"; };
+		60DEE3322B1F02A900362421 /* ToiletListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletListViewModel.swift; sourceTree = "<group>"; };
 		60DEE3362B1F02BA00362421 /* ToiletDeatilViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletDeatilViewModel.swift; sourceTree = "<group>"; };
 		60DEE3372B1F02BA00362421 /* ToiletDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletDetailView.swift; sourceTree = "<group>"; };
 		60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotViewModel.swift; sourceTree = "<group>"; };
 		60DEE33C2B1F02EE00362421 /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
 		60DEE3412B1F034E00362421 /* Extension + Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Date.swift"; sourceTree = "<group>"; };
-		60DEE3432B1F087D00362421 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
-		60DEE3452B1F0A9800362421 /* ToiletListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToiletListModel.swift; sourceTree = "<group>"; };
+		8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PJ2T7_Malddong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A651CC82B26A0B0005D8618 /* Parking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
+		9A651CCA2B26A0B8005D8618 /* Toilet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toilet.swift; sourceTree = "<group>"; };
+		9A651CCF2B26D1E4005D8618 /* LINESeedKR-Rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Rg.otf"; sourceTree = "<group>"; };
+		9A651CD02B26D1E4005D8618 /* LINESeedKR-Bd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Bd.otf"; sourceTree = "<group>"; };
+		9A651CD12B26D1E4005D8618 /* LINESeedKR-Th.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Th.otf"; sourceTree = "<group>"; };
+		9A651CD22B26D348005D8618 /* Extension + Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Font.swift"; sourceTree = "<group>"; };
+		9A937BA02B2953B500D313FE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		9A937BA62B29670A00D313FE /* MyData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyData.xcdatamodel; sourceTree = "<group>"; };
+		9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +91,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5448F092AA309CACF54DC5E4 /* Pods_PJ2T7_Malddong.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CD17B5C2B296EE4005AD726 /* ModelTransition */ = {
+			isa = PBXGroup;
+			children = (
+				0CD17B5D2B296F62005AD726 /* ModelTransitionView.swift */,
+			);
+			path = ModelTransition;
+			sourceTree = "<group>";
+		};
+		10C23D7F387171F753315143 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		60DEE2FC2B1F015D00362421 = {
 			isa = PBXGroup;
 			children = (
 				60DEE3072B1F015D00362421 /* PJ2T7_Malddong */,
 				60DEE3062B1F015D00362421 /* Products */,
+				E41E2FB395D61E324DD0D26B /* Pods */,
+				10C23D7F387171F753315143 /* Frameworks */,
+				9A65718F2B235EF6007BD13D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,7 +136,8 @@
 		60DEE3072B1F015D00362421 /* PJ2T7_Malddong */ = {
 			isa = PBXGroup;
 			children = (
-				60DEE3432B1F087D00362421 /* ApiKeys.plist */,
+				9A651CCE2B26D1C3005D8618 /* Fonts */,
+				605BF4212B206551006FEF25 /* PJ2T7-Malddong-Info.plist */,
 				60DEE3402B1F033A00362421 /* Extension */,
 				60DEE33F2B1F032200362421 /* Model */,
 				60DEE31B2B1F022000362421 /* Feature */,
@@ -116,6 +168,7 @@
 		60DEE31B2B1F022000362421 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				0CD17B5C2B296EE4005AD726 /* ModelTransition */,
 				60DEE33A2B1F02C700362421 /* SpotView */,
 				60DEE3302B1F028200362421 /* ToiletListView */,
 				60DEE32B2B1F026E00362421 /* ParkinglotView */,
@@ -140,6 +193,7 @@
 			children = (
 				60DEE3222B1F024F00362421 /* MapView.swift */,
 				60DEE3232B1F024F00362421 /* MapViewModel.swift */,
+				9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -158,6 +212,7 @@
 			children = (
 				60DEE32D2B1F027C00362421 /* ParkingLotView.swift */,
 				60DEE32C2B1F027C00362421 /* ParkingLotViewModel.swift */,
+				2369EE422B26EA4100723CB1 /* ParkingDetailView.swift */,
 			);
 			path = ParkinglotView;
 			sourceTree = "<group>";
@@ -166,8 +221,8 @@
 			isa = PBXGroup;
 			children = (
 				60DEE3352B1F02AC00362421 /* ToiletDetailView */,
+				60DEE3322B1F02A900362421 /* ToiletListViewModel.swift */,
 				60DEE3312B1F02A900362421 /* ToiletListView.swift */,
-				60DEE3322B1F02A900362421 /* ToiletViewModel.swift */,
 			);
 			path = ToiletListView;
 			sourceTree = "<group>";
@@ -177,6 +232,7 @@
 			children = (
 				60DEE3362B1F02BA00362421 /* ToiletDeatilViewModel.swift */,
 				60DEE3372B1F02BA00362421 /* ToiletDetailView.swift */,
+				6042B76C2B2851C400A7C952 /* CustomButton.swift */,
 			);
 			path = ToiletDetailView;
 			sourceTree = "<group>";
@@ -186,6 +242,7 @@
 			children = (
 				60DEE33C2B1F02EE00362421 /* SpotView.swift */,
 				60DEE33B2B1F02EE00362421 /* SpotViewModel.swift */,
+				0CD17B5A2B2969F9005AD726 /* SpotDetailView.swift */,
 			);
 			path = SpotView;
 			sourceTree = "<group>";
@@ -193,7 +250,11 @@
 		60DEE33F2B1F032200362421 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				60DEE3452B1F0A9800362421 /* ToiletListModel.swift */,
+				9A651CC82B26A0B0005D8618 /* Parking.swift */,
+				9A651CCA2B26A0B8005D8618 /* Toilet.swift */,
+				0CF5CC082B2752F8003970A1 /* Spot.swift */,
+				9A937BA02B2953B500D313FE /* Persistence.swift */,
+				9A937BA52B29670A00D313FE /* MyData.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,8 +263,37 @@
 			isa = PBXGroup;
 			children = (
 				60DEE3412B1F034E00362421 /* Extension + Date.swift */,
+				60DAC0632B1F4ECB00384217 /* Extension + View.swift */,
+				9A651CD22B26D348005D8618 /* Extension + Font.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9A651CCE2B26D1C3005D8618 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9A651CD02B26D1E4005D8618 /* LINESeedKR-Bd.otf */,
+				9A651CCF2B26D1E4005D8618 /* LINESeedKR-Rg.otf */,
+				9A651CD12B26D1E4005D8618 /* LINESeedKR-Th.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9A65718F2B235EF6007BD13D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				0CE4B2272B2AE2E400D1982F /* ApiKeys.plist */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		E41E2FB395D61E324DD0D26B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				204D46BA8C473AA83D23BEAE /* Pods-PJ2T7_Malddong.debug.xcconfig */,
+				4C5AC3426EA5782A734D767A /* Pods-PJ2T7_Malddong.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,9 +303,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60DEE3132B1F015E00362421 /* Build configuration list for PBXNativeTarget "PJ2T7_Malddong" */;
 			buildPhases = (
+				01BE237C5656D39198431789 /* [CP] Check Pods Manifest.lock */,
 				60DEE3012B1F015D00362421 /* Sources */,
 				60DEE3022B1F015D00362421 /* Frameworks */,
 				60DEE3032B1F015D00362421 /* Resources */,
+				304B378BAAE78F7CE4D41302 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,7 +334,7 @@
 				};
 			};
 			buildConfigurationList = 60DEE3002B1F015D00362421 /* Build configuration list for PBXProject "PJ2T7_Malddong" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -264,13 +356,55 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CE4B2282B2AE2E400D1982F /* ApiKeys.plist in Resources */,
 				60DEE3102B1F015E00362421 /* Preview Assets.xcassets in Resources */,
 				60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */,
-				60DEE3442B1F087D00362421 /* ApiKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01BE237C5656D39198431789 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PJ2T7_Malddong-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		304B378BAAE78F7CE4D41302 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		60DEE3012B1F015D00362421 /* Sources */ = {
@@ -279,21 +413,33 @@
 			files = (
 				60DEE32E2B1F027C00362421 /* ParkingLotViewModel.swift in Sources */,
 				60DEE33E2B1F02EE00362421 /* SpotView.swift in Sources */,
-				60DEE3462B1F0A9800362421 /* ToiletListModel.swift in Sources */,
+				9A651CC92B26A0B0005D8618 /* Parking.swift in Sources */,
 				60DEE3332B1F02A900362421 /* ToiletListView.swift in Sources */,
+				9A651CCB2B26A0B8005D8618 /* Toilet.swift in Sources */,
 				60DEE3392B1F02BA00362421 /* ToiletDetailView.swift in Sources */,
 				60DEE3292B1F026600362421 /* MyPageView.swift in Sources */,
 				60DEE30B2B1F015D00362421 /* ContentView.swift in Sources */,
+				9A937BA12B2953B500D313FE /* Persistence.swift in Sources */,
+				9A937BA72B29670A00D313FE /* MyData.xcdatamodeld in Sources */,
 				60DEE3092B1F015D00362421 /* PJ2T7_MalddongApp.swift in Sources */,
 				60DEE3242B1F024F00362421 /* MapView.swift in Sources */,
+				0CD17B5B2B2969F9005AD726 /* SpotDetailView.swift in Sources */,
+				9AC3618D2B2819C50053C3A6 /* MiniMapView.swift in Sources */,
 				60DEE3422B1F034E00362421 /* Extension + Date.swift in Sources */,
 				60DEE3202B1F023500362421 /* LoginView.swift in Sources */,
 				60DEE3382B1F02BA00362421 /* ToiletDeatilViewModel.swift in Sources */,
+				9AB246552B294E9C00FFA0BA /* (null) in Sources */,
+				60DAC0642B1F4ECB00384217 /* Extension + View.swift in Sources */,
 				60DEE31F2B1F023500362421 /* LoginViewModel.swift in Sources */,
 				60DEE3252B1F024F00362421 /* MapViewModel.swift in Sources */,
+				0CD17B5E2B296F63005AD726 /* ModelTransitionView.swift in Sources */,
+				9A651CD32B26D348005D8618 /* Extension + Font.swift in Sources */,
 				60DEE33D2B1F02EE00362421 /* SpotViewModel.swift in Sources */,
-				60DEE3342B1F02A900362421 /* ToiletViewModel.swift in Sources */,
+				6042B76D2B2851C400A7C952 /* CustomButton.swift in Sources */,
+				2369EE432B26EA4100723CB1 /* ParkingDetailView.swift in Sources */,
+				60DEE3342B1F02A900362421 /* ToiletListViewModel.swift in Sources */,
 				60DEE32A2B1F026600362421 /* MyPageViewModel.swift in Sources */,
+				0CF5CC092B2752F8003970A1 /* Spot.swift in Sources */,
 				60DEE32F2B1F027C00362421 /* ParkingLotView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,7 +484,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -401,7 +547,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -422,25 +568,32 @@
 		};
 		60DEE3142B1F015E00362421 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 204D46BA8C473AA83D23BEAE /* Pods-PJ2T7_Malddong.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PJ2T7_Malddong/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PJ2T7-Malddong-Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "DasanJeong.PJ2T7-Malddong";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pj2t7.malddong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -450,25 +603,32 @@
 		};
 		60DEE3152B1F015E00362421 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C5AC3426EA5782A734D767A /* Pods-PJ2T7_Malddong.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PJ2T7_Malddong/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PJ2T7-Malddong-Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "DasanJeong.PJ2T7-Malddong";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pj2t7.malddong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -498,6 +658,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9A937BA52B29670A00D313FE /* MyData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9A937BA62B29670A00D313FE /* MyData.xcdatamodel */,
+			);
+			currentVersion = 9A937BA62B29670A00D313FE /* MyData.xcdatamodel */;
+			path = MyData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 60DEE2FD2B1F015D00362421 /* Project object */;
 }
