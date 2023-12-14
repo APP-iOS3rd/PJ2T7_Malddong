@@ -90,7 +90,15 @@ private struct GridView: View {
                   , content: {
             
             ForEach(spotViewModel.filteredSpotList, id: \.self) { item in
-                NavigationLink(destination: SpotDetailView(spot: item)){
+                
+                if spotViewModel.distributeSelect == "전체"{
+                    
+                    NavigationLink(destination: SpotDetailView(spot: item)){
+                        
+                        SpotCellView(spotViewModel: spotViewModel, item: item)
+                            .padding()
+                    }
+                } else if item.address.contains(spotViewModel.distributeSelect){
                     SpotCellView(spotViewModel: spotViewModel, item: item)
                         .padding()
                 }
