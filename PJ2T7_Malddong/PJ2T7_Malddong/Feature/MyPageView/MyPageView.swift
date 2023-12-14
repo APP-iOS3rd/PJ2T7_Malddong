@@ -8,26 +8,8 @@
 import SwiftUI
 import CoreData
 
-extension View {
-    // Extension 에서 겹쳐서 우선 주석 처리
-    
-//    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-//        clipShape(RoundedCorner(radius: radius, corners: corners))
-//    }
-}
-
-//struct RoundedCorner: Shape {
-//    var radius: CGFloat = .infinity
-//    var corners: UIRectCorner = .allCorners
-//
-//    func path(in rect: CGRect) -> Path {
-//        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-//
-//        return Path(path.cgPath)
-//    }
-//}
-
 struct MyPageView: View {
+    
     @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(entity: MyToilets.entity(), sortDescriptors: [])
@@ -36,6 +18,7 @@ struct MyPageView: View {
     @State private var toiletsDetail = true
     @State private var parkingsDetail = false
     @State private var tourlistsDetail = false
+    
     
     private var gridItems = [GridItem(.flexible()), GridItem(.flexible())]
     
@@ -110,19 +93,3 @@ struct MyPageView: View {
 #Preview {
     MyPageView()
 }
-//
-//TabView {
-//    ToiletListView()
-//        .tabItem {
-//            Image(systemName: "house")
-//        }
-//    MapView()
-//        .tabItem {
-//            Image(systemName: "person")
-//        }
-//
-//    MyPageView()
-//        .tabItem {
-//            Image(systemName: "heart")
-//        }
-//}

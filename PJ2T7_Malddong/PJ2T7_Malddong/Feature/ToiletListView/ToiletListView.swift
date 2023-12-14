@@ -103,7 +103,13 @@ private struct distributeView:View{
 
 //MARK: - GrideView
 private struct GridView:View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: MyToilets.entity(), sortDescriptors: [])
+    private var myToilets: FetchedResults<MyToilets>
+    
     @ObservedObject private var toiletListViewModel: ToiletListViewModel
+    @State var liked = false
+    
     
     init(toiletListViewModel: ToiletListViewModel) {
         self.toiletListViewModel = toiletListViewModel
@@ -116,17 +122,27 @@ private struct GridView:View {
                 GridItem(.flexible()),] :[GridItem(.flexible())]
                       , content: {
                 ForEach(toiletListViewModel.toiletList,id: \.self){item in
-                    NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
-                        
-                        ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
-                            .padding()
-                    }
-                        
-                    
-                    
+                    var toiletName = item.toiletNm
+                    ZStack {
+                        NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
+                            
+                            ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
+                                .padding()
+                        }
+                        HStack {
+                            Spacer()
+                            LikeButton(myToilets: myToilets, item: item) {
+                                if let toilet =  myToilets.first(where: { $0.toiletNm == item.toiletNm }) {
+                                    print("\(toilet.isLiked)")
+                                    toilet.isLiked.toggle()
+                                } else {
+                                    DataController().addItem(photo: item.photo, telno: item.telno, rnAdres: item.rnAdres, toiletNm: item.toiletNm, isLiked: true, context: viewContext)
+                                }
+                            }
+                            .foregroundColor(liked ? .red : .white)
+                        }
+                    }  
                 }//FE
-                
-                
             })
             
             
@@ -137,11 +153,6 @@ private struct GridView:View {
 }
 //MARK: - ToiletCellView
 private struct ToiletCellView:View{
-    @Environment(\.managedObjectContext) private var viewContext
-    
-    @FetchRequest(entity: MyToilets.entity(), sortDescriptors: [])
-    private var myToilets: FetchedResults<MyToilets>
-    
     @ObservedObject private var toiletListViewModel:ToiletListViewModel
     private var item:Toilet
     
@@ -170,9 +181,6 @@ private struct ToiletCellView:View{
                         
                         .scaledToFit()
                         .frame(maxWidth: 152,maxHeight: 100)
-                        .onTapGesture {
-                            addItem()
-                        }
                 }
                 ZStack{
                     Rectangle()
@@ -247,29 +255,9 @@ private struct ToiletCellView:View{
         }
         
     }
-    private func addItem() {
-           withAnimation {
-               //수정 부분
-               let newToilet = MyToilets(context: viewContext)
-               newToilet.toiletNm = item.toiletNm
-               
-               saveItems()
-           }
-       }
-    
-    private func saveItems() {
-        do {
-            try viewContext.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
-    }
 }
 
-        
+
         
         
 
