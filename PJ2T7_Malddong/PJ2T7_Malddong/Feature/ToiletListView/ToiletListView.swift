@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+
 struct ToiletListView: View {
 
     @StateObject var toiletListViewModel = ToiletListViewModel.shared
@@ -33,9 +34,9 @@ struct ToiletListView: View {
                 }
             }
             
-        }
-        .onAppear {
-            toiletListViewModel.fetchData()
+            .onAppear {
+                toiletListViewModel.fetchData()
+            }
         }
         .onAppear{
             toiletListViewModel.fectchData()
@@ -88,15 +89,22 @@ private struct GridView:View {
     }
     
     var body: some View {
-            LazyVGrid(columns: toiletListViewModel.isGridAlign ? [
-                GridItem(.flexible()),
-                GridItem(.flexible()),] :[GridItem(.flexible())]
-                      , content: {
-                ForEach(toiletListViewModel.filteredToiletList, id: \.self){item in
-                    NavigationLink(destination: ToiletDetailView(item: item)) {
+        LazyVGrid(columns: toiletListViewModel.isGridAlign ? [
+            GridItem(.flexible()),
+            GridItem(.flexible()),] :[GridItem(.flexible())]
+                  , content: {
+            ForEach(toiletListViewModel.toiletList,id: \.self){item in
+                
+                if toiletListViewModel.distributeSelect == "전체"{
+                    
+                        NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
+                            
+                            ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
+                                .padding()
+                        }
+                    }else if item.lnmAdres.contains(toiletListViewModel.distributeSelect){
                         ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
                             .padding()
-                    }
                 }
             }//FE
         })
