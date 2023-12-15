@@ -43,6 +43,18 @@ class DataController: ObservableObject {
         saveItems(context: context)
     }
     
+    func addSpot(title: String, thumbnailPath: String, roadAddress: String, longitude: Double, latitude: Double, isLiked: Bool, context: NSManagedObjectContext) {
+        let spots = MySpots(context: context)
+        spots.title = title
+        spots.thumbnailPath = thumbnailPath
+        spots.roadAddress = roadAddress
+        spots.longitude = longitude
+        spots.latitude = latitude
+        spots.isLiked = isLiked
+        
+        saveItems(context: context)
+    }
+    
     func editItem(isLiked: Bool, context: NSManagedObjectContext) {
         let toilets = MyToilets(context: context)
         toilets.isLiked = isLiked

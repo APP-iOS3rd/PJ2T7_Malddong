@@ -18,6 +18,9 @@ struct MyPageView: View {
     @FetchRequest(entity: MyParkings.entity(), sortDescriptors: [])
     private var myParkings: FetchedResults<MyParkings>
     
+    @FetchRequest(entity: MySpots.entity(), sortDescriptors: [])
+    private var mySpots: FetchedResults<MySpots>
+    
     @State private var toiletsDetail = true
     @State private var parkingsDetail = false
     @State private var tourlistsDetail = false
@@ -173,7 +176,69 @@ struct MyPageView: View {
                 
                 
                 DisclosureGroup("관광지", isExpanded: $tourlistsDetail) {
-                    Text("rhksdfhkadslfjflk")
+                    LazyVGrid(columns: gridItems, spacing: 5) {
+                        ForEach(mySpots) { spots in
+                            if spots.isLiked {
+                                VStack(spacing: 0) {
+                                    ZStack {
+                                        Rectangle()
+                                            .frame(width: 152,height: 100)
+                                            .foregroundColor(.gray)
+                                            .cornerRadius(15,corners: [.topLeft,.topRight])
+                                            .shadow(radius: 7)
+                                        AsyncImage(url: URL(string: spots.thumbnailPath ?? "")) {
+                                            $0.image?.resizable()
+                                        }
+                                            .scaledToFit()
+                                            .frame(width: 152, height: 100)
+                                            
+                                        VStack {
+                                            Spacer()
+                                            HStack {
+                                                Spacer()
+                                                Image(systemName: spots.isLiked ? "heart.fill" : "heart")
+                                                    .resizable()
+                                                    .foregroundStyle(spots.isLiked ? Color.red : Color.white)
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(width: 25)
+                                                    .padding(3)
+                                                    .onTapGesture {
+                                                        spots.isLiked.toggle()
+                                                    }
+                                            }
+                                        }
+                                    }
+                                    ZStack {
+                                        Rectangle()
+                                            .frame(width: 152,height: 70)
+                                            .foregroundColor(.white)
+                                            .cornerRadius(15,corners: [.bottomLeft,.bottomRight])
+                                            .shadow(radius: 7)
+//                                        
+                                        VStack {
+                                            Text(spots.title!)
+                                                .font(.system(size: 15,weight: .bold))
+                                                .foregroundStyle(Color.black)
+//                                            
+                                            HStack{
+                                                Text(spots.roadAddress!)
+                                                    .frame(width: 70)
+                                                    .font(.system(size: 10))
+                                                    .lineLimit(2)
+                                                    .foregroundStyle(Color.gray)
+//                                                
+                                                Text("\(mydistanceCalc(lo: String(spots.longitude), la: String(spots.latitude)))km")
+                                                    .font(.system(size: 12))
+                                                    .foregroundStyle(Color.gray)
+//                                                //15592
+                                            }
+                                        }.frame(maxWidth: 152,maxHeight: 70)
+                                    }
+                                }
+                            }
+                        }
+                        .padding()
+                    }
                 }
                 .padding()
                 .foregroundColor(.black)

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SpotView: View {
     @StateObject private var spotViewModel = SpotViewModel(spotitem: [])
@@ -76,6 +77,10 @@ private struct distributeView:View{
 
 //MARK: - GrideView
 private struct GridView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: MySpots.entity(), sortDescriptors: [])
+    private var mySpots: FetchedResults<MySpots>
+    
     @ObservedObject private var spotViewModel: SpotViewModel
 
     init(spotViewModel: SpotViewModel) {
@@ -90,9 +95,21 @@ private struct GridView: View {
                   , content: {
             
             ForEach(spotViewModel.spotitem, id: \.self) { item in
-                NavigationLink(destination: SpotDetailView(spot: item)){
-                    SpotCellView(spotViewModel: spotViewModel, item: item)
-                        .padding()
+                ZStack{
+                    NavigationLink(destination: SpotDetailView(spot: item)){
+                        SpotCellView(spotViewModel: spotViewModel, item: item)
+                            .padding()
+                    }
+                    HStack {
+                        Spacer()
+                        LikeButton3(mySpots: mySpots, item: item) {
+                            if let spot = mySpots.first(where: { $0.title == item.title }) {
+                                spot.isLiked.toggle()
+                            } else {
+                                DataController().addSpot(title: item.title, thumbnailPath: item.thumbnailPath, roadAddress: item.roadAddress, longitude: item.longitude, latitude: item.latitude, isLiked: true, context: viewContext)
+                            }
+                        }
+                    }
                 }
             }
         }).animation(.default)
@@ -101,8 +118,7 @@ private struct GridView: View {
 
 // SpotCellView
 private struct SpotCellView:View{
-    @ObservedObject private var spotViewModel:
-    SpotViewModel
+    @ObservedObject private var spotViewModel: SpotViewModel
     private var item: Spot
     
     init(spotViewModel: SpotViewModel, item: Spot) {

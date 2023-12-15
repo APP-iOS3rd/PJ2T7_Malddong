@@ -7,7 +7,7 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="rnAdres" attributeType="String"/>
     </entity>
-    <entity name="MySpots" representedClassName="MySpots" syncable="YES" codeGenerationType="class">
+    <entity name="MySpots" representedClassName=".MySpots" syncable="YES" codeGenerationType="class">
         <attribute name="isLiked" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
