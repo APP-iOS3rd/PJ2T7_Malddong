@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ParkingLotView: View {
     @StateObject private var parkingLotViewModel = ParkingLotViewModel.shared
@@ -74,6 +75,10 @@ private struct distributeView:View{
 
 // 개별 버튼
 private struct GridView:View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: MyParkings.entity(), sortDescriptors: [])
+    private var myParkings: FetchedResults<MyParkings>
+    
     @ObservedObject private var parkingLotViewModel: ParkingLotViewModel
     
     init(parkingLotViewModel: ParkingLotViewModel) {

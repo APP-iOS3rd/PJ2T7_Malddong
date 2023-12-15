@@ -77,20 +77,26 @@ private struct distributeView:View{
 
 //MARK: - GrideView
 private struct GridView:View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: MyToilets.entity(), sortDescriptors: [])
+    private var myToilets: FetchedResults<MyToilets>
+    
     @ObservedObject private var toiletListViewModel: ToiletListViewModel
+    
     
     init(toiletListViewModel: ToiletListViewModel) {
         self.toiletListViewModel = toiletListViewModel
     }
     
     var body: some View {
-        LazyVGrid(columns: toiletListViewModel.isGridAlign ? [
-            GridItem(.flexible()),
-            GridItem(.flexible()),] :[GridItem(.flexible())]
-                  , content: {
-            ForEach(toiletListViewModel.filteredToiletList,id: \.self){item in
-                
-                if toiletListViewModel.distributeSelect == "전체"{
+        
+            LazyVGrid(columns: toiletListViewModel.isGridAlign ? [
+                GridItem(.flexible()),
+                GridItem(.flexible()),] :[GridItem(.flexible())]
+                      , content: {
+                ForEach(toiletListViewModel.toiletList,id: \.self){item in
+                    ZStack {
+                        if toiletListViewModel.distributeSelect == "전체"{
                     
                         NavigationLink(destination: ToiletDetailView(item: item)) {
                             
@@ -101,18 +107,26 @@ private struct GridView:View {
                         ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
                             .padding()
                 }
-            }//FE
-        })
+                        }
+                        HStack {
+                            Spacer()
+                            LikeButton(myToilets: myToilets, item: item) {
+                                if let toilet =  myToilets.first(where: { $0.toiletNm == item.toiletNm }) {
+                                    print("\(toilet.isLiked)")
+                                    toilet.isLiked.toggle()
+                                } else {
+                                    DataController().addItem(photo: item.photo, telno: item.telno, rnAdres: item.rnAdres, toiletNm: item.toiletNm, isLiked: true, laCrdnt: item.laCrdnt, loCrdnt: item.loCrdnt ,context: viewContext)
+                                }
+                            }
+                        }
+                    }  
+                }//FE
+            })
     }
 }
 
 //MARK: - ToiletCellView
 private struct ToiletCellView:View{
-    @Environment(\.managedObjectContext) private var viewContext
-    
-    @FetchRequest(entity: MyToilets.entity(), sortDescriptors: [])
-    private var myToilets: FetchedResults<MyToilets>
-    
     @ObservedObject private var toiletListViewModel:ToiletListViewModel
     private var item:Toilet
     
@@ -215,27 +229,6 @@ private struct ToiletCellView:View{
             }
         }
     }
-    //    private func addItem() {
-    //           withAnimation {
-    //               //수정 부분
-    //               let newToilet = MyToilets(context: viewContext)
-    //               newToilet.toiletNm = item.toiletNm
-    //               
-    //               saveItems()
-    //           }
-    //       }
-    
-    //    private func saveItems() {
-    //        do {
-    //            try viewContext.save()
-    //        } catch {
-    //            // Replace this implementation with code to handle the error appropriately.
-    //            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-    //            let nsError = error as NSError
-    //            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-    //            print("error")
-    //        }
-    //    }
 }
 
 #Preview {
