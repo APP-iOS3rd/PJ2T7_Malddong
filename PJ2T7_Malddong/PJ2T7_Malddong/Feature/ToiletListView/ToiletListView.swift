@@ -8,54 +8,33 @@
 import SwiftUI
 import CoreData
 
+
 struct ToiletListView: View {
-    @StateObject private var toiletListViewModel = ToiletListViewModel()
-    
+
+    @StateObject var toiletListViewModel = ToiletListViewModel.shared
+    var filteredToiletList: [Toilet] {
+        toiletListViewModel.filteredToiletList
+    }
+  
     var body: some View {
+        
         NavigationStack{
+            distributeView(
+                toiletListViewModel: toiletListViewModel)
+            .padding(.horizontal)
             ScrollView{
-                
                 VStack{
-                    HStack {
-                        NavigationLink(destination: ToiletListView()) {
-                           
-                            customButton2(title: "화장실", imageName: "tissue", backgroundColor: .malddongYellow)
-                        }
-                        NavigationLink(destination: SpotView()){
-                            
-                            customButton2(title: "관광지", imageName: "dolhareubang", backgroundColor: .malddongGreen)
-                                
-                            
-                        }
-                        NavigationLink(destination: ParkingLotView()){
-                            customButton2(title: "주차장", imageName: "car", backgroundColor: .malddongBlue)
-                        }
-                        
-                        Spacer()
-                        
-                        Image("search")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 28, height: 28)
-                            .clipped()
-                    }
-                    .padding(12)
-                    distributeView(
-                        toiletListViewModel: toiletListViewModel)
-                    .padding(.horizontal)
-                    
-                    
                     GridView(toiletListViewModel: toiletListViewModel)
                         .padding()
-                    
-                    
                 }
             }
+            
+            .onAppear {
+                toiletListViewModel.fetchData()
+            }
         }
-        
-        
         .onAppear{
-            toiletListViewModel.fectchData()
+            toiletListViewModel.fetchData()
         }
     }
 }
@@ -70,8 +49,6 @@ private struct distributeView:View{
     }
     
     var body: some View{
-        
-        
         HStack{
             Button(action: {
                 toiletListViewModel.gridOneLine()
@@ -89,16 +66,13 @@ private struct distributeView:View{
             })
             Spacer()
             Picker("", selection:$toiletListViewModel.distributeSelect
-                    , content: {
+                   , content: {
                 ForEach(toiletListViewModel.distributeArea,id: \.self){item in
                     Text(item)
-                    
                 }
             })
         }
     }
-       
-    
 }
 
 //MARK: - GrideView
@@ -122,10 +96,17 @@ private struct GridView:View {
                       , content: {
                 ForEach(toiletListViewModel.toiletList,id: \.self){item in
                     ZStack {
-                        NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
+                        if toiletListViewModel.distributeSelect == "전체"{
+                    
+                        NavigationLink(destination: ToiletDetailView(item: item)) {
                             
                             ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
                                 .padding()
+                        }
+                    }else if item.lnmAdres.contains(toiletListViewModel.distributeSelect){
+                        ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
+                            .padding()
+                }
                         }
                         HStack {
                             Spacer()
@@ -141,13 +122,9 @@ private struct GridView:View {
                     }  
                 }//FE
             })
-            
-            
-        
-        
-        
     }
 }
+
 //MARK: - ToiletCellView
 private struct ToiletCellView:View{
     @ObservedObject private var toiletListViewModel:ToiletListViewModel
@@ -162,6 +139,7 @@ private struct ToiletCellView:View{
         VStack(spacing:0){
             if toiletListViewModel.isGridAlign{
                 ZStack{
+                    
                     Rectangle()
                         .frame(width: 152,height: 100)
                         .foregroundColor(.gray)
@@ -173,9 +151,13 @@ private struct ToiletCellView:View{
                                        )){
                         $0.image?.resizable()
                     }
-                        
-                        .scaledToFit()
-                        .frame(maxWidth: 152,maxHeight: 100)
+                                       .frame(width: 152,height: 100)
+                                       .cornerRadius(15,corners: [.topLeft,.topRight])
+                                       .onTapGesture {
+                                           //                            addItem()
+                                       }
+                    
+                    
                 }
                 ZStack{
                     Rectangle()
@@ -190,7 +172,7 @@ private struct ToiletCellView:View{
                             .foregroundStyle(Color.black)
                         
                         HStack{
-                            Text(item.rnAdres)
+                            Text(item.lnmAdres)
                                 .frame(width: 70)
                                 .font(.system(size: 10))
                                 .lineLimit(2)
@@ -213,14 +195,15 @@ private struct ToiletCellView:View{
                             .foregroundStyle(Color.gray)
                             .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                             .shadow(radius: 7)
-                        AsyncImage(url: URL(string:
-                                                toiletListViewModel.imageNilCheck(item)
-                                           )){
+                        
+                        AsyncImage(url: URL(string: toiletListViewModel.imageNilCheck(item))) {
                             $0.image?.resizable()
                         }
-                            .scaledToFit()
-                            .frame(maxWidth: 210,maxHeight: 180)
-                            
+                        .frame(width: 210, height: 180)
+                        .cornerRadius(15,corners: [.topLeft,.bottomLeft])
+                        
+                        
+                        
                     }
                     ZStack{
                         Rectangle()
@@ -234,27 +217,19 @@ private struct ToiletCellView:View{
                             Text(item.toiletNm)
                                 .font(.system(size: 20,weight: .bold))
                                 .foregroundStyle(Color.black)
+                                .padding(10)
                             Text("\(toiletListViewModel.distanceCalc(toilet: item))km")
                                 .foregroundStyle(Color.black)
-                            Text(item.rnAdres)
+                            Text(item.lnmAdres)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)
                         }
                     }
                 }//H
-                   
-                
-                
             }
-                
         }
-        
     }
 }
-
-
-        
-        
 
 #Preview {
     ToiletListView()

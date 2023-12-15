@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct SpotView: View {
-    @StateObject private var spotViewModel = SpotViewModel(spotitem: [])
+    @StateObject private var spotViewModel = SpotViewModel.shared
     
     var body: some View {
         NavigationStack {
@@ -23,7 +23,7 @@ struct SpotView: View {
                     
                     GridView(spotViewModel:
                                 spotViewModel)
-                                .padding()
+                    .padding()
                 }
             }
             .onAppear{
@@ -63,13 +63,13 @@ private struct distributeView:View{
             
             Picker("",
                    selection:$spotViewModel
-                   .distributeSelect
-                    , content: {
+                .distributeSelect
+                   , content: {
                 ForEach(spotViewModel
                     .distributeArea,id: \.self){item in
-                    Text(item)
-                    
-                }
+                        Text(item)
+                        
+                    }
             })
         }
     }
@@ -82,11 +82,11 @@ private struct GridView: View {
     private var mySpots: FetchedResults<MySpots>
     
     @ObservedObject private var spotViewModel: SpotViewModel
-
+    
     init(spotViewModel: SpotViewModel) {
         self.spotViewModel = spotViewModel
     }
-
+    
     var body: some View {
         LazyVGrid(columns: spotViewModel.isGridAlign ? [
             GridItem(.flexible()),
@@ -94,11 +94,33 @@ private struct GridView: View {
         ] : [GridItem(.flexible())]
                   , content: {
             
-            ForEach(spotViewModel.spotitem, id: \.self) { item in
                 ZStack{
+                if spotViewModel.distributeSelect == "전체"{
+                    
                     NavigationLink(destination: SpotDetailView(spot: item)){
+                        
                         SpotCellView(spotViewModel: spotViewModel, item: item)
                             .padding()
+                    }
+                } else if item.address.contains(spotViewModel.distributeSelect){
+                    SpotCellView(spotViewModel: spotViewModel, item: item)
+                        .padding()
+                    }
+            ForEach(spotViewModel.spotitem, id: \.self) { item in
+                ZStack{
+            ForEach(spotViewModel.filteredSpotList, id: \.self) { item in
+                
+                if spotViewModel.distributeSelect == "전체"{
+                    
+                    NavigationLink(destination: SpotDetailView(spot: item)){
+                        
+                        SpotCellView(spotViewModel: spotViewModel, item: item)
+                            .padding()
+                    }
+                } else if item.address.contains(spotViewModel.distributeSelect){
+                    SpotCellView(spotViewModel: spotViewModel, item: item)
+                        .padding()
+                }
                     }
                     HStack {
                         Spacer()
@@ -112,7 +134,7 @@ private struct GridView: View {
                     }
                 }
             }
-        }).animation(.default)
+        })
     }
 }
 
@@ -131,20 +153,21 @@ private struct SpotCellView:View{
         VStack(spacing:0){
             if spotViewModel.isGridAlign{
                 ZStack{
+                    
                     Rectangle()
                         .frame(width: 152,height: 100)
                         .foregroundColor(.gray)
                         .cornerRadius(15,corners: [.topLeft,.topRight])
                         .shadow(radius: 7)
                     
-                    AsyncImage(url: URL(string:
-                                            item.thumbnailPath
-                                       )){
+                    
+                    AsyncImage(url: URL(string: item.thumbnailPath)) {
                         $0.image?.resizable()
                     }
-                    
-                                       .scaledToFit()
-                                       .frame(maxWidth: 152,maxHeight: 100)
+                    .frame(width: 152,height: 100)
+                    .cornerRadius(15,corners: [.topLeft,.topRight])
+                    .onTapGesture {
+                    }
                 }
                 ZStack{
                     Rectangle()
@@ -156,6 +179,7 @@ private struct SpotCellView:View{
                     VStack{
                         Text(item.title)
                             .font(.system(size: 15,weight: .bold))
+                            .foregroundStyle(Color.black)
                         
                         HStack{
                             Text(item.roadAddress)
@@ -163,8 +187,9 @@ private struct SpotCellView:View{
                                 .font(.system(size: 10))
                                 .lineLimit(2)
                                 .foregroundStyle(Color.gray)
-                            
-                            Text("1.2km")
+
+                            Text("\(spotViewModel.distanceCalc(spot: item))km")
+                                .foregroundStyle(Color.gray)
                         }
                         
                     }.frame(maxWidth: 152,maxHeight: 70)
@@ -179,13 +204,12 @@ private struct SpotCellView:View{
                             .foregroundStyle(Color.gray)
                             .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                             .shadow(radius: 7)
-                        AsyncImage(url: URL(string:
-                                                item.thumbnailPath
-                                           )){
+                        
+                        AsyncImage(url: URL(string: item.thumbnailPath)) {
                             $0.image?.resizable()
                         }
-                                           .scaledToFit()
-                                           .frame(maxWidth: 210,maxHeight: 180)
+                        .frame(width: 210, height: 180)
+                        .cornerRadius(15,corners: [.topLeft,.bottomLeft])
                         
                     }
                     ZStack{
@@ -197,9 +221,14 @@ private struct SpotCellView:View{
                             .shadow(radius: 7)
                         
                         VStack{
-                            Text(item.contentsLabel)
+                            Text(item.title)
                                 .font(.system(size: 20,weight: .bold))
-                            Text("1.6km")
+                                .foregroundStyle(Color.black)
+                                .padding(10)
+
+                            Text("\(spotViewModel.distanceCalc(spot: item))km")
+                                .foregroundStyle(Color.gray)
+
                             Text(item.roadAddress)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)
@@ -211,9 +240,9 @@ private struct SpotCellView:View{
     }
 }
 
-        
-        
-        
+
+
+
 
 #Preview {
     SpotView()

@@ -9,8 +9,11 @@ import SwiftUI
 import CoreData
 
 struct ParkingLotView: View {
-    @StateObject private var parkingLotViewModel = ParkingLotViewModel(parkingLots: [])
+    @StateObject private var parkingLotViewModel = ParkingLotViewModel.shared
     
+    var filteredParkingList: [Parking] {
+        parkingLotViewModel.filteredParkingList
+    }
     var body: some View {
         NavigationStack {
             ScrollView{
@@ -77,7 +80,7 @@ private struct GridView:View {
     private var myParkings: FetchedResults<MyParkings>
     
     @ObservedObject private var parkingLotViewModel: ParkingLotViewModel
-
+    
     init(parkingLotViewModel: ParkingLotViewModel) {
         self.parkingLotViewModel = parkingLotViewModel
     }
@@ -88,25 +91,20 @@ private struct GridView:View {
             GridItem(.flexible()),] :[GridItem(.flexible())]
                   , content: {
             
-            ForEach(parkingLotViewModel.parkingLots,id: \.self){item in
-                ZStack {
+            ForEach(parkingLotViewModel.filteredParkingList,id: \.self){item in
+                
+                if parkingLotViewModel.distributeSelect == "전체"{
+                    
                     NavigationLink(destination: ParkingDetailView(parking: item)){
+                        
                         ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
                     }
-                    HStack {
-                        Spacer()
-                        LikeButton2(myParkings: myParkings, item: item) {
-                            if let parking = myParkings.first(where: { $0.name == item.name }) {
-                                parking.isLiked.toggle()
-                            } else {
-                                DataController().addParking(name: item.name, rnAdres: item.rnAdres, longitude: item.longitude, latitude: item.latitude, isLiked: true, context: viewContext)
-                            }
-                        }
-                    }
-                }
+                } else if item.lnmAdres.contains(parkingLotViewModel.distributeSelect){
+                    ParkingCellView(parkingLotViewModel: parkingLotViewModel, item:item)
+                        .padding()
+             }
             }
-            
-        }).animation(.default)
+        })
     }
 }
 
@@ -132,7 +130,7 @@ private struct ParkingCellView:View{
                 ZStack{
                     Rectangle()
                         .frame(width: 152,height: 100)
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color("MalddongGray"))
                         .cornerRadius(15, corners: [.topLeft, .topRight])
                         .shadow(radius: 7)
                     
@@ -142,11 +140,12 @@ private struct ParkingCellView:View{
                         
                         Image(imageName)
                             .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: 152,maxHeight: 100)
+                            .frame(maxWidth: 152, maxHeight: 100)
+                            .aspectRatio(contentMode: .fill)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
                     }
                 }
-                
+
                 ZStack{
                     Rectangle()
                         .frame(width: 152,height: 70)
@@ -157,6 +156,7 @@ private struct ParkingCellView:View{
                     VStack{
                         Text(item.name)
                             .font(.system(size: 15,weight: .bold))
+                            .foregroundStyle(Color.black)
                         
                         HStack{
                             Text(item.rnAdres)
@@ -164,21 +164,21 @@ private struct ParkingCellView:View{
                                 .font(.system(size: 10))
                                 .lineLimit(2)
                                 .foregroundStyle(Color.gray)
-                            
-                            Text("1.2km") // 거리 설정
+
+                            Text("\(parkingLotViewModel.distanceCalc(parking: item))km")
+                                .foregroundStyle(Color.gray)
                         }
-                        
                     }.frame(maxWidth: 152,maxHeight: 70)
+                    
                 }
-            }
-            // 큰 그리드 경우
-            else{
+                // 큰 그리드 경우
+            } else{
                 HStack(spacing:0){
                     ZStack{
                         Rectangle()
-                            .frame(width: 210, height: 180)
-                            .foregroundStyle(Color.gray)
-                            .cornerRadius(15,corners: [.topLeft,.bottomLeft])
+                            .frame(width: 210,height: 180)
+                            .foregroundColor(Color("White"))
+                            .cornerRadius(15, corners: [.topLeft, .bottomLeft])
                             .shadow(radius: 7)
                         
                         ForEach(0..<26) { _ in
@@ -187,11 +187,12 @@ private struct ParkingCellView:View{
                             
                             Image(imageName)
                                 .resizable()
-                                .scaledToFit()
-                                .frame(maxWidth: 210,maxHeight: 180)
+                                .frame(maxWidth: 210, maxHeight: 180)
+                                .aspectRatio(contentMode: .fill)
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
                         }
+                        
                     }
-                    
                     ZStack{
                         Rectangle()
                             .frame(width: 160, height: 180)
@@ -203,7 +204,12 @@ private struct ParkingCellView:View{
                         VStack{
                             Text(item.name)
                                 .font(.system(size: 20,weight: .bold))
-                            Text("1.6km")
+                                .foregroundStyle(Color.black)
+                                .padding(10)
+                          
+                            Text("\(parkingLotViewModel.distanceCalc(parking: item))km")
+                                .foregroundStyle(Color.gray)
+
                             Text(item.rnAdres)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)

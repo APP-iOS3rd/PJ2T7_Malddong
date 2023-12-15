@@ -7,12 +7,16 @@
 
 import Foundation
 import CoreLocation
-
+import UIKit
 
 class ToiletListViewModel:ObservableObject{
+    static let shared = ToiletListViewModel()
+    
     @Published var toiletList: [Toilet]
     @Published var distributeSelect: String
     @Published var isGridAlign:Bool
+    @Published var filteredToiletList: [Toilet] = []
+
     var distributeArea : [String]
     
     
@@ -21,23 +25,12 @@ class ToiletListViewModel:ObservableObject{
         get{ getValueOfPlistFile("ApiKeys",api_key)}
     }
     
-    init(
-        toiletList: [Toilet] = [],
-        distributeSelect: String = "제주시",
-        isGridAlign: Bool = true,
-        distributeArea: [String] = ["제주시","서귀포시"]
-        
-    ) {
-        self.toiletList = toiletList
-        self.distributeSelect = distributeSelect
-        self.isGridAlign = isGridAlign
-        self.distributeArea = distributeArea
-        
+    private init(){
+        self.toiletList = [Toilet]()
+        self.distributeSelect = "전체"
+        self.isGridAlign = true
+        self.distributeArea = ["전체","한경면","한림읍","애월읍","조천읍","구좌읍"]
     }
-    
-    
-  
-    
 }
 extension ToiletListViewModel{
     //TODO: - 우 상단에 피커를 선택했을때 동네별로 분류해야함
@@ -50,11 +43,11 @@ extension ToiletListViewModel{
         isGridAlign = true
     }
     
-    func fectchData(){
+    func fetchData(){
         guard let apiKey = apiKey else {return}
         
         let urlString =
-        "https://apis.data.go.kr/6510000/publicToiletService/getPublicToiletInfoList?pageNo=1&numOfRows=10&serviceKey=\(apiKey)"
+        "https://apis.data.go.kr/6510000/publicToiletService/getPublicToiletInfoList?pageNo=1&numOfRows=500&serviceKey=\(apiKey)"
         
         guard let url = URL(string: urlString) else { return }
         
@@ -82,6 +75,7 @@ extension ToiletListViewModel{
                 
                 DispatchQueue.main.async{
                     self.toiletList = json.response.body.items.item
+                    self.resetFilter()
                 }
             }catch let error{
                 print(error.localizedDescription)
@@ -112,10 +106,16 @@ extension ToiletListViewModel{
         return toilet[0]
     }
     func distanceCalc(toilet:Toilet)->String{
-        //내위치 임의 설정
-        let myLocation = CLLocation(latitude: 33.44980872, longitude: 126.6182481)
+        let manager = CLLocationManager()
+        manager.desiredAccuracy=kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
         
-        let objectLoaction = CLLocation(latitude: Double(toilet.laCrdnt)!, longitude: Double(toilet.loCrdnt)!)
+        let lat = manager.location?.coordinate.latitude
+        let lo = manager.location?.coordinate.longitude
+        
+        let myLocation = CLLocation(latitude: lat ?? 37.0, longitude: lo ?? 127.0)
+        
+        let objectLoaction = CLLocation(latitude: Double(toilet.laCrdnt) ?? 3.0, longitude: Double(toilet.loCrdnt) ?? 127.0)
         
         let distanceMetor = myLocation.distance(from: objectLoaction)
         
@@ -123,8 +123,16 @@ extension ToiletListViewModel{
         
     }
     
+    // 검색 기능
+    func filterByName(_ toiletName: String){
+        filteredToiletList = toiletList.filter { toilet in
+            return toilet.toiletNm.lowercased().contains(toiletName.lowercased())
+        }
+    }
     
-    
+    func resetFilter() {
+        filteredToiletList = toiletList
+    }
 }
 
 

@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+   
     
     var body: some View {
         TabView {
-            ToiletListView()
+            ModelTransitionView()
                 .tabItem {
                     Image(systemName: "house")
                 }
+                
             MapView()
                 .tabItem {
                     Image(systemName: "map.fill")

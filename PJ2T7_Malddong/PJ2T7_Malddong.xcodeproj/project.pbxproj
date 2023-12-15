@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0CD17B5B2B2969F9005AD726 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD17B5A2B2969F9005AD726 /* SpotDetailView.swift */; };
+		0CD17B5E2B296F63005AD726 /* ModelTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD17B5D2B296F62005AD726 /* ModelTransitionView.swift */; };
+		0CE4B2282B2AE2E400D1982F /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CE4B2272B2AE2E400D1982F /* ApiKeys.plist */; };
 		0CF5CC092B2752F8003970A1 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF5CC082B2752F8003970A1 /* Spot.swift */; };
 		2369EE432B26EA4100723CB1 /* ParkingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2369EE422B26EA4100723CB1 /* ParkingDetailView.swift */; };
 		5448F092AA309CACF54DC5E4 /* Pods_PJ2T7_Malddong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */; };
@@ -45,6 +47,8 @@
 
 /* Begin PBXFileReference section */
 		0CD17B5A2B2969F9005AD726 /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
+		0CD17B5D2B296F62005AD726 /* ModelTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTransitionView.swift; sourceTree = "<group>"; };
+		0CE4B2272B2AE2E400D1982F /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../ApiKeys.plist; sourceTree = "<group>"; };
 		0CF5CC082B2752F8003970A1 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		204D46BA8C473AA83D23BEAE /* Pods-PJ2T7_Malddong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJ2T7_Malddong.debug.xcconfig"; path = "Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong.debug.xcconfig"; sourceTree = "<group>"; };
 		2369EE422B26EA4100723CB1 /* ParkingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingDetailView.swift; sourceTree = "<group>"; };
@@ -98,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CD17B5C2B296EE4005AD726 /* ModelTransition */ = {
+			isa = PBXGroup;
+			children = (
+				0CD17B5D2B296F62005AD726 /* ModelTransitionView.swift */,
+			);
+			path = ModelTransition;
+			sourceTree = "<group>";
+		};
 		10C23D7F387171F753315143 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +172,7 @@
 		60DEE31B2B1F022000362421 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				0CD17B5C2B296EE4005AD726 /* ModelTransition */,
 				60DEE33A2B1F02C700362421 /* SpotView */,
 				60DEE3302B1F028200362421 /* ToiletListView */,
 				60DEE32B2B1F026E00362421 /* ParkinglotView */,
@@ -213,8 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				60DEE3352B1F02AC00362421 /* ToiletDetailView */,
-				60DEE3312B1F02A900362421 /* ToiletListView.swift */,
 				60DEE3322B1F02A900362421 /* ToiletListViewModel.swift */,
+				60DEE3312B1F02A900362421 /* ToiletListView.swift */,
 			);
 			path = ToiletListView;
 			sourceTree = "<group>";
@@ -274,7 +287,7 @@
 		9A65718F2B235EF6007BD13D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				A48639F82B296E7600BF3F0B /* ApiKeys.plist */,
+				0CE4B2272B2AE2E400D1982F /* ApiKeys.plist */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -348,6 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CE4B2282B2AE2E400D1982F /* ApiKeys.plist in Resources */,
 				60DEE3102B1F015E00362421 /* Preview Assets.xcassets in Resources */,
 				A48639F92B296E7600BF3F0B /* ApiKeys.plist in Resources */,
 				60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */,
@@ -424,6 +438,7 @@
 				60DAC0642B1F4ECB00384217 /* Extension + View.swift in Sources */,
 				60DEE31F2B1F023500362421 /* LoginViewModel.swift in Sources */,
 				60DEE3252B1F024F00362421 /* MapViewModel.swift in Sources */,
+				0CD17B5E2B296F63005AD726 /* ModelTransitionView.swift in Sources */,
 				9A651CD32B26D348005D8618 /* Extension + Font.swift in Sources */,
 				60DEE33D2B1F02EE00362421 /* SpotViewModel.swift in Sources */,
 				6042B76D2B2851C400A7C952 /* CustomButton.swift in Sources */,
@@ -567,12 +582,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PJ2T7_Malddong/Preview Content\"";
-				DEVELOPMENT_TEAM = 2252348JAM;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "PJ2T7-Malddong-Info.plist";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "앱을 사용하는 동안 위치를 얻어옵니다.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -601,12 +617,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PJ2T7_Malddong/Preview Content\"";
-				DEVELOPMENT_TEAM = 2252348JAM;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "PJ2T7-Malddong-Info.plist";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "앱을 사용하는 동안 위치를 얻어옵니다.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
