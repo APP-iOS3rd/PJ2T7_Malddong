@@ -108,7 +108,6 @@ private struct GridView:View {
     private var myToilets: FetchedResults<MyToilets>
     
     @ObservedObject private var toiletListViewModel: ToiletListViewModel
-    @State var liked = false
     
     
     init(toiletListViewModel: ToiletListViewModel) {
@@ -122,7 +121,6 @@ private struct GridView:View {
                 GridItem(.flexible()),] :[GridItem(.flexible())]
                       , content: {
                 ForEach(toiletListViewModel.toiletList,id: \.self){item in
-                    var toiletName = item.toiletNm
                     ZStack {
                         NavigationLink(destination: ToiletDetailView(item: item,toiletListViewModel: toiletListViewModel)) {
                             
@@ -136,10 +134,9 @@ private struct GridView:View {
                                     print("\(toilet.isLiked)")
                                     toilet.isLiked.toggle()
                                 } else {
-                                    DataController().addItem(photo: item.photo, telno: item.telno, rnAdres: item.rnAdres, toiletNm: item.toiletNm, isLiked: true, context: viewContext)
+                                    DataController().addItem(photo: item.photo, telno: item.telno, rnAdres: item.rnAdres, toiletNm: item.toiletNm, isLiked: true, laCrdnt: item.laCrdnt, loCrdnt: item.loCrdnt ,context: viewContext)
                                 }
                             }
-                            .foregroundColor(liked ? .red : .white)
                         }
                     }  
                 }//FE
@@ -165,8 +162,6 @@ private struct ToiletCellView:View{
         VStack(spacing:0){
             if toiletListViewModel.isGridAlign{
                 ZStack{
-                    
-                    
                     Rectangle()
                         .frame(width: 152,height: 100)
                         .foregroundColor(.gray)

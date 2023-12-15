@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23B81" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
-    <entity name="MyParkings" representedClassName="MyParkings" syncable="YES" codeGenerationType="class"/>
+    <entity name="MyParkings" representedClassName=".MyParkings" syncable="YES" codeGenerationType="class">
+        <attribute name="isLiked" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="latitude" attributeType="String"/>
+        <attribute name="longitude" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="rnAdres" attributeType="String"/>
+    </entity>
+    <entity name="MySpots" representedClassName="MySpots" syncable="YES" codeGenerationType="class">
+        <attribute name="isLiked" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="roadAddress" attributeType="String"/>
+        <attribute name="thumbnailPath" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+    </entity>
     <entity name="MyToilets" representedClassName=".MyToilets" syncable="YES" codeGenerationType="class">
         <attribute name="isLiked" attributeType="Boolean" usesScalarValueType="YES" customClassName="[String]"/>
+        <attribute name="laCrdnt" attributeType="String"/>
+        <attribute name="loCrdnt" attributeType="String"/>
         <attribute name="photo" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
         <attribute name="rnAdres" attributeType="String"/>
         <attribute name="telno" attributeType="String"/>

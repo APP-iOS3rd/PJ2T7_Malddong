@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ParkingLotView: View {
     @StateObject private var parkingLotViewModel = ParkingLotViewModel(parkingLots: [])
@@ -71,6 +72,10 @@ private struct distributeView:View{
 
 // 개별 버튼
 private struct GridView:View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: MyParkings.entity(), sortDescriptors: [])
+    private var myParkings: FetchedResults<MyParkings>
+    
     @ObservedObject private var parkingLotViewModel: ParkingLotViewModel
 
     init(parkingLotViewModel: ParkingLotViewModel) {
@@ -84,8 +89,20 @@ private struct GridView:View {
                   , content: {
             
             ForEach(parkingLotViewModel.parkingLots,id: \.self){item in
-                NavigationLink(destination: ParkingDetailView(parking: item)){
-                ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
+                ZStack {
+                    NavigationLink(destination: ParkingDetailView(parking: item)){
+                        ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
+                    }
+                    HStack {
+                        Spacer()
+                        LikeButton2(myParkings: myParkings, item: item) {
+                            if let parking = myParkings.first(where: { $0.name == item.name }) {
+                                parking.isLiked.toggle()
+                            } else {
+                                DataController().addParking(name: item.name, rnAdres: item.rnAdres, longitude: item.longitude, latitude: item.latitude, isLiked: true, context: viewContext)
+                            }
+                        }
+                    }
                 }
             }
             

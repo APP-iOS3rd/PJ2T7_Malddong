@@ -19,13 +19,26 @@ class DataController: ObservableObject {
 //            }
 //        }
 //    }
-    func addItem(photo: [String]?, telno: String, rnAdres: String, toiletNm: String, isLiked: Bool, context: NSManagedObjectContext) {
+    func addItem(photo: [String]?, telno: String, rnAdres: String, toiletNm: String, isLiked: Bool,laCrdnt: String, loCrdnt: String ,context: NSManagedObjectContext) {
         let toilets = MyToilets(context: context)
         toilets.photo = photo
         toilets.telno = telno
         toilets.rnAdres = rnAdres
         toilets.toiletNm = toiletNm
         toilets.isLiked = isLiked
+        toilets.laCrdnt = laCrdnt
+        toilets.loCrdnt = loCrdnt
+        
+        saveItems(context: context)
+    }
+    
+    func addParking(name: String, rnAdres: String, longitude: String, latitude: String, isLiked: Bool, context: NSManagedObjectContext) {
+        let parkings = MyParkings(context: context)
+        parkings.name = name
+        parkings.rnAdres = rnAdres
+        parkings.longitude = longitude
+        parkings.latitude = latitude
+        parkings.isLiked = isLiked
         
         saveItems(context: context)
     }
