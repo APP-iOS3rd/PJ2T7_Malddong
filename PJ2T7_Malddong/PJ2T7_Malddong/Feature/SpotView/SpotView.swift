@@ -94,33 +94,18 @@ private struct GridView: View {
         ] : [GridItem(.flexible())]
                   , content: {
             
-                ZStack{
-                if spotViewModel.distributeSelect == "전체"{
-                    
-                    NavigationLink(destination: SpotDetailView(spot: item)){
-                        
-                        SpotCellView(spotViewModel: spotViewModel, item: item)
-                            .padding()
-                    }
-                } else if item.address.contains(spotViewModel.distributeSelect){
-                    SpotCellView(spotViewModel: spotViewModel, item: item)
-                        .padding()
-                    }
-            ForEach(spotViewModel.spotitem, id: \.self) { item in
-                ZStack{
             ForEach(spotViewModel.filteredSpotList, id: \.self) { item in
-                
-                if spotViewModel.distributeSelect == "전체"{
-                    
-                    NavigationLink(destination: SpotDetailView(spot: item)){
+                ZStack {
+                    if spotViewModel.distributeSelect == "전체"{
                         
+                        NavigationLink(destination: SpotDetailView(spot: item)){
+                            
+                            SpotCellView(spotViewModel: spotViewModel, item: item)
+                                .padding()
+                        }
+                    } else if item.address.contains(spotViewModel.distributeSelect){
                         SpotCellView(spotViewModel: spotViewModel, item: item)
                             .padding()
-                    }
-                } else if item.address.contains(spotViewModel.distributeSelect){
-                    SpotCellView(spotViewModel: spotViewModel, item: item)
-                        .padding()
-                }
                     }
                     HStack {
                         Spacer()
@@ -132,11 +117,14 @@ private struct GridView: View {
                             }
                         }
                     }
+                    
                 }
             }
+            
         })
     }
 }
+
 
 // SpotCellView
 private struct SpotCellView:View{
@@ -166,8 +154,6 @@ private struct SpotCellView:View{
                     }
                     .frame(width: 152,height: 100)
                     .cornerRadius(15,corners: [.topLeft,.topRight])
-                    .onTapGesture {
-                    }
                 }
                 ZStack{
                     Rectangle()

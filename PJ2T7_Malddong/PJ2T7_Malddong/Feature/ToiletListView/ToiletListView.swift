@@ -90,38 +90,38 @@ private struct GridView:View {
     
     var body: some View {
         
-            LazyVGrid(columns: toiletListViewModel.isGridAlign ? [
-                GridItem(.flexible()),
-                GridItem(.flexible()),] :[GridItem(.flexible())]
-                      , content: {
-                ForEach(toiletListViewModel.toiletList,id: \.self){item in
-                    ZStack {
-                        if toiletListViewModel.distributeSelect == "전체"{
-                    
+        LazyVGrid(columns: toiletListViewModel.isGridAlign ? [
+            GridItem(.flexible()),
+            GridItem(.flexible()),] :[GridItem(.flexible())]
+                  , content: {
+            ForEach(toiletListViewModel.toiletList,id: \.self){item in
+                ZStack {
+                    if toiletListViewModel.distributeSelect == "전체"{
+                        
                         NavigationLink(destination: ToiletDetailView(item: item)) {
                             
                             ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
                                 .padding()
                         }
-                    }else if item.lnmAdres.contains(toiletListViewModel.distributeSelect){
+                    } else if item.lnmAdres.contains(toiletListViewModel.distributeSelect){
                         ToiletCellView(toiletListViewModel: toiletListViewModel, item:  item)
                             .padding()
-                }
-                        }
-                        HStack {
-                            Spacer()
-                            LikeButton(myToilets: myToilets, item: item) {
-                                if let toilet =  myToilets.first(where: { $0.toiletNm == item.toiletNm }) {
-                                    print("\(toilet.isLiked)")
-                                    toilet.isLiked.toggle()
-                                } else {
-                                    DataController().addItem(photo: item.photo, telno: item.telno, rnAdres: item.rnAdres, toiletNm: item.toiletNm, isLiked: true, laCrdnt: item.laCrdnt, loCrdnt: item.loCrdnt ,context: viewContext)
-                                }
+                    }
+                    
+                    HStack {
+                        Spacer()
+                        LikeButton(myToilets: myToilets, item: item) {
+                            if let toilet =  myToilets.first(where: { $0.toiletNm == item.toiletNm }) {
+                                print("\(toilet.isLiked)")
+                                toilet.isLiked.toggle()
+                            } else {
+                                DataController().addItem(photo: item.photo, telno: item.telno, rnAdres: item.lnmAdres, toiletNm: item.toiletNm, isLiked: true, laCrdnt: item.laCrdnt, loCrdnt: item.loCrdnt ,context: viewContext)
                             }
                         }
-                    }  
-                }//FE
-            })
+                    }
+                }
+            }//FE
+        })
     }
 }
 
@@ -153,11 +153,6 @@ private struct ToiletCellView:View{
                     }
                                        .frame(width: 152,height: 100)
                                        .cornerRadius(15,corners: [.topLeft,.topRight])
-                                       .onTapGesture {
-                                           //                            addItem()
-                                       }
-                    
-                    
                 }
                 ZStack{
                     Rectangle()

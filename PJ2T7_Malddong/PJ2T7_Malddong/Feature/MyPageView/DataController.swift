@@ -23,7 +23,7 @@ class DataController: ObservableObject {
         let toilets = MyToilets(context: context)
         toilets.photo = photo
         toilets.telno = telno
-        toilets.rnAdres = rnAdres
+        toilets.lnmAdres = rnAdres
         toilets.toiletNm = toiletNm
         toilets.isLiked = isLiked
         toilets.laCrdnt = laCrdnt

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0CD17B5B2B2969F9005AD726 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD17B5A2B2969F9005AD726 /* SpotDetailView.swift */; };
 		0CD17B5E2B296F63005AD726 /* ModelTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD17B5D2B296F62005AD726 /* ModelTransitionView.swift */; };
-		0CE4B2282B2AE2E400D1982F /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CE4B2272B2AE2E400D1982F /* ApiKeys.plist */; };
 		0CF5CC092B2752F8003970A1 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF5CC082B2752F8003970A1 /* Spot.swift */; };
 		2369EE432B26EA4100723CB1 /* ParkingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2369EE422B26EA4100723CB1 /* ParkingDetailView.swift */; };
 		5448F092AA309CACF54DC5E4 /* Pods_PJ2T7_Malddong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8391208222509615D95ED164 /* Pods_PJ2T7_Malddong.framework */; };
@@ -48,7 +47,6 @@
 /* Begin PBXFileReference section */
 		0CD17B5A2B2969F9005AD726 /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
 		0CD17B5D2B296F62005AD726 /* ModelTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTransitionView.swift; sourceTree = "<group>"; };
-		0CE4B2272B2AE2E400D1982F /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../ApiKeys.plist; sourceTree = "<group>"; };
 		0CF5CC082B2752F8003970A1 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		204D46BA8C473AA83D23BEAE /* Pods-PJ2T7_Malddong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJ2T7_Malddong.debug.xcconfig"; path = "Target Support Files/Pods-PJ2T7_Malddong/Pods-PJ2T7_Malddong.debug.xcconfig"; sourceTree = "<group>"; };
 		2369EE422B26EA4100723CB1 /* ParkingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingDetailView.swift; sourceTree = "<group>"; };
@@ -287,7 +285,7 @@
 		9A65718F2B235EF6007BD13D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				0CE4B2272B2AE2E400D1982F /* ApiKeys.plist */,
+				A48639F82B296E7600BF3F0B /* ApiKeys.plist */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -361,7 +359,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CE4B2282B2AE2E400D1982F /* ApiKeys.plist in Resources */,
 				60DEE3102B1F015E00362421 /* Preview Assets.xcassets in Resources */,
 				A48639F92B296E7600BF3F0B /* ApiKeys.plist in Resources */,
 				60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */,

@@ -92,17 +92,28 @@ private struct GridView:View {
                   , content: {
             
             ForEach(parkingLotViewModel.filteredParkingList,id: \.self){item in
-                
-                if parkingLotViewModel.distributeSelect == "전체"{
-                    
-                    NavigationLink(destination: ParkingDetailView(parking: item)){
+                ZStack{
+                    if parkingLotViewModel.distributeSelect == "전체"{
                         
-                        ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
+                        NavigationLink(destination: ParkingDetailView(parking: item)){
+                            
+                            ParkingCellView(parkingLotViewModel: parkingLotViewModel, item: item)
+                        }
+                    } else if item.lnmAdres.contains(parkingLotViewModel.distributeSelect){
+                        ParkingCellView(parkingLotViewModel: parkingLotViewModel, item:item)
+                            .padding()
                     }
-                } else if item.lnmAdres.contains(parkingLotViewModel.distributeSelect){
-                    ParkingCellView(parkingLotViewModel: parkingLotViewModel, item:item)
-                        .padding()
-             }
+                    HStack {
+                        Spacer()
+                        LikeButton2(myParkings: myParkings, item: item) {
+                            if let parking = myParkings.first(where: { $0.name == item.name }) {
+                                parking.isLiked.toggle()
+                            } else {
+                                DataController().addParking(name: item.name, rnAdres: item.rnAdres, longitude: item.longitude, latitude: item.latitude, isLiked: true, context: viewContext)
+                            }
+                        }
+                    }
+                }
             }
         })
     }

@@ -55,9 +55,8 @@ struct MyPageView: View {
                                         AsyncImage(url: URL(string: toilets.photo?[0] ?? "")) {
                                             $0.image?.resizable()
                                         }
-                                            .scaledToFit()
                                             .frame(width: 152, height: 100)
-                                            
+                                            .cornerRadius(15,corners: [.topLeft,.topRight])
                                         VStack {
                                             Spacer()
                                             HStack {
@@ -87,7 +86,7 @@ struct MyPageView: View {
                                                 .foregroundStyle(Color.black)
                                             
                                             HStack{
-                                                Text(toilets.rnAdres!)
+                                                Text(toilets.lnmAdres!)
                                                     .frame(width: 70)
                                                     .font(.system(size: 10))
                                                     .lineLimit(2)
@@ -189,9 +188,8 @@ struct MyPageView: View {
                                         AsyncImage(url: URL(string: spots.thumbnailPath ?? "")) {
                                             $0.image?.resizable()
                                         }
-                                            .scaledToFit()
                                             .frame(width: 152, height: 100)
-                                            
+                                            .cornerRadius(15,corners: [.topLeft,.topRight])
                                         VStack {
                                             Spacer()
                                             HStack {
