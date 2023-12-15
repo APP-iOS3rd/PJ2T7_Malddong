@@ -40,7 +40,7 @@
 		9A937BA72B29670A00D313FE /* MyData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A937BA52B29670A00D313FE /* MyData.xcdatamodeld */; };
 		9AB246552B294E9C00FFA0BA /* (null) in Sources */ = {isa = PBXBuildFile; };
 		9AC3618D2B2819C50053C3A6 /* MiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */; };
-		A48639F92B296E7600BF3F0B /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = A48639F82B296E7600BF3F0B /* ApiKeys.plist */; };
+		9AF104D02B2C0820008E0218 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AF104CF2B2C0820008E0218 /* ApiKeys.plist */; };
 		A48639FB2B2979AD00BF3F0B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48639FA2B2979AD00BF3F0B /* DataController.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +84,7 @@
 		9A937BA02B2953B500D313FE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9A937BA62B29670A00D313FE /* MyData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyData.xcdatamodel; sourceTree = "<group>"; };
 		9AC3618C2B2819C50053C3A6 /* MiniMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMapView.swift; sourceTree = "<group>"; };
-		A48639F82B296E7600BF3F0B /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../Downloads/ApiKeys.plist; sourceTree = "<group>"; };
+		9AF104CF2B2C0820008E0218 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../Desktop/ApiKeys.plist; sourceTree = "<group>"; };
 		A48639FA2B2979AD00BF3F0B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -285,7 +285,7 @@
 		9A65718F2B235EF6007BD13D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				A48639F82B296E7600BF3F0B /* ApiKeys.plist */,
+				9AF104CF2B2C0820008E0218 /* ApiKeys.plist */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -360,8 +360,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				60DEE3102B1F015E00362421 /* Preview Assets.xcassets in Resources */,
-				A48639F92B296E7600BF3F0B /* ApiKeys.plist in Resources */,
 				60DEE30D2B1F015E00362421 /* Assets.xcassets in Resources */,
+				9AF104D02B2C0820008E0218 /* ApiKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

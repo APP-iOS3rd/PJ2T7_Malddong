@@ -21,6 +21,12 @@ struct LikeButton: View {
     
     var body: some View {
         Button {
+            if labelName == "heart.fill" {
+                labelName = "heart"
+            } else if labelName == "heart" {
+                labelName = "heart.fill"
+            }
+            
            buttonAction()
         } label: {
             Image(systemName: labelName)
@@ -51,6 +57,12 @@ struct LikeButton2: View {
     
     var body: some View {
         Button {
+            if labelName == "heart.fill" {
+                labelName = "heart"
+            } else if labelName == "heart" {
+                labelName = "heart.fill"
+            }
+            
            buttonAction()
         } label: {
             Image(systemName: labelName)
@@ -81,7 +93,14 @@ struct LikeButton3: View {
     
     var body: some View {
         Button {
-           buttonAction()
+            
+            if labelName == "heart.fill" {
+                labelName = "heart"
+            } else if labelName == "heart" {
+                labelName = "heart.fill"
+            }
+            
+            buttonAction()
         } label: {
             Image(systemName: labelName)
                 .resizable()
