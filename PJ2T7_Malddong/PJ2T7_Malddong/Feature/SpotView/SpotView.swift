@@ -9,33 +9,29 @@ import SwiftUI
 import CoreData
 
 struct SpotView: View {
-    @StateObject private var spotViewModel = SpotViewModel.shared
+    @ObservedObject var spotViewModel: SpotViewModel
     
     var body: some View {
         NavigationStack {
             ScrollView{
                 VStack{
-                    distributeView(
-                        spotViewModel:
-                            spotViewModel)
-                    .padding(.horizontal)
+                    distributeView(spotViewModel: spotViewModel)
+                        .padding(.horizontal)
                     
-                    
-                    GridView(spotViewModel:
-                                spotViewModel)
-                    .padding()
+                    GridView(spotViewModel: spotViewModel)
+                        .padding()
                 }
             }
-            .onAppear{
-                spotViewModel.fetchData()
-            }
+//            .onAppear{
+//                spotViewModel.fetchData()
+//            }
         }
     }
 }
 
 //TODO: - distributeView/grid 패턴 변경 버튼
-private struct distributeView:View{
-    @ObservedObject private var spotViewModel: SpotViewModel
+private struct distributeView: View {
+    @ObservedObject var spotViewModel: SpotViewModel
     
     init(spotViewModel: SpotViewModel) {
         self.spotViewModel = spotViewModel
@@ -173,7 +169,7 @@ private struct SpotCellView:View{
                                 .font(.system(size: 10))
                                 .lineLimit(2)
                                 .foregroundStyle(Color.gray)
-
+                            
                             Text("\(spotViewModel.distanceCalc(spot: item))km")
                                 .foregroundStyle(Color.gray)
                         }
@@ -211,10 +207,10 @@ private struct SpotCellView:View{
                                 .font(.system(size: 20,weight: .bold))
                                 .foregroundStyle(Color.black)
                                 .padding(10)
-
+                            
                             Text("\(spotViewModel.distanceCalc(spot: item))km")
                                 .foregroundStyle(Color.gray)
-
+                            
                             Text(item.roadAddress)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)
@@ -226,10 +222,6 @@ private struct SpotCellView:View{
     }
 }
 
-
-
-
-
 #Preview {
-    SpotView()
+    SpotView(spotViewModel: SpotViewModel.shared)
 }
