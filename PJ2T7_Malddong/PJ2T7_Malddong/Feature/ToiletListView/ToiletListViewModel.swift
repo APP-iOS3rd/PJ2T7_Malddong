@@ -9,12 +9,12 @@ import Foundation
 import CoreLocation
 import UIKit
 
-class ToiletListViewModel:ObservableObject{
+class ToiletListViewModel: ObservableObject {
     static let shared = ToiletListViewModel()
     
     @Published var toiletList: [Toilet]
     @Published var distributeSelect: String
-    @Published var isGridAlign:Bool
+    @Published var isGridAlign: Bool
     @Published var filteredToiletList: [Toilet] = []
 
     var distributeArea : [String]
@@ -32,7 +32,8 @@ class ToiletListViewModel:ObservableObject{
         self.distributeArea = ["전체","한경면","한림읍","애월읍","조천읍","구좌읍"]
     }
 }
-extension ToiletListViewModel{
+
+extension ToiletListViewModel {
     //TODO: - 우 상단에 피커를 선택했을때 동네별로 분류해야함
     
     func gridOneLine(){

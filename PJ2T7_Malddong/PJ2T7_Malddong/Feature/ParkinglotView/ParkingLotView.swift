@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct ParkingLotView: View {
-    @StateObject private var parkingLotViewModel = ParkingLotViewModel.shared
+    @ObservedObject var parkingLotViewModel: ParkingLotViewModel
     
     var filteredParkingList: [Parking] {
         parkingLotViewModel.filteredParkingList
@@ -28,9 +28,9 @@ struct ParkingLotView: View {
                         .padding()
                 }
             }
-            .onAppear{
-                parkingLotViewModel.fetchData()
-            }
+//            .onAppear{
+//                parkingLotViewModel.fetchData()
+//            }
         }
     }
 }
@@ -233,5 +233,5 @@ private struct ParkingCellView:View{
 }
 
 #Preview {
-    ParkingLotView()
+    ParkingLotView(parkingLotViewModel: ParkingLotViewModel.shared)
 }

@@ -21,6 +21,7 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "map.fill")
                 }
+            
             MyPageView()
                 .tabItem {
                     Image(systemName: "heart")
