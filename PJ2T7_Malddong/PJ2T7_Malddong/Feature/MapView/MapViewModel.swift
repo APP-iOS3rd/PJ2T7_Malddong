@@ -111,9 +111,9 @@ struct UIMapView: UIViewRepresentable {
             infoWindow.touchHandler = { _ in
                 // 여기에 터치 이벤트 발생 시 실행할 코드를 작성합니다.
                 isNextViewActive = true
-                NavigationLink(destination: SpotDetailView(spot: spotViewModel.spotitem[0]), isActive: $isNextViewActive) {
-                    EmptyView()
-                }
+//                NavigationLink(destination: SpotDetailView(spot: spotViewModel.spotitem[0]), isActive: $isNextViewActive) {
+//                    EmptyView()
+//                }
                 return true  // true를 반환하면 이벤트가 더 이상 전달되지 않습니다.
             }
             

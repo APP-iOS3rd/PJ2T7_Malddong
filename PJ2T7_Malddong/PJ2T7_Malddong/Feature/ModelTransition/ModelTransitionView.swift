@@ -36,14 +36,14 @@ struct ModelTransitionView: View {
                 }) {
                     customButton2(title: "주차장", imageName: "car", backgroundColor: modelSelection == 2 ? .malddongBlue : .malddongGray)
                 }
+                
                 Spacer()
                 
                 Button(action: {
                     isSearchBarvisible.toggle()
                     
-                    if isSearchBarvisible {
-                    }
-                }){
+                    if isSearchBarvisible {}
+                }) {
                     Image("search")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -64,27 +64,30 @@ struct ModelTransitionView: View {
                     
                     Button("검색"){
                         search()
-                
                     }.padding()
                 }
                 .background(Color.white)
                 .border(.gray, width: 2)
                 .cornerRadius(15)
                 .padding()
-                
             }
             
             switch modelSelection {
             case 0:
-                ToiletListView()
+                ToiletListView(toiletListViewModel: toiletListViewModel)
             case 1:
-                SpotView()
+                SpotView(spotViewModel: spotViewModel)
             case 2:
-                ParkingLotView()
+                ParkingLotView(parkingLotViewModel: parkingLotViewModel)
             default:
-                ToiletListView()
+                EmptyView()
             }
-        }// V
+        }//
+        .onAppear() {
+            toiletListViewModel.fetchData()
+            spotViewModel.fetchData()
+            parkingLotViewModel.fetchData()
+        }
     }
     
     private func search(){
