@@ -40,14 +40,6 @@ private struct distributeView: View {
     var body: some View{
         HStack{
             Button(action: {
-                spotViewModel.gridOneLine()
-            }, label: {
-                Image(systemName: "square.fill.text.grid.1x2")
-                    .font(.system(size: 25))
-                    .foregroundStyle(Color.black)
-            })
-            
-            Button(action: {
                 spotViewModel.gridTwoLine()
             }, label: {
                 Image(systemName: "square.grid.2x2.fill")
@@ -55,6 +47,14 @@ private struct distributeView: View {
                     .foregroundStyle(Color.black)
             })
             
+            Button(action: {
+                spotViewModel.gridOneLine()
+            }, label: {
+                Image(systemName: "square.fill.text.grid.1x2")
+                    .font(.system(size: 25))
+                    .foregroundStyle(Color.black)
+            })
+                       
             Spacer()
             
             Picker("",
@@ -162,17 +162,13 @@ private struct SpotCellView:View{
                         Text(item.title)
                             .font(.system(size: 15,weight: .bold))
                             .foregroundStyle(Color.black)
+                            .padding(.bottom, 3)
+                            .frame(width: 140, alignment: .leading)
                         
-                        HStack{
-                            Text(item.roadAddress)
-                                .frame(width: 70)
-                                .font(.system(size: 10))
-                                .lineLimit(2)
-                                .foregroundStyle(Color.gray)
-                            
-                            Text("\(spotViewModel.distanceCalc(spot: item))km")
-                                .foregroundStyle(Color.gray)
-                        }
+                        Text("\(spotViewModel.distanceCalc(spot: item))km")
+                            .font(.system(size: 10))
+                            .foregroundStyle(Color.red)
+                            .frame(width: 140, alignment: .leading)
                         
                     }.frame(maxWidth: 152,maxHeight: 70)
                 }
@@ -197,23 +193,22 @@ private struct SpotCellView:View{
                     ZStack{
                         Rectangle()
                             .frame(width: 160, height: 180)
-                            .cornerRadius(15,corners:
-                                            [.topRight,.bottomRight])
+                            .cornerRadius(15,corners: [.topRight,.bottomRight])
                             .foregroundStyle(Color.white)
                             .shadow(radius: 7)
                         
                         VStack{
                             Text(item.title)
-                                .font(.system(size: 20,weight: .bold))
+                                .font(.system(size: 17, weight: .bold))
                                 .foregroundStyle(Color.black)
-                                .padding(10)
-                            
+                                .frame(width: 150, alignment: .leading)
+                                .padding(.bottom, 5)
+
                             Text("\(spotViewModel.distanceCalc(spot: item))km")
-                                .foregroundStyle(Color.gray)
-                            
-                            Text(item.roadAddress)
-                                .font(.system(size: 14))
-                                .foregroundStyle(Color.gray)
+                                .font(.system(size: 12))
+                                .foregroundStyle(Color.red)
+                                .frame(width: 150, alignment: .leading)
+
                         }
                     }
                 }//H
