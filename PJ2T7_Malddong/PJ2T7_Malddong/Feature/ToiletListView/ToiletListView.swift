@@ -11,7 +11,7 @@ import CoreData
 
 struct ToiletListView: View {
 
-    @ObservedObject var toiletListViewModel: ToiletListViewModel
+    @StateObject var toiletListViewModel = ToiletListViewModel.shared
     
     var filteredToiletList: [Toilet] {
         toiletListViewModel.filteredToiletList
@@ -30,9 +30,9 @@ struct ToiletListView: View {
                 }
             }
         }
-//        .onAppear{
-//            toiletListViewModel.fetchData()
-//        }
+        .onAppear{
+            toiletListViewModel.fetchData()
+        }
     }
 }
 
