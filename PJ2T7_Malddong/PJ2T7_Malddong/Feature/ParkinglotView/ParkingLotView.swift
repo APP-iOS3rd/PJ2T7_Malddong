@@ -9,28 +9,27 @@ import SwiftUI
 import CoreData
 
 struct ParkingLotView: View {
-    @ObservedObject var parkingLotViewModel: ParkingLotViewModel
+    @StateObject var parkingLotViewModel = ParkingLotViewModel.shared
     
     var filteredParkingList: [Parking] {
         parkingLotViewModel.filteredParkingList
     }
     var body: some View {
         NavigationStack {
-            ScrollView{
-                VStack{
-                    // 지역에 따라 분류하는 view
-                    distributeView(
-                        parkingLotViewModel: parkingLotViewModel)
-                    .padding(.horizontal)
-                    
+            // 지역에 따라 분류하는 view
+            distributeView(
+                parkingLotViewModel: parkingLotViewModel)
+            .padding(.horizontal)
+            ScrollView {
+                VStack {
                     // 네모 뷰
                     GridView(parkingLotViewModel: parkingLotViewModel)
                         .padding()
                 }
             }
-//            .onAppear{
-//                parkingLotViewModel.fetchData()
-//            }
+            .onAppear{
+                parkingLotViewModel.fetchData()
+            }
         }
     }
 }
@@ -156,7 +155,7 @@ private struct ParkingCellView:View{
                             .clipShape(RoundedRectangle(cornerRadius: 15))
                     }
                 }
-
+                
                 ZStack{
                     Rectangle()
                         .frame(width: 152,height: 70)
@@ -175,7 +174,7 @@ private struct ParkingCellView:View{
                                 .font(.system(size: 10))
                                 .lineLimit(2)
                                 .foregroundStyle(Color.gray)
-
+                            
                             Text("\(parkingLotViewModel.distanceCalc(parking: item))km")
                                 .foregroundStyle(Color.gray)
                         }
@@ -217,10 +216,10 @@ private struct ParkingCellView:View{
                                 .font(.system(size: 20,weight: .bold))
                                 .foregroundStyle(Color.black)
                                 .padding(10)
-                          
+                            
                             Text("\(parkingLotViewModel.distanceCalc(parking: item))km")
                                 .foregroundStyle(Color.gray)
-
+                            
                             Text(item.rnAdres)
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.gray)
