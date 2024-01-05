@@ -16,7 +16,7 @@ struct ToiletListView: View {
     var filteredToiletList: [Toilet] {
         toiletListViewModel.filteredToiletList
     }
-  
+    
     var body: some View {
         
         NavigationStack{
@@ -48,18 +48,20 @@ private struct distributeView:View{
     var body: some View{
         HStack{
             Button(action: {
-                toiletListViewModel.gridOneLine()
-            }, label: {
-                Image(systemName: "square.fill.text.grid.1x2")
-                    .font(.system(size: 25))
-                    .foregroundStyle(Color.black)
-            })
-            Button(action: {
                 toiletListViewModel.gridTwoLine()
             }, label: {
                 Image(systemName: "square.grid.2x2.fill")
                     .font(.system(size: 25))
                     .foregroundStyle(Color.black)
+                
+                Button(action: {
+                    toiletListViewModel.gridOneLine()
+                }, label: {
+                    Image(systemName: "square.fill.text.grid.1x2")
+                        .font(.system(size: 25))
+                        .foregroundStyle(Color.black)
+                })
+                
             })
             Spacer()
             Picker("", selection:$toiletListViewModel.distributeSelect
@@ -160,25 +162,21 @@ private struct ToiletCellView:View{
                     
                     VStack{
                         Text(item.toiletNm)
-                            .font(.system(size: 15,weight: .bold))
+                            .font(.system(size: 15, weight: .bold))
                             .foregroundStyle(Color.black)
+                            .frame(width: 140, alignment: .leading)
+                            .padding(.bottom, 3)
                         
-                        HStack{
-                            Text(item.lnmAdres)
-                                .frame(width: 70)
-                                .font(.system(size: 10))
-                                .lineLimit(2)
-                                .foregroundStyle(Color.gray)
-                            
-                            Text("\(toiletListViewModel.distanceCalc(toilet: item))km")
-                                .font(.system(size: 12))
-                                .foregroundStyle(Color.gray)
-                            //15592
-                        }
+                        Text("\(toiletListViewModel.distanceCalc(toilet: item))km")
+                            .font(.system(size: 10))
+                            .foregroundStyle(Color.red)
+                            .frame(width: 140, alignment: .leading)
                         
                     }.frame(maxWidth: 152,maxHeight: 70)
                 }
-            }else{
+            }
+            // 가로로 길게 그리드
+            else {
                 HStack(spacing:0){
                     ZStack{
                         
@@ -193,9 +191,6 @@ private struct ToiletCellView:View{
                         }
                         .frame(width: 210, height: 180)
                         .cornerRadius(15,corners: [.topLeft,.bottomLeft])
-                        
-                        
-                        
                     }
                     ZStack{
                         Rectangle()
@@ -207,14 +202,15 @@ private struct ToiletCellView:View{
                         
                         VStack{
                             Text(item.toiletNm)
-                                .font(.system(size: 20,weight: .bold))
+                                .font(.system(size: 17, weight: .bold))
                                 .foregroundStyle(Color.black)
-                                .padding(10)
+                                .frame(width: 150, alignment: .leading)
+                                .padding(.bottom, 5)
+                            
                             Text("\(toiletListViewModel.distanceCalc(toilet: item))km")
-                                .foregroundStyle(Color.black)
-                            Text(item.lnmAdres)
-                                .font(.system(size: 14))
-                                .foregroundStyle(Color.gray)
+                                .font(.system(size: 12))
+                                .foregroundStyle(Color.red)
+                                .frame(width: 150, alignment: .leading)
                         }
                     }
                 }//H
