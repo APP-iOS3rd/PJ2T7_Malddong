@@ -9,22 +9,21 @@ import SwiftUI
 import CoreData
 
 struct SpotView: View {
-    @ObservedObject var spotViewModel: SpotViewModel
+    @StateObject var spotViewModel = SpotViewModel.shared
     
     var body: some View {
         NavigationStack {
+            distributeView(spotViewModel: spotViewModel)
+                .padding(.horizontal)
             ScrollView{
                 VStack{
-                    distributeView(spotViewModel: spotViewModel)
-                        .padding(.horizontal)
-                    
                     GridView(spotViewModel: spotViewModel)
                         .padding()
                 }
             }
-//            .onAppear{
-//                spotViewModel.fetchData()
-//            }
+            .onAppear{
+                spotViewModel.fetchData()
+            }
         }
     }
 }

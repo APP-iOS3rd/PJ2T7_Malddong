@@ -7,35 +7,56 @@
 
 import SwiftUI
 
-struct ModelTransitionView: View {
-    @StateObject var toiletListViewModel = ToiletListViewModel.shared
-    @StateObject var parkingLotViewModel = ParkingLotViewModel.shared
-    @StateObject var spotViewModel = SpotViewModel.shared
+enum Tabs: String, CaseIterable {
+    case toilet = "tissue"
+    case spot = "dolhareubang"
+    case parking = "car"
     
-    @State private var modelSelection: Int = 0
-    @State var searchText: String = ""
-    @State private var isSearchBarvisible: Bool = false
+    var titleText: String {
+        switch self {
+        case .toilet: return "화장실"
+        case .spot: return "관광지"
+        case .parking: return "주차장"
+        }
+    }
+    
+    var tabColor: Color {
+        switch self {
+        case .toilet: return .malddongYellow
+        case .spot: return .malddongGreen
+        case .parking: return .malddongBlue
+        }
+    }
+}
+
+struct CustomTabBar: View {
+    @Binding var currentTab: Tabs
+    
+    var body: some View {
+        HStack {
+            ForEach(Tabs.allCases, id: \.rawValue) { tab in
+                Button {
+                    currentTab = tab
+                } label: {
+                    customButton2(title: tab.titleText,
+                                  imageName: tab.rawValue,
+                                  backgroundColor: currentTab == tab ? tab.tabColor : .malddongGray)
+                }
+            }
+            Spacer()
+        }
+        .padding()
+    }
+}
+
+struct ContainerView: View {
+    @Binding var currentTab: Tabs
+    @Binding var isSearchBarvisible: Bool
     
     var body: some View {
         VStack {
             HStack {
-                Button(action: {
-                    modelSelection = 0
-                }) {
-                    customButton2(title: "화장실", imageName: "tissue", backgroundColor: modelSelection == 0 ? .malddongYellow : .malddongGray)
-                }
-                
-                Button(action: {
-                    modelSelection = 1
-                }) {
-                    customButton2(title: "관광지", imageName: "dolhareubang", backgroundColor: modelSelection == 1 ? .malddongGreen : .malddongGray)
-                }
-                
-                Button(action: {
-                    modelSelection = 2
-                }) {
-                    customButton2(title: "주차장", imageName: "car", backgroundColor: modelSelection == 2 ? .malddongBlue : .malddongGray)
-                }
+                CustomTabBar(currentTab: $currentTab)
                 
                 Spacer()
                 
@@ -51,8 +72,27 @@ struct ModelTransitionView: View {
                         .clipped()
                         .padding(12)
                 }
-            }// H
-            .padding(16)
+            }
+        }
+    }
+}
+
+
+struct ModelTransitionView: View {
+    @StateObject var toiletListViewModel = ToiletListViewModel.shared
+    @StateObject var spotViewModel = SpotViewModel.shared
+    @StateObject var parkingLotViewModel = ParkingLotViewModel.shared
+    
+    @State private var currentTab: Tabs = .toilet
+    
+    @State private var modelSelection: Int = 0
+    @State var searchText: String = ""
+    @State private var isSearchBarvisible: Bool = false
+    
+    var body: some View {
+        VStack {
+            ContainerView(currentTab: $currentTab, isSearchBarvisible: $isSearchBarvisible)
+                .padding(16)
             
             // TextField
             if isSearchBarvisible {
@@ -62,9 +102,8 @@ struct ModelTransitionView: View {
                         .transition(.move(edge: .top))
                         .animation(.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0))
                     
-                    Button("검색"){
-                        search()
-                    }.padding()
+                    Button("검색"){ search() }
+                        .padding()
                 }
                 .background(Color.white)
                 .border(.gray, width: 2)
@@ -72,35 +111,28 @@ struct ModelTransitionView: View {
                 .padding()
             }
             
-            switch modelSelection {
-            case 0:
-                ToiletListView(toiletListViewModel: toiletListViewModel)
-            case 1:
-                SpotView(spotViewModel: spotViewModel)
-            case 2:
-                ParkingLotView(parkingLotViewModel: parkingLotViewModel)
-            default:
-                EmptyView()
+            TabView(selection: $currentTab) {
+                ToiletListView()
+                    .tag(Tabs.toilet)
+                
+                SpotView()
+                    .tag(Tabs.spot)
+                
+                ParkingLotView()
+                    .tag(Tabs.parking)
             }
-        }//
-        .onAppear() {
-            toiletListViewModel.fetchData()
-            spotViewModel.fetchData()
-            parkingLotViewModel.fetchData()
         }
     }
     
-    private func search(){
-        if(modelSelection == 0){
+    private func search() {
+        switch currentTab {
+        case Tabs.toilet:
             toiletListViewModel.filterByName(searchText)
-        }
-        else if(modelSelection == 1){
+        case Tabs.spot:
             spotViewModel.filterByName(searchText)
-        }
-        else if(modelSelection == 2){
+        case Tabs.parking:
             parkingLotViewModel.filterByName(searchText)
         }
-        
     }
 }
 

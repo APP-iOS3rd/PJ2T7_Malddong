@@ -9,28 +9,27 @@ import SwiftUI
 import CoreData
 
 struct ParkingLotView: View {
-    @ObservedObject var parkingLotViewModel: ParkingLotViewModel
+    @StateObject var parkingLotViewModel = ParkingLotViewModel.shared
     
     var filteredParkingList: [Parking] {
         parkingLotViewModel.filteredParkingList
     }
     var body: some View {
         NavigationStack {
-            ScrollView{
-                VStack{
-                    // 지역에 따라 분류하는 view
-                    distributeView(
-                        parkingLotViewModel: parkingLotViewModel)
-                    .padding(.horizontal)
-                    
+            // 지역에 따라 분류하는 view
+            distributeView(
+                parkingLotViewModel: parkingLotViewModel)
+            .padding(.horizontal)
+            ScrollView {
+                VStack {
                     // 네모 뷰
                     GridView(parkingLotViewModel: parkingLotViewModel)
                         .padding()
                 }
             }
-            //            .onAppear{
-            //                parkingLotViewModel.fetchData()
-            //            }
+            .onAppear{
+                parkingLotViewModel.fetchData()
+            }
         }
     }
 }
@@ -219,6 +218,7 @@ private struct ParkingCellView:View{
                                 .font(.system(size: 12))
                                 .foregroundStyle(Color.red)
                                 .frame(width: 150, alignment: .leading)
+
 
                         }
                     }
